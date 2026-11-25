@@ -522,9 +522,12 @@ export async function makeWandererSprites(projectId) {
         : id === 'octopus-senbei' ? senbeiNinja
         : id === 'khapse' ? khapseRobe
         : () => cookieCharacter(id)] : [];
-    const cast = makers.map((make, i) => withFeeding(
-      withReaction(make, id === 'dubai-disco' ? ['cheer', 'burst', 'shy'][i] : reactions[id]),
-      make, ['oreo','gingerbread','thai-flower','octopus-senbei'].includes(id) ? 'dunk' : 'sip'));
+    const cast = makers.map((make, i) => {
+      const sprite = withReaction(make, id === 'dubai-disco' ? ['cheer', 'burst', 'shy'][i] : reactions[id]);
+      const feedKind = ['oreo', 'gingerbread'].includes(id) ? 'dunk'
+        : id === 'timtam' || (id === 'dubai-disco' && i === 2) ? 'sip' : null;
+      return feedKind ? withFeeding(sprite, make, feedKind) : sprite;
+    });
     sprites.set(id, cast);
   }
   return sprites.get(id);

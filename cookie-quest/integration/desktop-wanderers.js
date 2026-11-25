@@ -90,7 +90,7 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
     const place=milkLocation(), state=interaction();
     const dropped=['pointerup','keyup'].includes(e?.type);
     const nearCup=place&&Math.hypot(a.x-(place.mug.x+place.mug.w/2),a.y-a.h/2-(place.mug.y+place.mug.h/2))<58;
-    if(dropped&&nearCup&&!state.busy){
+    if(dropped&&a.feedKind&&nearCup&&!state.busy){
       if(milkVisitor&&milkVisitor!==a)endMilk(milkVisitor,false);
       a.recover=0;a.dash=null;beginMilk(a,place);
     }else if(a.reaction==='dash'&&dropped)startDash(a);
@@ -98,8 +98,7 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
   }
   function makeHandle(a){
     const button=document.createElement('button');button.className='wanderer-handle';button.dataset.projectId=a.id;
-    button.setAttribute('aria-label',a.name+'，可拖到牛奶杯旁喝牛奶');
-    button.title='拖到牛奶杯旁，松手喝牛奶';
+    button.setAttribute('aria-label',a.name+(a.feedKind?'，可拖到牛奶杯旁喝牛奶':'，可拖动'));
     Object.assign(button.style,{position:'absolute',border:'0',padding:'0',margin:'0',background:'transparent',
       boxShadow:'none',outline:'none',borderRadius:'0',cursor:'grab',touchAction:'none',pointerEvents:'auto',
       clipPath:silhouette(a.image)});
@@ -176,6 +175,7 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
     milkPlace={mug,dock};return milkPlace;
   }
   function beginMilk(a,place){
+    if(!a.feedKind)return;
     milkVisitor=a;a.snack={stage:'approach',age:0,place};a.rest=0;
     milkStation?.classList.add('milk-occupied');
   }
@@ -220,16 +220,9 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
     eligible.sort((a,b)=>a.milkVisits-b.milkVisits||Math.hypot(a.x-place.dock.x,a.y-place.dock.y)-Math.hypot(b.x-place.dock.x,b.y-place.dock.y));
     if(eligible[0])beginMilk(eligible[0],place);
   }
-  function paintMilkCaption(){
+  function paintMilkReaction(){
     const a=milkVisitor,s=a?.snack;if(!s)return;
-    const {mug}=s.place;
-    const action=s.stage==='approach'?'来喝牛奶啦':s.stage==='sip'?'咕嘟咕嘟…':s.stage==='dunk'?'蘸一蘸牛奶…':'喝好了，好满足！';
-    g.save();g.font='bold 10px sans-serif';g.textAlign='center';g.textBaseline='middle';
-    const w=Math.max(g.measureText(a.name).width,g.measureText(action).width)+16;
-    const x=clamp(mug.x+mug.w/2,w/2+3,width-w/2-3),y=Math.max(20,mug.y-54);
-    g.fillStyle='#473925';g.fillRect(Math.round(x-w/2-1),y-1,w+2,33);
-    g.fillStyle='#fff5d9';g.fillRect(Math.round(x-w/2),y,w,31);
-    g.fillStyle='#473925';g.fillText(a.name,x,y+9);g.fillText(action,x,y+23);
+    g.save();
     if(s.stage==='satisfied'){
       g.fillStyle='#ed8091';const lift=Math.sin(Math.min(1,s.age/2.2)*Math.PI)*9;
       for(const side of [-1,1]){const hx=a.x+side*17,hy=a.y-a.h-5-lift;g.fillRect(hx-3,hy,3,3);g.fillRect(hx+1,hy,3,3);g.fillRect(hx-2,hy+3,5,2);g.fillRect(hx,hy+5,1,2);}
@@ -427,7 +420,7 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
     scheduleMilk(state);
     for(const a of cast){walk(a,dt,state);paintActor(a,state);}
     paintMilk();
-    paintMilkCaption();
+    paintMilkReaction();
     for(let i=puffs.length-1;i>=0;i--){const p=puffs[i];p.age+=dt;if(p.age>.48){puffs.splice(i,1);continue;}
       const t=p.age/.48;g.save();g.globalAlpha=(1-t)*.7;g.fillStyle='#d8d7c9';
       for(let j=0;j<5;j++){const angle=j*Math.PI*2/5,s=6+(1-t)*5;g.fillRect(Math.round(p.x+Math.cos(angle)*t*15-s/2),Math.round(p.y+Math.sin(angle)*t*12-s/2),s,s);}
