@@ -86,12 +86,20 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
     grabbed=null;a.held=false;a.recover=a.reaction==='burst'?1.4:.9;a.button.style.cursor='grab';
     if(a.pointerId!=null&&a.button.hasPointerCapture(a.pointerId))a.button.releasePointerCapture(a.pointerId);
     a.pointerId=null;if(!a.holdKeyboard)a.button.blur();target(a);a.rest=0;
-    if(a.reaction==='dash'&&['pointerup','keyup'].includes(e?.type))startDash(a);
+    // An intentional drop takes priority over fleeing, hover pauses and cooldowns.
+    const place=milkLocation(), state=interaction();
+    const dropped=['pointerup','keyup'].includes(e?.type);
+    const nearCup=place&&Math.hypot(a.x-(place.mug.x+place.mug.w/2),a.y-a.h/2-(place.mug.y+place.mug.h/2))<58;
+    if(dropped&&nearCup&&!state.busy){
+      if(milkVisitor&&milkVisitor!==a)endMilk(milkVisitor,false);
+      a.recover=0;a.dash=null;beginMilk(a,place);
+    }else if(a.reaction==='dash'&&dropped)startDash(a);
     wake();
   }
   function makeHandle(a){
     const button=document.createElement('button');button.className='wanderer-handle';button.dataset.projectId=a.id;
-    button.setAttribute('aria-label',a.name+'，抓住或拖动');
+    button.setAttribute('aria-label',a.name+'，可拖到牛奶杯旁喝牛奶');
+    button.title='拖到牛奶杯旁，松手喝牛奶';
     Object.assign(button.style,{position:'absolute',border:'0',padding:'0',margin:'0',background:'transparent',
       boxShadow:'none',outline:'none',borderRadius:'0',cursor:'grab',touchAction:'none',pointerEvents:'auto',
       clipPath:silhouette(a.image)});
@@ -197,12 +205,36 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
       if(d>1){a.x+=dx/d*step;a.y+=dy/d*step;a.phase+=dt*12;}
       if(d<2){a.x=dock.x;a.y=dock.y;s.stage=a.feedKind;s.age=0;}
     }else if(s.stage==='sip'||s.stage==='dunk'){
-      const duration=s.stage==='sip'?2.5:2.1,p=clamp(s.age/duration,0,1);
+      const duration=s.stage==='sip'?3.8:3.4,p=clamp(s.age/duration,0,1);
       const reach=Math.min(1,p/.22,(1-p)/.22),dip=s.stage==='dunk'?Math.sin(p*Math.PI)*8:2;
       a.x=mix(dock.x,mug.x+mug.w*.65,reach);a.y=mix(dock.y,mug.y+3+dip,reach);
       if(p===1){s.stage='satisfied';s.age=0;a.x=dock.x;a.y=dock.y;}
-    }else if(s.age>1.1){endMilk(a,true);}
+    }else if(s.age>2.2){endMilk(a,true);}
     return true;
+  }
+  function scheduleMilk(state){
+    if(milkVisitor||state.busy||reduced.matches)return;
+    const place=milkLocation();if(!place)return;
+    const eligible=cast.filter(a=>a.feedKind&&!a.held&&!a.dash&&a.recover<=0&&time>=a.nextMilk&&document.activeElement!==a.button);
+    // Give every character a turn before repeat visitors; reserve one trip only.
+    eligible.sort((a,b)=>a.milkVisits-b.milkVisits||Math.hypot(a.x-place.dock.x,a.y-place.dock.y)-Math.hypot(b.x-place.dock.x,b.y-place.dock.y));
+    if(eligible[0])beginMilk(eligible[0],place);
+  }
+  function paintMilkCaption(){
+    const a=milkVisitor,s=a?.snack;if(!s)return;
+    const {mug}=s.place;
+    const action=s.stage==='approach'?'来喝牛奶啦':s.stage==='sip'?'咕嘟咕嘟…':s.stage==='dunk'?'蘸一蘸牛奶…':'喝好了，好满足！';
+    g.save();g.font='bold 10px sans-serif';g.textAlign='center';g.textBaseline='middle';
+    const w=Math.max(g.measureText(a.name).width,g.measureText(action).width)+16;
+    const x=clamp(mug.x+mug.w/2,w/2+3,width-w/2-3),y=Math.max(20,mug.y-54);
+    g.fillStyle='#473925';g.fillRect(Math.round(x-w/2-1),y-1,w+2,33);
+    g.fillStyle='#fff5d9';g.fillRect(Math.round(x-w/2),y,w,31);
+    g.fillStyle='#473925';g.fillText(a.name,x,y+9);g.fillText(action,x,y+23);
+    if(s.stage==='satisfied'){
+      g.fillStyle='#ed8091';const lift=Math.sin(Math.min(1,s.age/2.2)*Math.PI)*9;
+      for(const side of [-1,1]){const hx=a.x+side*17,hy=a.y-a.h-5-lift;g.fillRect(hx-3,hy,3,3);g.fillRect(hx+1,hy,3,3);g.fillRect(hx-2,hy+3,5,2);g.fillRect(hx,hy+5,1,2);}
+    }
+    g.restore();
   }
   function paintMilk(){
     const a=milkVisitor,s=a?.snack;if(!s||!['sip','dunk'].includes(s.stage))return;
@@ -212,7 +244,7 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
     g.fillStyle='#d5e1dc';g.fillRect(x+w-5,y+7,3,h-9);
     g.fillStyle='#4d7c8c';g.fillRect(x,y+h-2,w,2);g.fillRect(x+w-2,y+7,2,h-7);
     g.fillStyle='#c8dde1';const wave=Math.floor(time*7)%3;g.fillRect(x+5+wave,y+6,5,1);g.fillRect(x+w-8-wave,y+7,3,1);
-    if(s.stage==='dunk'&&s.age>.4&&s.age<1.6){g.fillStyle='#fff9e8';g.fillRect(x-2,y+1,2,2);g.fillRect(x+w+1,y+3,2,2);}
+    if(s.stage==='dunk'&&s.age>.4&&s.age<2.8){g.fillStyle='#fff9e8';g.fillRect(x-2,y+1,2,2);g.fillRect(x+w+1,y+3,2,2);}
     g.restore();
   }
 
@@ -274,6 +306,7 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
       if(a.dash.age>.34){puffs.push({x:a.x,y:a.y-a.h/2,age:.12});a.dash=null;a.recover=.35;target(a);a.rest=0;}
       return;
     }
+    if(a.snack&&!a.held){visitMilk(a,dt,state);return;}
     if(a.reaction==='music'&&isMusicPlaying()&&!a.held){a.reactAge+=dt;a.alpha=1;return;}
     if(a.held||a.recover>0){a.reactAge+=dt;if(!a.held)a.recover=Math.max(0,a.recover-dt);a.alpha=1;return;}
     if (reduced.matches) return;
@@ -306,13 +339,13 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
   }
   function paintActor(a,state) {
     const scale=a.h/56,w=48*scale,walk=reduced.matches?0:Math.sin(a.phase),fly=a.flight&&!reduced.matches;
-    const reacting=a.held||a.recover>0||!!a.dash||(a.reaction==='music'&&isMusicPlaying()),rt=a.reactAge,still=reduced.matches;
+    const reacting=a.held||a.recover>0||!!a.dash||(a.reaction==='music'&&isMusicPlaying()&&!a.snack),rt=a.reactAge,still=reduced.matches;
     const feeding=a.snack&&a.snack.stage!=='approach';
     const bob=reacting||feeding?0:fly?Math.sin(time*5+a.phase*.12)*3:Math.abs(walk)*1.2;
     let px=a.x+(fly&&!reacting?Math.sin(time*2.4+a.phase*.1)*4:0),py=a.y-bob;
     let tilt=0,squash=1;
     if(feeding){tilt=a.snack.stage==='sip'?.28:a.snack.stage==='dunk'?-.18:0;
-      if(a.snack.stage==='satisfied')py-=Math.sin(Math.min(1,a.snack.age/1.1)*Math.PI)*2;}
+      if(a.snack.stage==='satisfied')py-=Math.sin(Math.min(1,a.snack.age/2.2)*Math.PI)*2;}
     if(reacting&&!still){
       if(a.reaction==='cheer')py-=Math.abs(Math.sin(rt*8))*4;
       if(a.reaction==='bow'){squash=1-Math.pow(Math.sin(Math.min(1,rt/.7)*Math.PI),2)*.28;tilt=Math.sin(rt*3)*.04;}
@@ -343,7 +376,7 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
     }
     const reactionFrame=reacting&&a.frames?.length?a.frames[still?0:Math.floor(rt*5)%a.frames.length]:null;
     const foodFrame=feeding&&a.feedFrames?.[a.snack.stage==='satisfied'?2:a.snack.age<.35?0:1];
-    g.drawImage(reactionFrame||foodFrame||a.image,Math.round(-w/2),-a.h,w,a.h);
+    g.drawImage(foodFrame||reactionFrame||a.image,Math.round(-w/2),-a.h,w,a.h);
     if(fly){
       // A very small flicker of wings, separate from the carried biscuit.
       g.globalAlpha*=.55;g.strokeStyle='#e9f3ea';g.lineWidth=1;
@@ -391,8 +424,10 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
     const dt=last?Math.min(.05,(now-last)/1000):0;last=now;time+=dt;
     const state=interaction();g.clearRect(0,0,width,floor);
     for(const e of [...dissolves])paintDissolve(e,dt,state.busy);
+    scheduleMilk(state);
     for(const a of cast){walk(a,dt,state);paintActor(a,state);}
     paintMilk();
+    paintMilkCaption();
     for(let i=puffs.length-1;i>=0;i--){const p=puffs[i];p.age+=dt;if(p.age>.48){puffs.splice(i,1);continue;}
       const t=p.age/.48;g.save();g.globalAlpha=(1-t)*.7;g.fillStyle='#d8d7c9';
       for(let j=0;j<5;j++){const angle=j*Math.PI*2/5,s=6+(1-t)*5;g.fillRect(Math.round(p.x+Math.cos(angle)*t*15-s/2),Math.round(p.y+Math.sin(angle)*t*12-s/2),s,s);}
@@ -407,7 +442,7 @@ export function mountDesktopWanderers(screen, { interaction = () => ({busy:false
       g.globalAlpha=Math.min(1,(3.8-p.age)*1.3)*.8;g.fillStyle='#fff0be';g.fillRect(-3,-4,6,8);
       g.fillStyle='#7d426f';g.fillRect(-1,-2,2,2);g.fillRect(-2,1,4,1);g.restore();
     }
-    if(dissolves.size||cast.length&&!reduced.matches||cast.some(a=>a.recover>0)||papers.length||puffs.length)wake();else last=0;
+    if(dissolves.size||cast.length&&!reduced.matches||cast.some(a=>a.recover>0||a.snack)||papers.length||puffs.length)wake();else last=0;
   }
   function visibility(){if(document.hidden)releaseHold();last=0;cancelAnimationFrame(frame);frame=0;if(!document.hidden)wake();}
   function motionChange(){

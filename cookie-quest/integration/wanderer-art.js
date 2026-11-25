@@ -512,19 +512,19 @@ function withFeeding(sprite, make, feedKind) {
 export async function makeWandererSprites(projectId) {
   const id = ({ 'desert-disco': 'dubai-disco', 'cookie-orchestra': 'cookie-band' })[projectId] || projectId;
   if (!sprites.has(id)) {
-    const cast = id === 'dubai-disco'
-      ? ['pistachio', 'cookie', 'marshmallow'].map((kind, i) => withReaction(() => dubaiCharacter(kind), ['cheer', 'burst', 'shy'][i]))
-      : reactions[id] ? [withReaction(
+    const makers = id === 'dubai-disco'
+      ? ['pistachio', 'cookie', 'marshmallow'].map(kind => () => dubaiCharacter(kind))
+      : reactions[id] ? [
         id === 'gingerbread' ? gingerbread
         : id === 'timtam' ? timtam
         : id === 'kungu' ? mosquitoCourier
         : id === 'fortune-cookie' ? fortuneOracle
         : id === 'octopus-senbei' ? senbeiNinja
         : id === 'khapse' ? khapseRobe
-        : () => cookieCharacter(id), reactions[id])]
-      : [];
-    if (id === 'timtam') withFeeding(cast[0], timtam, 'sip');
-    if (id === 'oreo') withFeeding(cast[0], () => cookieCharacter(id), 'dunk');
+        : () => cookieCharacter(id)] : [];
+    const cast = makers.map((make, i) => withFeeding(
+      withReaction(make, id === 'dubai-disco' ? ['cheer', 'burst', 'shy'][i] : reactions[id]),
+      make, ['oreo','gingerbread','thai-flower','octopus-senbei'].includes(id) ? 'dunk' : 'sip'));
     sprites.set(id, cast);
   }
   return sprites.get(id);
