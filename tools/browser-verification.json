@@ -38,5 +38,16 @@
     "No Windows real-device test",
     "Local HTTP network throttling is not a measurement of GitHub Pages worldwide",
     "Opening smoke tests do not cover every game ending"
-  ]
+  ],
+  "kunguBlockedAssets": {
+    "lakeRequest": "held indefinitely",
+    "externalSVGRequests": "blocked",
+    "ready": true,
+    "keyboardReachedStage": "oil",
+    "focusSwitchResumed": true
+  },
+  "networkRetry": {
+    "octopusCoreFirstRequest": "failed",
+    "retrySucceeded": true
+  }
 }
