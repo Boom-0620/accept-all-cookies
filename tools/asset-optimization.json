@@ -1,0 +1,212 @@
+[
+  {
+    "asset": "thai-flower inline reference",
+    "original": 4790210,
+    "optimized": 674288,
+    "lossless": false
+  },
+  {
+    "asset": "cookie 实验/45种曲奇_素材与信息_v01/图片/03_fortune.png",
+    "original": 2448512,
+    "optimized": 522052,
+    "lossless": false
+  },
+  {
+    "asset": "cookie-quest/assets/characters.png",
+    "original": 659084,
+    "optimized": 423034,
+    "lossless": true
+  },
+  {
+    "asset": "cookie-quest/assets/incense-chibi.png",
+    "original": 482556,
+    "optimized": 298542,
+    "lossless": true
+  },
+  {
+    "asset": "cookie-quest/assets/landscapes.png",
+    "original": 2591418,
+    "optimized": 338672,
+    "lossless": false
+  },
+  {
+    "asset": "cookie-quest/assets/photos/01_oreo.png",
+    "original": 511217,
+    "optimized": 79868,
+    "lossless": false
+  },
+  {
+    "asset": "cookie-quest/assets/photos/02_chocolate_chunk.png",
+    "original": 827689,
+    "optimized": 111612,
+    "lossless": false
+  },
+  {
+    "asset": "cookie-quest/assets/photos/46_dubai_chewy.png",
+    "original": 262822,
+    "optimized": 50124,
+    "lossless": false
+  },
+  {
+    "asset": "cookie-quest/assets/reference-board.png",
+    "original": 2306795,
+    "optimized": 1813772,
+    "lossless": true
+  },
+  {
+    "asset": "cookie-quest/assets/reference-flow.png",
+    "original": 1957692,
+    "optimized": 1533176,
+    "lossless": true
+  },
+  {
+    "asset": "modules/dubai-disco/assets/images/poster.png",
+    "original": 374521,
+    "optimized": 61818,
+    "lossless": false
+  },
+  {
+    "asset": "modules/fortune-cookie/assets/fortune-atlas.png",
+    "original": 2271534,
+    "optimized": 1686992,
+    "lossless": true
+  },
+  {
+    "asset": "modules/khapse/dist/assets/khapse-atlas.png",
+    "original": 1021027,
+    "optimized": 763850,
+    "lossless": true
+  },
+  {
+    "asset": "modules/khapse/dist/assets/story-v3/dough.png",
+    "original": 1397844,
+    "optimized": 136786,
+    "lossless": false
+  },
+  {
+    "asset": "modules/khapse/dist/assets/story-v3/pan.png",
+    "original": 1100095,
+    "optimized": 80288,
+    "lossless": false
+  },
+  {
+    "asset": "modules/khapse/dist/assets/story-v3/placing.png",
+    "original": 510856,
+    "optimized": 50690,
+    "lossless": false
+  },
+  {
+    "asset": "modules/khapse/dist/assets/story-v3/prep.png",
+    "original": 1746061,
+    "optimized": 193460,
+    "lossless": false
+  },
+  {
+    "asset": "modules/khapse/dist/assets/story-v3/rolling.png",
+    "original": 500873,
+    "optimized": 60782,
+    "lossless": false
+  },
+  {
+    "asset": "modules/khapse/dist/assets/story-v3/room.png",
+    "original": 2167906,
+    "optimized": 242702,
+    "lossless": false
+  },
+  {
+    "asset": "modules/khapse/dist/assets/story-v3/serving.png",
+    "original": 689738,
+    "optimized": 65944,
+    "lossless": false
+  },
+  {
+    "asset": "modules/khapse/dist/assets/story-v3/spoon.png",
+    "original": 324228,
+    "optimized": 42442,
+    "lossless": false
+  },
+  {
+    "asset": "modules/khapse/dist/assets/story-v3/tower.png",
+    "original": 845211,
+    "optimized": 201488,
+    "lossless": false
+  },
+  {
+    "asset": "modules/kungu/assets/kungu-collecting.png",
+    "original": 1826330,
+    "optimized": 298330,
+    "lossless": false
+  },
+  {
+    "asset": "modules/kungu/assets/lake-scan.png",
+    "original": 2509124,
+    "optimized": 291698,
+    "lossless": false
+  },
+  {
+    "asset": "modules/octopus-senbei/assets/octopus-crawl-a.png",
+    "original": 2181084,
+    "optimized": 333812,
+    "lossless": false
+  },
+  {
+    "asset": "modules/octopus-senbei/assets/octopus-crawl-b.png",
+    "original": 2428458,
+    "optimized": 382496,
+    "lossless": false
+  },
+  {
+    "asset": "modules/octopus-senbei/assets/octopus-sprite.png",
+    "original": 246152,
+    "optimized": 167474,
+    "lossless": true
+  },
+  {
+    "asset": "modules/octopus-senbei/assets/octopus-struggle.png",
+    "original": 2598014,
+    "optimized": 448246,
+    "lossless": false
+  },
+  {
+    "asset": "modules/octopus-senbei/assets/octopus-wrap.png",
+    "original": 2284044,
+    "optimized": 351708,
+    "lossless": false
+  },
+  {
+    "asset": "modules/oreo/assets/cream.png",
+    "original": 109603,
+    "optimized": 18700,
+    "lossless": false
+  },
+  {
+    "asset": "modules/oreo/assets/milk.png",
+    "original": 90695,
+    "optimized": 16074,
+    "lossless": false
+  },
+  {
+    "asset": "modules/oreo/assets/wafer-inner-wet.png",
+    "original": 2166351,
+    "optimized": 1493134,
+    "lossless": true
+  },
+  {
+    "asset": "modules/oreo/assets/wafer.png",
+    "original": 112143,
+    "optimized": 72696,
+    "lossless": true
+  },
+  {
+    "asset": "modules/thai-flower/source/assets/reference.png",
+    "original": 3592639,
+    "optimized": 2700714,
+    "lossless": true
+  },
+  {
+    "asset": "modules/timtam/assets/biscuits.png",
+    "original": 1007878,
+    "optimized": 422240,
+    "lossless": false
+  }
+]

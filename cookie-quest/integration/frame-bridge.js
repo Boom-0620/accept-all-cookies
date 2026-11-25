@@ -64,7 +64,7 @@
   if(id==='timtam')document.addEventListener('click',()=>native.timeout(()=>{if(window.timtam?.getState().phase!=='banner')send('expand');},40),true);
  }
  if(id==='kungu'){
-  const cv=document.querySelector('#scene'),img=new Image();img.onload=()=>{if(!active){const g=cv.getContext('2d');g.imageSmoothingEnabled=false;g.drawImage(img,0,0,cv.width,cv.height);}};img.src='assets/lake-scan.png';
+  const cv=document.querySelector('#scene'),img=new Image();img.onload=()=>{if(!active){const g=cv.getContext('2d');g.imageSmoothingEnabled=false;g.drawImage(img,0,0,cv.width,cv.height);}};img.src='assets/lake-scan.webp';
  }
  let lastOperation=null;
  function operation(){if(dead)return;let busy=false;

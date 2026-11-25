@@ -55,7 +55,7 @@
     const crops = [[.022,.075,.954,.258],[.084,.443,.83,.189],[.052,.724,.90,.217]];
     atlas.onload = () => { if (!dead) { atlasReady = true; render(); } };
     atlas.onerror = () => { if (!dead) { assetError = true; render(); } };
-    atlas.src = options.atlasUrl || new URL('assets/khapse-atlas.png', base).href;
+    atlas.src = options.atlasUrl || new URL('assets/khapse-atlas.webp', base).href;
     function on(target, type, fn, config = {}) { target.addEventListener(type, fn, { ...config, signal: abort.signal }); }
     function paused() { return userPaused || hostPaused || hidden || modalOpen; }
     function setHint(text, danger = false) { if (text !== lastHint) { hint.textContent = text; lastHint = text; } hint.classList.toggle('danger', danger); }

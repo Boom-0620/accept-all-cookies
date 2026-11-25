@@ -12,7 +12,7 @@ function mount(options={}){
  const base=options.assetBase?new URL(options.assetBase,doc.baseURI).href:scriptBase;
  const asset=(key,file)=>options.assets?.[key]||new URL('assets/'+file,base).href;
  const media={ocean:asset('ocean','ocean.mp4'),poster:asset('poster','ocean-poster.jpg'),harbor:asset('harbor','harbor.jpg'),senbei:asset('senbei','senbei-real.webp'),closed:asset('pressClosed','press-closed.webp'),powder:asset('pressOpen','press-open.webp'),wash:asset('wash','wash-real.webp'),season:asset('season','season-real.webp'),seaside:asset('seaside','seaside.mp3'),round:asset('round','senbei-round-eirakudo-detail.jpg'),machineOpen:asset('machineOpen','press-real-open.jpg'),machineClosed:asset('machineClosed','press-real-closed.jpg'),bowl:asset('bowl','batter-bowl-debuyer.jpg'),brush:asset('brush','pastry-brush-real.jpg')};
- const sprites={rest:asset('octopus','octopus-sprite.png'),a:asset('crawlA','octopus-crawl-a.png'),b:asset('crawlB','octopus-crawl-b.png'),struggle:asset('struggle','octopus-struggle.png'),wrap:asset('wrap','octopus-wrap.png')};
+ const sprites={rest:asset('octopus','octopus-sprite.webp'),a:asset('crawlA','octopus-crawl-a.webp'),b:asset('crawlB','octopus-crawl-b.webp'),struggle:asset('struggle','octopus-struggle.webp'),wrap:asset('wrap','octopus-wrap.webp')};
  const wafer=`<div class="round-wafer" role="img" aria-label="圆形章鱼仙贝摄影拼贴"><img class="wafer-photo" src="${media.round}" alt=""><img class="wafer-imprint" src="${sprites.rest}" alt=""></div>`;
  const ac=new win.AbortController(),signal=ac.signal,uid='os-cursor-'+(++serial);
  const listen=(el,type,fn,extra={})=>el.addEventListener(type,fn,{...extra,signal});
@@ -110,7 +110,7 @@ function mount(options={}){
   lid.style.top=(h.y+dx*Math.sin(angle)+dy*Math.cos(angle)-22)+'px';
  }
  function releaseLid(){const old=lidDrag;lidDrag=null;if(old&&lidHandle.hasPointerCapture?.(old.id))try{lidHandle.releasePointerCapture(old.id);}catch(_){} }
- function fitMachine(){const stage=$('.machine-stage');$('.machine-scene').style.transform=`scale(${stage.clientWidth/571})`;}
+ function fitMachine(){const stage=$('.machine-stage');if(stage.clientWidth>0)$('.machine-scene').style.transform=`scale(${stage.clientWidth/571})`;}
  const foodMatrix=g.OctopusSenbeiCore.quadMatrix([[0,0],[300,0],[300,220],[0,220]],g.OctopusSenbeiCore.PRESS.food);
  $('.food-plane').style.transform='matrix3d('+foodMatrix.join(',')+')';drawLid(0);
  function grab(e,fromTray=false){if(paused||dead)return;const state=machine.state;if(fromTray?state!=='coated':!['free','escape'].includes(state))return;
@@ -183,7 +183,7 @@ function mount(options={}){
  listen(viewport,'wheel',()=>{scrollMotion=null;},{passive:true});listen(viewport,'touchstart',()=>{if(!drag)scrollMotion=null;},{passive:true});
  listen(shadow,'keydown',e=>{if(e.key==='Escape'&&sourceOpen){sourceOpen=false;$('.credits').hidden=true;applyPause();}});
  listen(doc,'visibilitychange',()=>{hidden=doc.hidden;applyPause();});listen(win,'blur',cancelInteractions);listen(win,'resize',()=>{if(['free','escape','dragging','carrying'].includes(machine.state)){pos=g.OctopusSenbeiCore.clampPoint(pos.x,pos.y,desktopRect());freePos={...pos};actorRender();}});
- const ro=new win.ResizeObserver(()=>{shell.style.setProperty('--available',container.clientWidth+'px');fitMachine();});ro.observe(container);
+ const ro=new win.ResizeObserver(()=>{shell.style.setProperty('--available',container.clientWidth+'px');fitMachine();});ro.observe(container);ro.observe($('.machine-stage'));listen(css,'load',fitMachine);
  function destroy(){if(dead)return;dead=true;batterImage.onload=null;machine.destroy();ac.abort();ro.disconnect();win.cancelAnimationFrame(raf);scrollMotion=null;endDrag();endBrush();releaseLid();for(const v of [movie,preview,ambience]){v.pause();v.removeAttribute('src');v.load();}for(const n of nodes){try{n.stop();n.disconnect();}catch(_){}}nodes.clear();audioContext?.close().catch(()=>{});audioContext=null;restoreCursor();overlay.remove();host.remove();safe(options.onIconNudge,false);if(previousFocus?.isConnected&&previousFocus!==doc.body)previousFocus.focus({preventScroll:true});}
  raf=win.requestAnimationFrame(tick);
  return Object.freeze({start,destroy,pause(){hostPause=true;applyPause();},resume(){hostPause=false;applyPause();},get state(){return machine.state;},get element(){return host;},get overlay(){return overlay;},get completed(){return emitted;}});

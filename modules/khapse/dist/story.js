@@ -24,7 +24,7 @@
     stage.appendChild(layer);
     const canvas=layer.querySelector('canvas'),ctx=canvas.getContext('2d'),title=layer.querySelector('.story-title'),caption=layer.querySelector('.story-caption'),skip=layer.querySelector('.story-skip'),dots=[...layer.querySelectorAll('.story-dots i')],copy=layer.querySelector('.ending-copy'),actions=layer.querySelector('.ending-actions');
     skip.addEventListener('click',()=>options.onSkip?.(),{signal:abort.signal});
-    const files={room:'room.png',prep:'prep.png',rolling:'rolling.png',dough:'dough.png',pan:'pan.png',spoon:'spoon.png',serving:'serving.png',placing:'placing.png',tower:'tower.png'};
+    const files={room:'room.webp',prep:'prep.webp',rolling:'rolling.webp',dough:'dough.webp',pan:'pan.webp',spoon:'spoon.webp',serving:'serving.webp',placing:'placing.webp',tower:'tower.webp'};
     const rects={rolling:[250,118,1272,632],pan:[120,190,1295,670],spoon:[180,50,1455,805],serving:[80,331,1590,462],placing:[211,133,1494,687],tower:[218,152,650,1252]};
     function prop(name,x,y,w,h,alpha=1){if(!images[name]?.complete)return;const a=rects[name];ctx.save();ctx.globalAlpha*=alpha;ctx.drawImage(images[name],...a,x,y,w,h);ctx.restore();}
     function background(prep=false){ctx.drawImage(prep?images.prep:images.room,0,0,360,430);}
@@ -94,7 +94,7 @@
     function finish(){if(dead)return;active=false;held=false;layer.hidden=true;options.onComplete?.();}
     let remaining=Object.keys(files).length+1,failed=false;
     function loaded(){if(dead)return;if(--remaining===0){ready=!failed;if(ready)render();else finish();}}
-    Object.entries({...files,gold:'../khapse-atlas.png'}).forEach(([key,file])=>{const img=new Image();images[key]=img;img.onload=loaded;img.onerror=()=>{failed=true;loaded();};img.src=options.assets?.[key]||new URL(file,options.assetBase||new URL('assets/story-v3/',location.href)).href;});
+    Object.entries({...files,gold:'../khapse-atlas.webp'}).forEach(([key,file])=>{const img=new Image();images[key]=img;img.onload=loaded;img.onerror=()=>{failed=true;loaded();};img.src=options.assets?.[key]||new URL(file,options.assetBase||new URL('assets/story-v3/',location.href)).href;});
     return {
       advance(ms){if(dead||!active||!ready)return;elapsed+=Math.max(0,ms);if(mode==='ending'){elapsed=Math.min(ENDING_DURATION,elapsed);render();if(elapsed>=ENDING_DURATION){active=false;held=true;options.onEndingComplete?.();}return;}
         elapsed=Math.min(DURATION+FADE,elapsed);if(elapsed>=DURATION&&!ending){ending=true;options.onTransition?.();}render();if(elapsed>=DURATION+FADE)finish();},

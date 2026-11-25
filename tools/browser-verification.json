@@ -1,0 +1,42 @@
+{
+  "environment": "macOS Chromium 151 headless; Windows hardware not available",
+  "moduleOpen": {
+    "count": 10,
+    "javascriptErrors": 0,
+    "httpErrors": 0
+  },
+  "delayedOctopusCSS": {
+    "delayMs": 2200,
+    "viewportWidths": [
+      1024,
+      1366,
+      1920
+    ],
+    "stageWidth": 330,
+    "scale": 0.5779334500875657,
+    "passed": true
+  },
+  "networkSimulation": {
+    "latencyMs": 120,
+    "downloadBytesPerSecond": 750000,
+    "cpuSlowdown": 4,
+    "measurement": "10 seconds after first module window appears",
+    "before": {
+      "windowAppearanceMs": 2656,
+      "requests": 77,
+      "loadedCoverImages": 3,
+      "coverImages": 8
+    },
+    "after": {
+      "windowAppearanceMs": 1905,
+      "requests": 44,
+      "loadedCoverImages": 8,
+      "coverImages": 8
+    }
+  },
+  "limitations": [
+    "No Windows real-device test",
+    "Local HTTP network throttling is not a measurement of GitHub Pages worldwide",
+    "Opening smoke tests do not cover every game ending"
+  ]
+}

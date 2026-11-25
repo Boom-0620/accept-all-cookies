@@ -1,7 +1,7 @@
 import { mountSnowGlobe } from './snow-globe.js';
 /* Host-only invitations. These covers never start, complete or alter a story. */
 const COVER_STYLES = '/accept-all-cookies/cookie-quest/styles/window-covers.css';
-const FORTUNE_PHOTO = '/accept-all-cookies/cookie%20%E5%AE%9E%E9%AA%8C/45%E7%A7%8D%E6%9B%B2%E5%A5%87_%E7%B4%A0%E6%9D%90%E4%B8%8E%E4%BF%A1%E6%81%AF_v01/%E5%9B%BE%E7%89%87/03_fortune.png';
+const FORTUNE_PHOTO = '/accept-all-cookies/cookie%20%E5%AE%9E%E9%AA%8C/45%E7%A7%8D%E6%9B%B2%E5%A5%87_%E7%B4%A0%E6%9D%90%E4%B8%8E%E4%BF%A1%E6%81%AF_v01/%E5%9B%BE%E7%89%87/03_fortune.webp';
 let fortuneArtwork;
 
 function originalFortuneArtwork(document) {
@@ -30,7 +30,7 @@ function originalFortuneArtwork(document) {
       } catch (error) { reject(error); }
     };
     image.onerror = reject;
-    image.src = '/accept-all-cookies/modules/fortune-cookie/assets/fortune-atlas.png';
+    image.src = '/accept-all-cookies/modules/fortune-cookie/assets/fortune-atlas.webp';
   });
   return fortuneArtwork;
 }
@@ -57,7 +57,7 @@ const covers = {
   },
   'octopus-senbei': {
     label: '进入海边仙贝工场',
-    content: () => `<span class="paper98-browser-menu" aria-hidden="true">File　Edit　View　Go　Favorites　Help</span><span class="paper98-browser-tools" aria-hidden="true"><i>←</i> Back　 <i>→</i>　 <i>×</i> Stop　 <i>↻</i> Refresh　 <i>⌂</i> Home</span><span class="v2-ocean-address">Address: <b>http://www.senbei-umi.co.jp/</b></span><span class="v2-ocean-head"><strong>海辺のせんべい工場</strong><small>たこのせんべいを、海のそばから。</small></span><span class="v2-ocean-nav">ホーム　｜　工場のようす　｜　せんべいの話</span><span class="v2-ocean-main"><span class="v2-ocean-film"><img class="v2-harbor" src="/accept-all-cookies/modules/octopus-senbei/assets/harbor.jpg" alt="海边工场"><img class="v2-octopus" src="/accept-all-cookies/modules/octopus-senbei/assets/octopus-sprite.png" alt="章鱼"><span class="v2-film-controls">▶　▰ ━━━━━━━━━　00:12</span></span><span class="v2-ocean-side"><b>海のたこで<br>つくる、<br>香ばしい<br>せんべい。</b><img src="/accept-all-cookies/modules/octopus-senbei/assets/senbei-real.webp" alt="章鱼仙贝"><span>工場へ →</span></span></span>`
+    content: () => `<span class="paper98-browser-menu" aria-hidden="true">File　Edit　View　Go　Favorites　Help</span><span class="paper98-browser-tools" aria-hidden="true"><i>←</i> Back　 <i>→</i>　 <i>×</i> Stop　 <i>↻</i> Refresh　 <i>⌂</i> Home</span><span class="v2-ocean-address">Address: <b>http://www.senbei-umi.co.jp/</b></span><span class="v2-ocean-head"><strong>海辺のせんべい工場</strong><small>たこのせんべいを、海のそばから。</small></span><span class="v2-ocean-nav">ホーム　｜　工場のようす　｜　せんべいの話</span><span class="v2-ocean-main"><span class="v2-ocean-film"><img class="v2-harbor" src="/accept-all-cookies/modules/octopus-senbei/assets/harbor.jpg" alt="海边工场"><img class="v2-octopus" src="/accept-all-cookies/modules/octopus-senbei/assets/octopus-sprite.webp" alt="章鱼"><span class="v2-film-controls">▶　▰ ━━━━━━━━━　00:12</span></span><span class="v2-ocean-side"><b>海のたこで<br>つくる、<br>香ばしい<br>せんべい。</b><img src="/accept-all-cookies/modules/octopus-senbei/assets/senbei-real.webp" alt="章鱼仙贝"><span>工場へ →</span></span></span>`
   },
 
   kungu: {
@@ -66,7 +66,7 @@ const covers = {
       <span class="cq-cover-kungu-heading"><strong>吃掉这些字母</strong><small>EAT THESE LETTERS</small></span>
       <span class="cq-cover-kungu-links">湖边厨房 <b>·</b> 字母食谱 <b>·</b> 关于 KUNGU</span>
       <span class="cq-cover-kungu-lake">
-        <img class="cq-cover-lake-image" src="/accept-all-cookies/modules/kungu/assets/lake-scan.png" alt="湖面与远山" draggable="false">
+        <img class="cq-cover-lake-image" src="/accept-all-cookies/modules/kungu/assets/lake-scan.webp" alt="湖面与远山" draggable="false">
         <span class="cq-cover-water" aria-hidden="true"></span>
         <span class="cq-cover-letters" aria-hidden="true">${letters()}</span>
         <img class="cq-cover-pan" src="/accept-all-cookies/modules/kungu/assets/pan.svg" alt="一口等待字母落下的平底锅" draggable="false">

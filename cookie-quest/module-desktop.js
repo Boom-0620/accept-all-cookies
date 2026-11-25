@@ -8,7 +8,7 @@ import { mountAmbientAds } from './integration/ambient-ads.js';
 import { mountDesktopWanderers } from './integration/desktop-wanderers.js';
 const aliases={'desert-disco':'dubai-disco','cookie-orchestra':'cookie-band'};
 const scripts=new Map();
-function loadScript(src){if(!scripts.has(src))scripts.set(src,new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>reject(Error(src));document.head.append(s);}));return scripts.get(src);}
+function loadScript(src){if(!scripts.has(src))scripts.set(src,new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>{scripts.delete(src);s.remove();reject(Error('网络加载失败，请重试'));};document.head.append(s);}));return scripts.get(src);}
 export class ModuleDesktop {
  constructor(desktop,{onReady,audio}){
   Object.assign(this,{desktop,wm:desktop.wm,onReady,audio,records:new Map(),completed:new Set(),log:[],timers:new Set(),active:null,dead:false,ready:false,pointerBusy:false,quietUntil:0});
@@ -50,10 +50,10 @@ export class ModuleDesktop {
   const viewport=document.createElement('div');viewport.className='module-viewport';win.body.append(viewport);r.viewport=viewport;
   if(r.kind==='missing'){viewport.innerHTML='<div class="fortune-placeholder"><b>FORTUNE COOKIE</b><p>幸运饼干</p><small>开发占位 · 等待独立模块接入</small></div>';return;}
   if(this.review&&r.id==='khapse'){
-   const poster=document.createElement('button');poster.className='tower-poster';poster.setAttribute('aria-label','进入藏历新年饼塔');poster.innerHTML='<span class="tower-masthead">KHAPSE<small>藏历新年 · ལོ་གསར།</small></span><span class="tower-links">Play　|　How to　|　About</span><span class="tower-picture"><img src="/accept-all-cookies/modules/khapse/dist/assets/story-v3/tower.png" alt="十六层金黄卡塞高塔"></span><span class="tower-foot">十六层新年祝愿　▸</span>';poster.onclick=()=>this.enterTower(r);win.body.append(poster);r.poster=poster;
+   const poster=document.createElement('button');poster.className='tower-poster';poster.setAttribute('aria-label','进入藏历新年饼塔');poster.innerHTML='<span class="tower-masthead">KHAPSE<small>藏历新年 · ལོ་གསར།</small></span><span class="tower-links">Play　|　How to　|　About</span><span class="tower-picture"><img src="/accept-all-cookies/modules/khapse/dist/assets/story-v3/tower.webp" alt="十六层金黄卡塞高塔"></span><span class="tower-foot">十六层新年祝愿　▸</span>';poster.onclick=()=>this.enterTower(r);win.body.append(poster);r.poster=poster;
   }
   if(false&&r.id==='octopus-senbei'){
-   const peek=new Image();peek.className='preview-octopus';peek.src='/accept-all-cookies/modules/octopus-senbei/assets/octopus-sprite.png';peek.alt='';win.el.append(peek);r.peek=peek;
+   const peek=new Image();peek.className='preview-octopus';peek.src='/accept-all-cookies/modules/octopus-senbei/assets/octopus-sprite.webp';peek.alt='';win.el.append(peek);r.peek=peek;
   }
   if(['kungu','gingerbread','fortune-cookie','thai-flower','octopus-senbei'].includes(r.id)){
    r.cover=mountWindowCover({id:r.id,container:win.body,available:r.kind!=='missing',onEnter:()=>this.openCover(r)});win.el.classList.add('has-cover');
@@ -69,17 +69,24 @@ export class ModuleDesktop {
   if(r.id==='fortune-cookie'){Object.assign(r.win.el.style,{left:'12px',top:'252px',width:'278px',height:'288px'});this.fit(r);}
   this.syncActivity();if(r.id==='gingerbread')this.post(r,'launch');
  }
- async mount(r){if(this.dead||r.frame||r.app||r.mounting)return;r.mounting=true;try{
+ showLoading(r){
+  r.loadNotice?.remove();const box=document.createElement('div');box.className='module-load-notice';
+  Object.assign(box.style,{position:'absolute',inset:'0',zIndex:'30',display:'grid',placeContent:'center',gap:'8px',textAlign:'center',background:'#f5edd8',color:'#40352b',font:'12px sans-serif'});
+  const label=document.createElement('span');label.textContent='正在打开…';box.append(label);r.viewport.append(box);r.loadNotice=box;
+  this.later(15000,()=>{if(r.loadNotice!==box)return;label.textContent='网络较慢，仍在加载';const retry=document.createElement('button');retry.className='q-btn';retry.textContent='重新加载';retry.onclick=()=>{if(r.mounting){label.textContent='正在连接，请稍候…';return;}r.frame?.remove();r.frame=null;this.mount(r);};box.append(retry);});
+ }
+ finishLoading(r){r.loadNotice?.remove();r.loadNotice=null;r.sentActive=null;this.fit(r);this.syncActivity();if(r.launchOnLoad){r.launchOnLoad=false;this.post(r,'launch');}}
+ async mount(r){if(this.dead||r.frame||r.app||r.mounting)return;r.mounting=true;this.showLoading(r);try{
   if(r.id==='octopus-senbei'){await loadScript('/accept-all-cookies/modules/octopus-senbei/core.js');await loadScript('/accept-all-cookies/modules/octopus-senbei/module.js');if(this.dead||!r.win)return;
    r.app=window.OctopusSenbei.mount({container:r.viewport,desktopRoot:document.getElementById('screen'),overlayRoot:this.overlay,assetBase:'/accept-all-cookies/modules/octopus-senbei/',overlayZIndex:4500,onCookie:d=>this.emit(r,d.outcome),onClose:()=>r.win&&this.wm.close(r.win),onStateChange:()=>this.checkReady(),onIconNudge:n=>document.querySelector('.d-icon')?.classList.toggle('cookie-nudged',n)});
    const css=document.createElement('style');css.textContent='.titlebar{display:none!important}.window{height:100%!important;min-height:0!important;border:0!important;padding:0!important;box-shadow:none!important}.intro{width:100%!important;margin:0!important}.intro-movie{height:320px!important}.intro-controls{height:52px}.viewport{min-height:0}';r.app.element.shadowRoot.append(css);
    if(this.review){const preview=document.createElement('style');preview.textContent='.intro .intro-content{display:none!important}.intro .main-content[hidden]{display:flex!important}.intro .menu,.intro .toolbar{display:none!important}.intro .banner{height:94px;min-height:0}.intro .banner h1{font-size:36px}.intro .banner p{font-size:14px}.intro .welcome{padding:4px 12px}.intro .navigation{padding:5px 12px}.intro .chapter{padding:10px}.intro .chapter h2{font-size:18px}.intro .ocean{height:230px}.intro .viewport{overflow:hidden}.intro .statusbar{display:none}';r.app.element.shadowRoot.append(preview);}
-   r.sentActive=null;this.fit(r);this.syncActivity();if(r.expanded)r.app?.start();return;}
+   this.finishLoading(r);if(r.expanded)r.app?.start();return;}
   const url=new URL('/accept-all-cookies/modules/'+r.id+'/'+r.entry,location.href);url.searchParams.set('cq-host','1');url.searchParams.set('parentOrigin',location.origin);
   if(this.review)url.searchParams.set('layout','review');
   const iframe=document.createElement('iframe');iframe.title=r.title;iframe.allow='autoplay; camera';iframe.src=url.href;iframe.dataset.projectId=r.id;r.frame=iframe;r.viewport.append(iframe);
-  iframe.addEventListener('load',()=>{if(this.dead||r.frame!==iframe)return;r.sentActive=null;this.fit(r);this.syncActivity();if(r.launchOnLoad){r.launchOnLoad=false;this.post(r,'launch');}});this.fit(r);
- }catch(e){r.viewport.textContent='模块暂时无法载入：'+e.message;r.error=e.message;}finally{r.mounting=false;}}
+  iframe.addEventListener('load',()=>{if(this.dead||r.frame!==iframe)return;this.finishLoading(r);});this.fit(r);
+ }catch(e){r.loadNotice?.remove();r.loadNotice=null;const retry=document.createElement('button');retry.className='q-btn';retry.textContent='加载失败，点击重试';retry.onclick=()=>{retry.remove();this.mount(r);};r.viewport.append(retry);r.error=e.message;}finally{r.mounting=false;}}
  createDoor(r){r.door=mountBandBadge(document.getElementById('window-layer'),{onPlay:()=>this.openBand(r)});}
  openBand(r){this.activate(r.id);r.door.hidden=true;if(!r.frame){r.bandReady=false;r.bandStarted=false;r.bandFinished=false;r.jingle=createBandJingle();r.jingle.sync({active:true,muted:this.audio.muted});r.jingle.start();const ui=mountBandStage(document.getElementById('screen'),{onClose:()=>this.closeRecord(r),onResume:()=>this.activate(r.id)});r.viewport=ui.viewport;r.bandControls=ui.close;this.mount(r);}}
  fit(r){if(r.id==='cookie-band'){if(r.frame)fitBandFrame(r.frame);return;}if(!r.win)return;
@@ -134,7 +141,7 @@ export class ModuleDesktop {
   if(m.source==='cookie-host-adapter'&&m.projectId===r.id){
    if(m.type==='pointer'&&Number.isFinite(m.u)&&Number.isFinite(m.v)&&r.frame){const b=r.frame.getBoundingClientRect();this.wanderers.pointerClient(b.x+Math.max(0,Math.min(1,m.u))*b.width,b.y+Math.max(0,Math.min(1,m.v))*b.height);}
    if(m.type==='engagement')this.touchRecord(r);
-   if(m.type==='ready'){r.sentActive=null;if(r.id==='khapse'&&r.expanded)this.fit(r);this.syncActivity();}
+   if(m.type==='ready'){this.finishLoading(r);}
    if(m.type==='content-size'&&!r.cover&&r.win&&['dubai-disco','oreo','thai-flower'].includes(r.id)&&Number(m.height)>30&&Number(m.height)<4000){r.contentHeight=Number(m.height);this.fitContent(r);}
    if(m.type==='natural-size'&&this.review&&r.win&&['khapse','thai-flower','gingerbread','oreo'].includes(r.id)){
     const height=Number(m.height);

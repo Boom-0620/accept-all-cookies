@@ -3,15 +3,15 @@ export function mountDesktopMotion({id,container}) {
  if(id==='oreo')return mountRollingOreo(container);
  if(id!=='dubai-disco')return mountIdleDetails(id,container);
  const layer=document.createElement('div');layer.className='desktop-film-preview';layer.setAttribute('aria-hidden','true');
- const video=document.createElement('video');const movie='/accept-all-cookies/modules/dubai-disco/assets/video/desert-disco.mp4';video.poster='/accept-all-cookies/modules/dubai-disco/assets/images/poster.png';
+ const video=document.createElement('video');video.poster='/accept-all-cookies/modules/dubai-disco/assets/images/poster.webp';
  video.muted=true;video.defaultMuted=true;video.loop=true;video.playsInline=true;video.preload='none';video.tabIndex=-1;
  const label=document.createElement('span');label.textContent='♪ DESERT DISCO · 点击播放有声广告';layer.append(video,label);container.append(layer);
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');let state={active:false,hidden:false},dead=false;
  const sync=next=>{if(dead)return;state=next;layer.hidden=state.active;const playing=!state.active&&!state.hidden&&!reduced.matches;
   if(playing&&video.getAttribute('src')){video.muted=true;video.play().catch(()=>{});}else video.pause();};
- const startTimer=setTimeout(()=>{if(dead)return;video.src=movie;sync(state);},8000);
+ // Keep the lightweight poster here; the real movie loads when its window is opened.
  const change=()=>sync(state);reduced.addEventListener('change',change);sync(state);
- return {element:layer,sync,destroy(){dead=true;clearTimeout(startTimer);video.pause();video.removeAttribute('src');video.load();layer.remove();reduced.removeEventListener('change',change);}};
+ return {element:layer,sync,destroy(){dead=true;video.pause();video.removeAttribute('src');video.load();layer.remove();reduced.removeEventListener('change',change);}};
 }
 
 function mountIdleDetails(id,container){

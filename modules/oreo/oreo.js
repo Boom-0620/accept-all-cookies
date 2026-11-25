@@ -139,7 +139,7 @@
       later(beginLick, 1100);
     }
   }
-  const creamImage = new Image(); creamImage.src = 'assets/cream.png';
+  const creamImage = new Image(); creamImage.src = 'assets/cream.webp';
   function drawCream() {
     ctx.clearRect(0,0,240,240);
     ctx.save(); ctx.beginPath(); ctx.arc(120,120,99,0,Math.PI*2); ctx.clip();

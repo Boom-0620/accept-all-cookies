@@ -56,7 +56,7 @@
 
 /* Small purple-and-gold oracle, using an existing cookie cutout. */
 .cq-window-cover-fortune-cookie{border:3px double #eac77c;background:#301b42;color:#ffe6a0}
-.cq-window-cover-fortune-cookie .cq-cover-open{display:grid;grid-template-rows:31px minmax(0,1fr) 21px;gap:0;padding:3px;background-color:#2e1b3c;background-image:linear-gradient(#2e1b3c44,#2e1b3c11),url('/accept-all-cookies/modules/fortune-cookie/assets/fortune-atlas.png');background-size:auto,200% 200%;background-position:0 0;background-repeat:no-repeat;font-family:Georgia,'Songti SC','SimSun',serif}
+.cq-window-cover-fortune-cookie .cq-cover-open{display:grid;grid-template-rows:31px minmax(0,1fr) 21px;gap:0;padding:3px;background-color:#2e1b3c;background-image:linear-gradient(#2e1b3c44,#2e1b3c11),url('/accept-all-cookies/modules/fortune-cookie/assets/fortune-atlas.webp');background-size:auto,200% 200%;background-position:0 0;background-repeat:no-repeat;font-family:Georgia,'Songti SC','SimSun',serif}
 .cq-cover-fortune-title{font:bold 12px/15px Georgia,serif;letter-spacing:.4px;text-shadow:1px 1px #1f102b}
 .cq-cover-fortune-title small{font:12px/15px 'Songti SC','SimSun',serif;letter-spacing:3px}
 .cq-cover-fortune-scene{position:relative;min-height:0;overflow:visible}
@@ -72,7 +72,7 @@
 @keyframes cq-paper-float{0%,100%{transform:translateX(-2px) rotate(-7deg)}50%{transform:translateX(3px) rotate(-4deg)}}
 @keyframes cq-fortune-twinkle{0%,100%{opacity:.45;transform:scale(.85)}50%{opacity:1;transform:scale(1.1)}}
 /* Compact invitation: fixed text rows, a separate illustration, no overprinted label. */
-.cq-window-cover-fortune-cookie .cq-cover-open{grid-template-columns:1fr;grid-template-rows:29px minmax(0,1fr) 19px;gap:2px;padding:4px;background-image:linear-gradient(#251032bb,#2e1b3c44),url('/accept-all-cookies/modules/fortune-cookie/assets/fortune-atlas.png')}
+.cq-window-cover-fortune-cookie .cq-cover-open{grid-template-columns:1fr;grid-template-rows:29px minmax(0,1fr) 19px;gap:2px;padding:4px;background-image:linear-gradient(#251032bb,#2e1b3c44),url('/accept-all-cookies/modules/fortune-cookie/assets/fortune-atlas.webp')}
 .cq-cover-fortune-title{font-size:8px;line-height:11px;letter-spacing:.3px;white-space:nowrap;align-self:center}
 .cq-cover-fortune-title small{font-size:11px;line-height:16px;letter-spacing:1px;white-space:nowrap}
 .cq-cover-fortune-scene{overflow:hidden;min-height:0}

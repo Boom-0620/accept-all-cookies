@@ -1,6 +1,6 @@
 export const PHOTO_CATALOG = {
   "01_oreo": {
-    "src": "./assets/photos/01_oreo.png",
+    "src": "./assets/photos/01_oreo.webp",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oreo-Two-Cookies.png",
     "originalUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Oreo-Two-Cookies.png/3840px-Oreo-Two-Cookies.png",
     "credit": "Wikimedia Commons; see original file credits",
@@ -9,7 +9,7 @@ export const PHOTO_CATALOG = {
     "verified": "existing-source-archive"
   },
   "02_chocolate_chunk": {
-    "src": "./assets/photos/02_chocolate_chunk.png",
+    "src": "./assets/photos/02_chocolate_chunk.webp",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Choco_chip_cookie.png",
     "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Choco_chip_cookie.png",
     "credit": "Wikimedia Commons; see original file credits",
@@ -160,7 +160,7 @@ export const PHOTO_CATALOG = {
     "verified": "delivered-module-source-notes"
   },
   "46_dubai_chewy": {
-    "src": "./assets/photos/46_dubai_chewy.png",
+    "src": "./assets/photos/46_dubai_chewy.webp",
     "sourceUrl": "https://english.visitkorea.or.kr/svc/contents/contentsView.do?dataSetId=120&menuSn=929&vcontsId=1570855",
     "originalUrl": "https://english.visitkorea.or.kr/public/assets/shoppinglikealocal/img/event/2602/1-1.png",
     "credit": "Korea Tourism Organization / VISITKOREA (2026)",

@@ -65,7 +65,7 @@ export class Game {
       this.raf = requestAnimationFrame(loop);
       const dt = Math.min(0.05, (t - this.lastT) / 1000);
       this.lastT = t;
-      this.tick(dt);
+      if (!document.hidden && this.windowCtl.isVisible?.() !== false) this.tick(dt);
     };
     this.raf = requestAnimationFrame(loop);
 

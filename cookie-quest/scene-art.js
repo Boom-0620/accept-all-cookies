@@ -1,10 +1,10 @@
 import { separateArtwork, paintSeparatedLayer, drawBirds } from './animated-art.js';
 /* Hand-drawn pixel scenes: one shared palette and a fixed logical pixel grid. */
 import { drawMap, drawText, drawCookie as drawFallbackCookie } from './art.js';
-const incenseFront = new Image(); incenseFront.src='./assets/incense-chibi.png';
-const sprites = new Image(); sprites.src='./assets/characters.png';
-const reference = new Image(); reference.src='./assets/reference-board.png';
-const landscapes = new Image(); landscapes.src='./assets/landscapes.png';
+const incenseFront = new Image(); incenseFront.src='./assets/incense-chibi.webp';
+const sprites = new Image(); sprites.src='./assets/characters.webp';
+const reference = new Image(); reference.src='./assets/reference-board.webp';
+const landscapes = new Image(); landscapes.src='./assets/landscapes.webp';
 export const sourceArt = { reference, landscapes, sprites };
 const ready = image => image.complete && image.naturalWidth > 0;
 const ink = '#513346';

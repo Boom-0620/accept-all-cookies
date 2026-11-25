@@ -78,7 +78,7 @@ export class BootSequence {
     const splash = document.createElement('div'); splash.id = 'boot-splash';
     const cv = document.createElement('canvas');cv.width=864;cv.height=540;
     splash.append(cv);this.bootLayer.append(splash);
-    const reference=new Image();reference.src='./assets/reference-flow.png';
+    const reference=new Image();reference.src='./assets/reference-flow.webp';
     let progress=0;
     const paint=()=>{
       const g=cv.getContext('2d');g.imageSmoothingEnabled=false;
