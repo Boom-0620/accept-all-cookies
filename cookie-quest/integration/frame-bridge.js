@@ -79,5 +79,5 @@
  }
  operation();document.documentElement.classList.add('cq-paused');send('ready');
  });
- window.CookieHostBridge=Object.freeze({setActive,getState:()=>({active,muted,dead,pendingFrames:frames.size,pendingTimers:tasks.size,audioContexts:[...contexts].map(c=>c.state),playingMedia:[...document.querySelectorAll('audio,video')].filter(m=>!m.paused).length})});
+ window.CookieHostBridge=Object.freeze({setActive,networkTimeout:native.timeout,clearNetworkTimeout:native.clearTimeout,getState:()=>({active,muted,dead,pendingFrames:frames.size,pendingTimers:tasks.size,audioContexts:[...contexts].map(c=>c.state),playingMedia:[...document.querySelectorAll('audio,video')].filter(m=>!m.paused).length})});
 })();

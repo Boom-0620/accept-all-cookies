@@ -20,7 +20,7 @@
   {
     "id": "timtam",
     "folder": "timtam",
-    "entry": "index.html?embed=1",
+    "entry": "host.html?v=5eb693e83e0f&embed=1",
     "title": "Tim Tam Slam",
     "kind": "ad",
     "x": 80,
@@ -58,7 +58,7 @@
   {
     "id": "khapse",
     "folder": "khapse",
-    "entry": "dist/embed.html",
+    "entry": "dist/host.html?v=08aac4f0f476",
     "title": "KHAPSE.EXE",
     "kind": "tall",
     "x": 739,
@@ -96,7 +96,7 @@
   {
     "id": "kungu",
     "folder": "kungu",
-    "entry": "index.html",
+    "entry": "host.html?v=8dac75e7c014",
     "title": "吃掉这些字母",
     "kind": "square",
     "x": 296,
@@ -169,7 +169,7 @@
   {
     "id": "oreo",
     "folder": "oreo",
-    "entry": "index.html",
+    "entry": "host.html?v=8a9d459a3d13",
     "title": "OREO · TWIST! LICK! DUNK!",
     "kind": "ad",
     "x": 122,

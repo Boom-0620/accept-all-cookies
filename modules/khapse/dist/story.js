@@ -92,8 +92,10 @@
       intro(f.index,f.progress);if(elapsed>=DURATION)layer.style.opacity=String(1-clamp((elapsed-DURATION)/FADE));
     }
     function finish(){if(dead)return;active=false;held=false;layer.hidden=true;options.onComplete?.();}
+    const networkTimeout=window.CookieHostBridge?.networkTimeout||window.setTimeout.bind(window),clearNetworkTimeout=window.CookieHostBridge?.clearNetworkTimeout||window.clearTimeout.bind(window);
     let remaining=Object.keys(files).length+1,failed=false;
-    function loaded(){if(dead)return;if(--remaining===0){ready=!failed;if(ready)render();else finish();}}
+    const loadingDeadline=networkTimeout(()=>{if(dead||ready)return;failed=true;finish();},12000);
+    function loaded(){if(dead)return;if(--remaining===0){clearNetworkTimeout(loadingDeadline);ready=Object.values(images).every(img=>img.naturalWidth>0);failed=!ready;if(ready)render();else finish();}}
     Object.entries({...files,gold:'../khapse-atlas.webp'}).forEach(([key,file])=>{const img=new Image();images[key]=img;img.onload=loaded;img.onerror=()=>{failed=true;loaded();};img.src=options.assets?.[key]||new URL(file,options.assetBase||new URL('assets/story-v3/',location.href)).href;});
     return {
       advance(ms){if(dead||!active||!ready)return;elapsed+=Math.max(0,ms);if(mode==='ending'){elapsed=Math.min(ENDING_DURATION,elapsed);render();if(elapsed>=ENDING_DURATION){active=false;held=true;options.onEndingComplete?.();}return;}
@@ -103,7 +105,7 @@
       end(result,count){if(dead)return;mode='ending';outcome=result;collected=Math.max(0,Math.min(8,count));elapsed=0;active=true;held=false;layer.hidden=false;layer.classList.add('is-ending');layer.style.opacity='1';title.textContent='新年卡塞 · 送给你';skip.hidden=true;copy.hidden=false;actions.hidden=false;layer.querySelector('.story-dots').hidden=true;copy.querySelector('h2').textContent=result==='stable'?'八份祝愿，送给你。':'饼塔散了，祝福还在。';caption.textContent=result==='stable'?'卡塞已取出，祝愿也收好了。':'这一盘新年心意，仍然送给你。';canvas.setAttribute('aria-label',result==='stable'?'把八块卡塞推向观众，送出新年祝愿':'饼塔倒塌后，仍把取出的卡塞送给观众');if(failed)finish();else render();},
       collection(target,count){const g=target.getContext('2d');g.clearRect(0,0,target.width,target.height);g.imageSmoothingEnabled=false;g.fillStyle='#6b4730';g.fillRect(8,12,184,36);g.fillStyle='#f1dca6';g.fillRect(10,13,180,32);g.strokeStyle='#a67a39';g.strokeRect(13.5,16.5,173,26);for(let j=0;j<8;j++){const x=28+(j%4)*48,y=23+Math.floor(j/4)*14;if(j<count)gold(g,x,y,35,17);else{g.fillStyle='#bda57b';g.fillRect(x-2,y,4,2);}}},
       state(){return{active,elapsed,ready,scene:frameAt(elapsed).index,mode,held,outcome};},
-      destroy(){if(dead)return;dead=true;active=false;held=false;abort.abort();Object.values(images).forEach(img=>{img.onload=null;img.onerror=null;img.src='';});layer.remove();}
+      destroy(){if(dead)return;clearNetworkTimeout(loadingDeadline);dead=true;active=false;held=false;abort.abort();Object.values(images).forEach(img=>{img.onload=null;img.onerror=null;img.src='';});layer.remove();}
     };
   }
   global.KhapseStory=Object.freeze({create,frameAt,DURATION,FADE,ENDING_DURATION,scenes,WISHES});

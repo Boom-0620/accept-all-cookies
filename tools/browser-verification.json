@@ -82,5 +82,21 @@
     "Gingerbread film photo aborted, play retries and resumes",
     "Band frame aborted, host retry restores complete performance",
     "Kungu background image held indefinitely; game stays interactive"
-  ]
+  ],
+  "stalledNetwork": {
+    "scriptNeverResponds": "octopus retry starts a fresh request, only one module instance, all nine windows preserved",
+    "spriteNeverResponds": "TimTam shows retry after 15 seconds even while inactive; fresh image request succeeds",
+    "storyImagesNeverRespond": "Khapse moves past blocked intro after 12 seconds; actual keyboard extraction still works",
+    "startupHTMLAborted": "Oreo displays retry and opens; completion count unchanged"
+  },
+  "startupPackaging": {
+    "modules": [
+      "oreo",
+      "timtam",
+      "khapse",
+      "kungu"
+    ],
+    "behavior": "Startup scripts and styles embedded into versioned host.html; host manifest bundled into main.js; media remains separately cached",
+    "regression": "Four module gameplay checks passed after packaging; main transition regression rerun"
+  }
 }
