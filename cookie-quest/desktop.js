@@ -47,7 +47,7 @@ class WindowManager {
     });
     mkBtn('t-min', () => { el.style.display = 'none'; win.minimized = true; win.onMinimize?.(); this.notify(); });
     if(maxBtn)btns.appendChild(maxBtn);
-    mkBtn('t-close', () => this.close(win));
+    const closeBtn = mkBtn('t-close', () => this.close(win));
 
     el.appendChild(tbar);
     tbar.appendChild(btns);
@@ -59,7 +59,7 @@ class WindowManager {
     this.layer.appendChild(el);
 
     const win = {
-      el, body, titleEl: tTitle, minimized: false,
+      el, body, closeBtn, titleEl: tTitle, minimized: false,
       maximized: () => el.classList.contains('maximized'),
       taskbar,
       icon,
@@ -103,6 +103,7 @@ class WindowManager {
   restore(win) { win.el.style.display = ''; win.minimized = false; this.focus(win); }
 
   close(win) {
+    if (win.canClose?.() === false) return false;
     const wasActive=!win.el.classList.contains('inactive');
     this.audio.click();
     win.onClose && win.onClose();
@@ -122,7 +123,8 @@ class WindowManager {
 
 /* ---------------- 桌面 ---------------- */
 export class Desktop {
-  constructor({ layer, windowLayer, audio, onLaunchGame, onPowerOff, onGameClosed }) {
+  constructor({ layer, windowLayer, audio, onLaunchGame, onPowerOff, onGameClosed, canExit = () => true }) {
+    this.canExit = canExit;
     this.layer = layer;
     this.wm = new WindowManager(windowLayer, audio);
     this.audio = audio;
@@ -248,6 +250,7 @@ export class Desktop {
   openBin() { this.apps.openExplorer('bin'); }
 
   openShutdownDialog() {
+    if (!this.canExit()) return;
     const win = this.wm.create({
       title: '关闭系统', x: 262, y: 210, w: 340, h: 170, taskbar: false,
     });
@@ -263,6 +266,7 @@ export class Desktop {
       </div>`;
     win.body.querySelector('#sd-cancel').addEventListener('click', () => this.wm.close(win));
     win.body.querySelector('#sd-ok').addEventListener('click', () => {
+      if (!this.canExit()) return;
       const reboot = win.body.querySelector('input[name=sd]:checked').value === 'reboot';
       this.wm.close(win);
       this.audio.thud && this.audio.thud();
@@ -330,8 +334,14 @@ export class Desktop {
       win.body.appendChild(wrap);
       win.el.id = 'game-win';
       this.gameWin = win;
+      win.canClose = () => this.canExit();
       win.onClose = () => { this.gameWin = null; this.onGameClosed && this.onGameClosed(); };
       this.onLaunchGame(wrap, {
+        setExplorationLocked: (locked) => {
+          win.closeBtn.disabled = locked;
+          win.closeBtn.title = locked ? '探索完成后，请用“返回游戏”继续' : '关闭窗口';
+          win.closeBtn.style.opacity = locked ? '0.4' : '';
+        },
         isVisible: () => win.el.style.display!=='none' && !win.el.classList.contains('inactive'),
         setMinimizeHandler: (handler) => {win.onMinimize=handler;},
         setTitle: (t) => this.wm.setTitle(win, t),

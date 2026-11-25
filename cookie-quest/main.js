@@ -39,6 +39,11 @@ let invasion = null;
 let recovery = null;
 let finale = null;
 let modules = null;
+let explorationLocked = false;
+function setExplorationLocked(locked) {
+  explorationLocked = locked;
+  windowCtlRef?.setExplorationLocked(locked);
+}
 
 function showDesktop() {
   powered = true;
@@ -49,6 +54,7 @@ function showDesktop() {
 }
 
 function powerOff(reboot = false) {
+  if (explorationLocked) return;
   modules?.destroy(); modules=null;
   powered = false;
   recovery?.destroy(); recovery = null;
@@ -77,14 +83,18 @@ function createDesktop() {
     layer: desktopLayer,
     windowLayer,
     audio,
+    canExit: () => !explorationLocked,
     onLaunchGame: (wrap, ctl) => {
       windowCtlRef = ctl;
       game = new Game(wrap, { audio, windowCtl: ctl });
+      game.canChangeFlow = () => !explorationLocked;
       recovery = new WebRecovery(document.getElementById('screen'), audio, {
         game,
         onRestore: () => { invasion?.destroy(); invasion = null; },
-        onReturn: () => { modules?.destroy();modules=null; },
+        onReturn: () => { modules?.destroy();modules=null;setExplorationLocked(false); },
         onOpenModules: () => {
+          if (explorationLocked) return true;
+          setExplorationLocked(true);
           modules?.destroy();modules=new ModuleDesktop(desktop,{audio,onReady:()=>recovery?.notify()});return true;
         },
       });
@@ -166,6 +176,7 @@ function applyDeepLink() {
 
 /* The real display provides the enclosure; opening the page boots the system. */
 function startSystem() {
+  if (explorationLocked) return;
   if (powered || boot.running) return;
   restartBtn.disabled = true;
   poweroffLayer.classList.add('hidden');

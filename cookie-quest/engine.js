@@ -182,6 +182,7 @@ export class Game {
 
   /* ---------------- 流程 ---------------- */
   showMenu() {
+    if (this.canChangeFlow?.() === false) return;
     this.ceremony = null;
     this.onMenuShown?.();
     this.state = 'menu';
@@ -206,6 +207,7 @@ export class Game {
   }
 
   menuAction(act) {
+    if (this.canChangeFlow?.() === false) return;
     this.audio.menuConfirm();
     if (act === 'start') {
       this.webRecovered = false;
@@ -224,6 +226,7 @@ export class Game {
   }
 
   startLevel(n, { skipIntro = false, afterRecovery = this.webRecovered && n === 2 } = {}) {
+    if (this.canChangeFlow?.() === false) return;
     this.ceremony = null;
     this.audio.stopMusic();
     this.particles = [];
@@ -398,6 +401,7 @@ export class Game {
 
   /** 把小厨师放到触发点前并给出一个真实跳跃（用于测试/截图） */
   devPretrigger() {
+    if (this.canChangeFlow?.() === false) return;
     const tr = this.level.trigger;
     if (!tr) return;
     this.state = 'play';
@@ -414,6 +418,7 @@ export class Game {
 
   /* ---------------- 输入 ---------------- */
   keyDown(e) {
+    if (this.canChangeFlow?.() === false) return;
     if(['frozen','ceremony','ending'].includes(this.state) || this.windowCtl.isVisible?.()===false)return;
     if(e.target?.closest?.('button,input') && !e.target.closest('.g-menu-item') && ['Enter','Space'].includes(e.code))return;
     if (GAME_KEYS.includes(e.code) || (this.state === 'menu' && e.code === 'Enter')) e.preventDefault();
