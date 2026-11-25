@@ -75,8 +75,9 @@ export class ModuleDesktop {
   const label=document.createElement('span');label.textContent='正在打开…';box.append(label);r.viewport.append(box);r.loadNotice=box;
   this.later(15000,()=>{if(r.loadNotice!==box)return;label.textContent='网络较慢，仍在加载';const retry=document.createElement('button');retry.className='q-btn';retry.textContent='重新加载';retry.onclick=()=>{if(r.mounting){label.textContent='正在连接，请稍候…';return;}r.frame?.remove();r.frame=null;this.mount(r);};box.append(retry);});
  }
- finishLoading(r){r.loadNotice?.remove();r.loadNotice=null;r.sentActive=null;this.fit(r);this.syncActivity();if(r.launchOnLoad){r.launchOnLoad=false;this.post(r,'launch');}}
- async mount(r){if(this.dead||r.frame||r.app||r.mounting)return;r.mounting=true;this.showLoading(r);try{
+ showLoadError(r){r.loadFailed=true;r.loadNotice?.remove();const box=document.createElement('div');box.className='module-load-notice';Object.assign(box.style,{position:'absolute',inset:'0',zIndex:'30',display:'grid',placeContent:'center',background:'#f5edd8'});const button=document.createElement('button');button.className='q-btn';button.textContent='加载未完成，点击重试';button.onclick=()=>{r.frame?.remove();r.frame=null;r.mounting=false;this.mount(r);};box.append(button);r.viewport.append(box);r.loadNotice=box;}
+ finishLoading(r){if(r.loadFailed){r.sentActive=null;this.syncActivity();return;}r.loadNotice?.remove();r.loadNotice=null;r.sentActive=null;this.fit(r);this.syncActivity();if(r.launchOnLoad){r.launchOnLoad=false;this.post(r,'launch');}}
+ async mount(r){if(this.dead||r.frame||r.app||r.mounting)return;r.mounting=true;r.loadFailed=false;this.showLoading(r);try{
   if(r.id==='octopus-senbei'){await loadScript('/accept-all-cookies/modules/octopus-senbei/core.js');await loadScript('/accept-all-cookies/modules/octopus-senbei/module.js');if(this.dead||!r.win)return;
    r.app=window.OctopusSenbei.mount({container:r.viewport,desktopRoot:document.getElementById('screen'),overlayRoot:this.overlay,assetBase:'/accept-all-cookies/modules/octopus-senbei/',overlayZIndex:4500,onCookie:d=>this.emit(r,d.outcome),onClose:()=>r.win&&this.wm.close(r.win),onStateChange:()=>this.checkReady(),onIconNudge:n=>document.querySelector('.d-icon')?.classList.toggle('cookie-nudged',n)});
    const css=document.createElement('style');css.textContent='.titlebar{display:none!important}.window{height:100%!important;min-height:0!important;border:0!important;padding:0!important;box-shadow:none!important}.intro{width:100%!important;margin:0!important}.intro-movie{height:320px!important}.intro-controls{height:52px}.viewport{min-height:0}';r.app.element.shadowRoot.append(css);
@@ -141,6 +142,7 @@ export class ModuleDesktop {
   if(m.source==='cookie-host-adapter'&&m.projectId===r.id){
    if(m.type==='pointer'&&Number.isFinite(m.u)&&Number.isFinite(m.v)&&r.frame){const b=r.frame.getBoundingClientRect();this.wanderers.pointerClient(b.x+Math.max(0,Math.min(1,m.u))*b.width,b.y+Math.max(0,Math.min(1,m.v))*b.height);}
    if(m.type==='engagement')this.touchRecord(r);
+   if(m.type==='load-error'){this.showLoadError(r);}
    if(m.type==='ready'){this.finishLoading(r);}
    if(m.type==='content-size'&&!r.cover&&r.win&&['dubai-disco','oreo','thai-flower'].includes(r.id)&&Number(m.height)>30&&Number(m.height)<4000){r.contentHeight=Number(m.height);this.fitContent(r);}
    if(m.type==='natural-size'&&this.review&&r.win&&['khapse','thai-flower','gingerbread','oreo'].includes(r.id)){

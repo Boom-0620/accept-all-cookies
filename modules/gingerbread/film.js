@@ -90,11 +90,12 @@
       if (frame !== lastFrame) { lastFrame = frame; draw(audio.currentTime); emit('timeupdate'); }
       raf = win.requestAnimationFrame(tick);
     }
-    const imageReady = Promise.all(pictures.map((img, index) => new Promise((resolve, reject) => {
+    function loadPictures(){visualLoadError=null;return Promise.all(pictures.map((img, index) => new Promise((resolve, reject) => {
       img.onload = resolve;
       img.onerror = () => reject(new Error('Unable to load ' + frameNames[index]));
       img.src = assetURL(frameNames[index]);
-    }))).then(() => { ready = true; if (!released) draw(0); }, (error) => { visualLoadError = error; emit('error'); });
+    }))).then(() => { ready = true; if (!released) draw(0); }, (error) => { visualLoadError = error; emit('error'); });}
+    let imageReady=loadPictures();
     on('playing', () => { ended = false; cancelFrame(); lastFrame = -1; emit('playing'); tick(); });
     on('pause', () => { cancelFrame(); emit('pause'); });
     on('waiting', () => emit('waiting'));
@@ -109,6 +110,8 @@
         const ticket = ++request;
         if (ended) { audio.currentTime = 0; ended = false; }
         // Invoke audio.play inside the user's click. The audio clock owns the entire timeline.
+        if(visualLoadError)imageReady=loadPictures();
+        if(audio.error)audio.load();
         const started = audio.play();
         await Promise.race([Promise.all([imageReady, started]), interrupted]);
         if (released || ticket !== request) throw new win.DOMException('Playback interrupted', 'AbortError');

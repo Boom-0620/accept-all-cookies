@@ -78,9 +78,13 @@
     if(cmd==='cookie-orchestra:mute') {audioEnabled=false;sound.pause();soundButton.setAttribute('aria-pressed','false');soundButton.textContent='试听旧版配乐（关闭）';}
   });
   // Local relative assets: preloading helps prevent GIF-like frame jitter.
+  function prepare(){
+  status.textContent='正在准备演出…';
   Promise.all(Array.from({length:frameCount},(_,n)=>new Promise((resolve,reject)=>{
     const pic=new Image();pic.onload=resolve;pic.onerror=()=>reject(new Error('frame_'+n+' failed'));pic.src=frameURL(n);
   }))).then(()=>{draw(0);update();emit('module:ready');if(p.get('autoplay')!=='0') play();})
-    .catch(err=>{status.textContent='资源加载失败：'+err.message; console.error(err);});
+    .catch(()=>{if(window.CookieHostBridge)parent.postMessage({source:'cookie-host-adapter',projectId:'cookie-band',type:'load-error'},location.origin);status.textContent='演出图片加载失败，点击重试 ';const retry=document.createElement('button');retry.textContent='重新加载';retry.onclick=prepare;status.append(retry);});
+  }
+  prepare();
   window.cookieOrchestra={play,pause,replay,getStatus:()=>({frame:i,playing:isPlaying,completed})};
 })();

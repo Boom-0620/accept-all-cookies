@@ -69,7 +69,7 @@
         return true;
       } catch (error) {
         if (destroyed || request !== playingRequest || error.name === 'AbortError') return false;
-        status.textContent = '无法播放，请检查素材路径后重试';
+        status.textContent = '暂时无法播放，请点击播放重试';
         $('.loading').hidden = true;
         return false;
       }

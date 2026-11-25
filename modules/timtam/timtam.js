@@ -327,7 +327,7 @@ function create(container,options={}){
  bind(shell,'keyup',e=>held.delete(e.code),{capture:true});
  bind(document,'pointerdown',e=>{if(!e.composedPath().includes(host))setActive(false);},{capture:true});
  bind(document,'focusin',()=>{if(!hasFocus())setActive(false);});bind(global,'blur',()=>setActive(false));bind(document,'visibilitychange',()=>{if(document.hidden)setActive(false);});
- sprite.onload=()=>{if(destroyed)return;loaded=true;$('.loading').hidden=true;draw();};sprite.onerror=()=>{if(destroyed)return;$('.loading').textContent='饼干素材未能加载，请检查 assets/biscuits.webp。';};if(sprite.complete&&sprite.naturalWidth)sprite.onload();
+ sprite.onload=()=>{if(destroyed)return;loaded=true;$('.loading').hidden=true;draw();};sprite.onerror=()=>{if(destroyed)return;const box=$('.loading');box.replaceChildren();const retry=document.createElement('button');retry.className='raised';retry.textContent='饼干图片加载失败，点击重试';retry.onclick=()=>{if(destroyed)return;box.textContent='正在重新加载饼干…';sprite.src=base+'assets/biscuits.webp?retry='+Date.now();};box.append(retry);};if(sprite.complete&&sprite.naturalWidth)sprite.onload();
  $('.sound').textContent=muted?'声音：关':'声音：开';fit();draw();
  return Object.freeze({start,pause,resume,setActive,destroy,getState:()=>({phase:state,mode,active,paused,destroyed,ready:loaded,sips:[...sips],elapsed,winner,practice,bites,bitesLeft:6-bites,rewardReady:state==='trophy'&&trophyTime>=1.1,nextDirections:sips.map(n=>ARROWS[n%4]),completed:completed.has(key)}),element:host});
 }

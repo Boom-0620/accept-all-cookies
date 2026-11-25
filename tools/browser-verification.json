@@ -37,7 +37,9 @@
   "limitations": [
     "No Windows real-device test",
     "Local HTTP network throttling is not a measurement of GitHub Pages worldwide",
-    "Opening smoke tests do not cover every game ending"
+    "Main platform levels were tested using developer checkpoints for handoffs, not a full manual playthrough of both levels",
+    "Camera permission/device flow and every alternate game ending are not covered",
+    "Local changes require publishing before remote users receive fixes"
   ],
   "kunguBlockedAssets": {
     "lakeRequest": "held indefinitely",
@@ -49,5 +51,36 @@
   "networkRetry": {
     "octopusCoreFirstRequest": "failed",
     "retrySucceeded": true
-  }
+  },
+  "actualInteractions": {
+    "fortune-cookie": "crack and pull; completion collected",
+    "oreo": "twist, clear cream, dunk; completion collected",
+    "timtam": "tutorial, practice, challenge win; completion collected",
+    "thai-flower": "mouse drawing, mold, dip, fry, bag; completion collected",
+    "khapse": "keyboard extraction, collapsed ending; completion collected",
+    "octopus-senbei": "capture, coat, press, bake, open, snap; completion collected",
+    "dubai-disco": "full playback, background pause/resume, completion collected",
+    "gingerbread": "full playback, background pause/resume, completion collected",
+    "cookie-band": "full performance after image failure and retry; completion collected",
+    "kungu": "keyboard brush, catch, gather, press, fry and eat; completion collected"
+  },
+  "mainFlow": {
+    "boot": "passed",
+    "newGameAndMovement": "passed",
+    "consentAndModuleCreation": "passed via developer checkpoint",
+    "incompleteCloseRespawn": "passed",
+    "duplicateCompletionIgnored": "passed via actual child-window protocol messages",
+    "earlyReturnBlocked": "passed",
+    "gameCloseBlocked": "passed",
+    "returnToLevel2AndDisposeModules": "passed",
+    "endingAnd47CookieGallery": "passed via developer trophy checkpoint",
+    "galleryNextInfoDIY": "passed"
+  },
+  "failureRecovery": [
+    "Oreo required script aborted, visible retry restores module, count remains zero",
+    "TimTam sprite aborted, retry restores ready state",
+    "Gingerbread film photo aborted, play retries and resumes",
+    "Band frame aborted, host retry restores complete performance",
+    "Kungu background image held indefinitely; game stays interactive"
+  ]
 }

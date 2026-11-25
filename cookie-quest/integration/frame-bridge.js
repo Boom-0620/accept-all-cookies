@@ -7,6 +7,7 @@
  let active=false,dead=false,muted=false,pausedAt=native.now(),elapsedPaused=0;
  const tasks=new Map(),frames=new Map(),contexts=new Set(),playing=new Set(),media=new Set();let seq=0,gingerPlaying=false,timtamPlaying=false;
  const send=(type,detail={})=>parent.postMessage({source:'cookie-host-adapter',projectId:id,type,...detail},origin);
+ document.addEventListener('error',event=>{const el=event.target;if(el?.tagName==='SCRIPT'||el?.tagName==='LINK'&&el.rel==='stylesheet')send('load-error');},true);
  const clock=()=>active?native.now()-elapsedPaused:pausedAt-elapsedPaused;
  try{performance.now=clock;}catch(_){}
  function arm(t){t.start=native.now();t.native=native.timeout(()=>{if(!active||dead)return;t.native=null;if(!t.interval)tasks.delete(t.id);else t.remaining=t.delay;try{typeof t.fn==='function'?t.fn(...t.args):(0,eval)(String(t.fn));}finally{if(t.interval&&tasks.has(t.id)&&active)arm(t);}},t.remaining);}

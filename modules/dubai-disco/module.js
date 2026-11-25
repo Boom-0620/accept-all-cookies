@@ -44,6 +44,7 @@
     active = true;
     if (document.hidden) { resumeWhenVisible = true; return false; }
     try {
+      if(video.error)video.load();
       await video.play();
       return true;
     } catch (error) {
@@ -76,6 +77,7 @@
   };
   const setMuted = value => { video.muted = Boolean(value); update(); };
   const onReady = () => {
+    document.getElementById('error').hidden=true;
     update();
     if (readySent) return;
     readySent = true; emit('ready');
