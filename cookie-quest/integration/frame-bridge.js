@@ -3,6 +3,7 @@
  if(new URLSearchParams(location.search).get('cq-host')!=='1')return;
  const id=location.pathname.split('/').filter(Boolean)[location.pathname.split('/').filter(Boolean).indexOf('modules')+1], origin=location.origin;
  const native={raf:requestAnimationFrame.bind(window),caf:cancelAnimationFrame.bind(window),timeout:setTimeout.bind(window),clearTimeout:clearTimeout.bind(window),now:performance.now.bind(performance)};
+ document.addEventListener('error',event=>{const img=event.target;if(!(img instanceof HTMLImageElement)||!img.src)return;const attempt=Number(img.dataset.cqRetry||0);if(attempt>=2)return;img.dataset.cqRetry=String(attempt+1);native.timeout(()=>{if(dead||!img.isConnected)return;const url=new URL(img.src);url.searchParams.set('cq-retry',String(attempt+1));img.src=url.href;},1500*(attempt+1));},true);
  let active=false,dead=false,muted=false,pausedAt=native.now(),elapsedPaused=0;
  const tasks=new Map(),frames=new Map(),contexts=new Set(),playing=new Set(),media=new Set();let seq=0,gingerPlaying=false,timtamPlaying=false;
  const send=(type,detail={})=>parent.postMessage({source:'cookie-host-adapter',projectId:id,type,...detail},origin);

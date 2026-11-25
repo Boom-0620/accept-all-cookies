@@ -124,6 +124,7 @@ export function mountWindowCover({id, container, onEnter, available = true}) {
   }
   element.append(button);
   container.append(element);
+  element.addEventListener('error',event=>{const img=event.target;if(!(img instanceof HTMLImageElement)||!img.src)return;const attempt=Number(img.dataset.cqRetry||0);if(attempt>=2)return;img.dataset.cqRetry=String(attempt+1);setTimeout(()=>{if(!img.isConnected)return;const url=new URL(img.src);url.searchParams.set('cq-retry',String(attempt+1));img.src=url.href;},1500*(attempt+1));},true);
   const snow = id === 'gingerbread' ? mountSnowGlobe(button.querySelector('.cq-cover-christmas-photo')) : null;
   let dead = false, entering = false;
   if (id === 'fortune-cookie') originalFortuneArtwork(document).then(art => {

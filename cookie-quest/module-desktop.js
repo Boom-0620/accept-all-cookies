@@ -61,25 +61,25 @@ export class ModuleDesktop {
   r.motion=mountDesktopMotion({id:r.id,container:win.body});
   const shield=document.createElement('button');shield.className='module-focus-shield';shield.setAttribute('aria-label','激活 '+r.title);shield.onclick=()=>{this.wm.focus(win);if(r.kind==='preview'&&!r.expanded)this.expand(r);else if(r.poster)this.enterTower(r);};win.body.append(shield);r.shield=shield;
   if(r.kind==='preview'&&!r.cover){const enter=document.createElement('button');enter.className='q-btn module-enter';enter.textContent='进入网页 ↗';enter.onclick=()=>{this.wm.focus(win);this.expand(r);};win.body.append(enter);r.enter=enter;}
-  this.mount(r);this.syncActivity();this.wm.notify();
+  if(!r.cover&&!r.poster&&r.id!=='dubai-disco')this.mount(r);this.syncActivity();this.wm.notify();
  }
- openCover(r){if(!r.cover||!r.win)return;this.wm.focus(r.win);r.cover.destroy();r.cover=null;r.win.el.classList.remove('has-cover');
+ openCover(r){if(!r.cover||!r.win)return;if(r.id==='gingerbread')r.launchOnLoad=true;this.mount(r);this.wm.focus(r.win);r.cover.destroy();r.cover=null;r.win.el.classList.remove('has-cover');
   if(r.kind==='preview'){this.expand(r);}
   if(r.id==='kungu'){Object.assign(r.win.el.style,{left:'315px',top:'217px',width:'300px',height:'304px'});this.fit(r);}
   if(r.id==='fortune-cookie'){Object.assign(r.win.el.style,{left:'12px',top:'252px',width:'278px',height:'288px'});this.fit(r);}
   this.syncActivity();if(r.id==='gingerbread')this.post(r,'launch');
  }
- async mount(r){try{
+ async mount(r){if(this.dead||r.frame||r.app||r.mounting)return;r.mounting=true;try{
   if(r.id==='octopus-senbei'){await loadScript('/accept-all-cookies/modules/octopus-senbei/core.js');await loadScript('/accept-all-cookies/modules/octopus-senbei/module.js');if(this.dead||!r.win)return;
    r.app=window.OctopusSenbei.mount({container:r.viewport,desktopRoot:document.getElementById('screen'),overlayRoot:this.overlay,assetBase:'/accept-all-cookies/modules/octopus-senbei/',overlayZIndex:4500,onCookie:d=>this.emit(r,d.outcome),onClose:()=>r.win&&this.wm.close(r.win),onStateChange:()=>this.checkReady(),onIconNudge:n=>document.querySelector('.d-icon')?.classList.toggle('cookie-nudged',n)});
    const css=document.createElement('style');css.textContent='.titlebar{display:none!important}.window{height:100%!important;min-height:0!important;border:0!important;padding:0!important;box-shadow:none!important}.intro{width:100%!important;margin:0!important}.intro-movie{height:320px!important}.intro-controls{height:52px}.viewport{min-height:0}';r.app.element.shadowRoot.append(css);
    if(this.review){const preview=document.createElement('style');preview.textContent='.intro .intro-content{display:none!important}.intro .main-content[hidden]{display:flex!important}.intro .menu,.intro .toolbar{display:none!important}.intro .banner{height:94px;min-height:0}.intro .banner h1{font-size:36px}.intro .banner p{font-size:14px}.intro .welcome{padding:4px 12px}.intro .navigation{padding:5px 12px}.intro .chapter{padding:10px}.intro .chapter h2{font-size:18px}.intro .ocean{height:230px}.intro .viewport{overflow:hidden}.intro .statusbar{display:none}';r.app.element.shadowRoot.append(preview);}
-   r.sentActive=null;this.fit(r);this.syncActivity();return;}
+   r.sentActive=null;this.fit(r);this.syncActivity();if(r.expanded)r.app?.start();return;}
   const url=new URL('/accept-all-cookies/modules/'+r.id+'/'+r.entry,location.href);url.searchParams.set('cq-host','1');url.searchParams.set('parentOrigin',location.origin);
   if(this.review)url.searchParams.set('layout','review');
   const iframe=document.createElement('iframe');iframe.title=r.title;iframe.allow='autoplay; camera';iframe.src=url.href;iframe.dataset.projectId=r.id;r.frame=iframe;r.viewport.append(iframe);
-  iframe.addEventListener('load',()=>{if(this.dead||r.frame!==iframe)return;r.sentActive=null;this.fit(r);this.syncActivity();});this.fit(r);
- }catch(e){r.viewport.textContent='模块暂时无法载入：'+e.message;r.error=e.message;}}
+  iframe.addEventListener('load',()=>{if(this.dead||r.frame!==iframe)return;r.sentActive=null;this.fit(r);this.syncActivity();if(r.launchOnLoad){r.launchOnLoad=false;this.post(r,'launch');}});this.fit(r);
+ }catch(e){r.viewport.textContent='模块暂时无法载入：'+e.message;r.error=e.message;}finally{r.mounting=false;}}
  createDoor(r){r.door=mountBandBadge(document.getElementById('window-layer'),{onPlay:()=>this.openBand(r)});}
  openBand(r){this.activate(r.id);r.door.hidden=true;if(!r.frame){r.bandReady=false;r.bandStarted=false;r.bandFinished=false;r.jingle=createBandJingle();r.jingle.sync({active:true,muted:this.audio.muted});r.jingle.start();const ui=mountBandStage(document.getElementById('screen'),{onClose:()=>this.closeRecord(r),onResume:()=>this.activate(r.id)});r.viewport=ui.viewport;r.bandControls=ui.close;this.mount(r);}}
  fit(r){if(r.id==='cookie-band'){if(r.frame)fitBandFrame(r.frame);return;}if(!r.win)return;
@@ -94,7 +94,7 @@ export class ModuleDesktop {
   const maxHeight=505-extraH;if(height>maxHeight){width=Math.floor(width*maxHeight/height);el.style.width=(width+extraW)+'px';height=r.contentHeight*width/r.nativeWidth;}
   el.style.height=Math.ceil(height+extraH)+'px';el.style.top=Math.min(el.offsetTop,540-el.offsetHeight)+'px';this.fit(r);
  }
- enterTower(r){if(!r.win)return;this.wm.focus(r.win);r.poster?.remove();r.poster=null;r.expanded=true;r.nativeWidth=390;r.win.el.classList.add('module-expanded');Object.assign(r.win.el.style,{left:'674px',top:'12px',width:'178px',height:'520px'});this.fitTower(r);this.syncActivity();}
+ enterTower(r){if(!r.win)return;this.mount(r);this.wm.focus(r.win);r.poster?.remove();r.poster=null;r.expanded=true;r.nativeWidth=390;r.win.el.classList.add('module-expanded');Object.assign(r.win.el.style,{left:'674px',top:'12px',width:'178px',height:'520px'});this.fitTower(r);this.syncActivity();}
  fitTower(r){if(!r.win||!r.expanded)return;const el=r.win.el,extraH=el.offsetHeight-r.viewport.clientHeight,extraW=el.offsetWidth-r.viewport.clientWidth;
   // Fit the whole original portrait page: the tower and lower controls stay visible.
   const natural=r.naturalHeight||1260,reference=Math.max(1260,natural),width=Math.min(178,Math.floor((520-extraH-2)*390/reference)+extraW);
@@ -102,7 +102,7 @@ export class ModuleDesktop {
   Object.assign(el.style,{width:width+'px',height:height+'px'});el.style.left=Math.min(el.offsetLeft,854-width)+'px';this.fit(r);
  }
  naturalSize(r,natural){r.naturalHeight=natural;if(r.poster||!r.win)return;if(natural>70&&natural<2200){const extra=r.win.el.offsetHeight-r.viewport.clientHeight,h=Math.min(425,Math.max(88,Math.ceil(natural*r.viewport.clientWidth/r.nativeWidth+extra)));r.win.el.style.height=h+'px';r.win.el.style.top=Math.min(r.win.el.offsetTop,535-h)+'px';this.fit(r);}}
- activate(id){if(this.dead)return;if(id&&this.characterTune)this.stopCharacterMusic(false);if(id!==this.active){const previous=this.records.get(this.active);if(previous)previous.busy=false;this.active=id;this.quietUntil=Math.max(this.quietUntil,performance.now()+600);}this.syncActivity();this.checkReady();}
+ activate(id){if(this.dead)return;if(id==='dubai-disco'){const r=this.records.get(id);if(r)this.mount(r);}if(id&&this.characterTune)this.stopCharacterMusic(false);if(id!==this.active){const previous=this.records.get(this.active);if(previous)previous.busy=false;this.active=id;this.quietUntil=Math.max(this.quietUntil,performance.now()+600);}this.syncActivity();this.checkReady();}
  playCharacterMusic(){
   if(this.dead||this.audio.muted)return;
   if(this.characterTune){this.stopCharacterMusic();return;}
