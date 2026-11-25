@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN" data-cookie-module="fortune-cookie">
+<head><script src="/accept-all-cookies/cookie-quest/integration/frame-bridge.js"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2d0c42">
+<title>Fortune Cookie Online · 幸运饼干占卜</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='53'%3E🥠%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+<main class="page" id="page">
+ <section class="fortune-window" id="fortune-window" aria-label="Fortune Cookie Online" data-phase="sealed">
+  <header class="titlebar">
+   <span class="title-cookie" aria-hidden="true">🥠</span>
+   <span class="window-title">Fortune Cookie Online</span>
+   <div class="window-controls">
+    <button id="minimize" aria-label="最小化占卜窗口">−</button>
+    <button id="maximize" aria-label="放大占卜窗口">□</button>
+    <button id="close" aria-label="关闭占卜窗口">×</button>
+   </div>
+  </header>
+  <div class="stage" id="stage">
+   <div class="stage-art" aria-hidden="true"></div>
+   <svg class="arched-title" viewBox="0 0 640 110" aria-label="Fortune Cookie" role="img">
+    <defs><path id="title-arc" d="M 70,99 Q 320,-14 570,99"/></defs>
+    <text><textPath href="#title-arc" startOffset="50%" text-anchor="middle">FORTUNE COOKIE</textPath></text>
+   </svg>
+   <h1 class="ribbon"><span>✦ 幸运饼干占卜 ✦</span></h1>
+   <div class="star star-a" aria-hidden="true">✦</div><div class="star star-b" aria-hidden="true">✧</div><div class="star star-c" aria-hidden="true">✦</div>
+   <button class="question-entry" id="question-entry" aria-haspopup="dialog" aria-label="提问" disabled>?</button>
+   <div class="cookie-scene" id="cookie-scene">
+    <button class="whole-cookie" id="whole-cookie" aria-label="掰开幸运饼干" disabled><canvas data-sprite="whole" width="768" height="512" aria-hidden="true"></canvas></button>
+    <canvas class="cookie-half half-left" data-sprite="left" width="768" height="512" aria-hidden="true"></canvas>
+    <canvas class="cookie-half half-right" data-sprite="right" width="768" height="512" aria-hidden="true"></canvas>
+    <div class="crumbs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <button class="paper-tab" id="paper-tab" aria-label="抽出纸签" hidden></button>
+    <div class="fortune-paper" id="fortune-paper" aria-hidden="true">
+     <span class="paper-star" aria-hidden="true">✦</span><p id="fortune-text"></p><span class="paper-star" aria-hidden="true">✦</span>
+    </div>
+   </div>
+   <button class="ornate-button" id="main-action" disabled><span id="action-text">掰开饼干</span><span id="action-icon" aria-hidden="true">✦</span></button>
+   <button class="followup-action" id="followup-action" hidden>追问一句 ↗</button>
+   <button class="sound-toggle" id="sound" aria-pressed="true" aria-label="关闭声音">♪</button>
+   <div class="question-overlay" id="question-overlay" hidden>
+    <div class="question-scrim" id="question-scrim"></div>
+    <form class="question-sheet" id="question-form" role="dialog" aria-modal="true" aria-labelledby="question-heading">
+     <button class="question-close" id="question-cancel" type="button" aria-label="关闭提问">×</button>
+     <label class="visually-hidden" id="question-heading" for="question-input">提问</label>
+     <textarea id="question-input" maxlength="80" rows="2" placeholder="把问题写在这里…" autocomplete="off" spellcheck="false"></textarea>
+     <div class="question-actions"><button id="question-submit" type="submit">问问饼干</button><button id="question-skip" type="button">随便抽一签</button></div>
+    </form>
+   </div>
+   <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+  </div>
+ </section>
+</main>
+<button class="restore-tab" id="restore-tab" aria-label="重新打开占卜窗口" hidden>🥠 Fortune Cookie Online</button>
+<noscript><p class="no-script">请启用 JavaScript。</p></noscript>
+<script src="assets/atlas-data.js"></script><script src="fortunes.js"></script><script src="questions.js"></script><script src="app.js"></script>
+</body>
+</html>

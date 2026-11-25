@@ -1,0 +1,39 @@
+{
+  "projectId": "oreo",
+  "title": "奥利奥：TWIST! LICK! DUNK!",
+  "entry": "index.html",
+  "preview": "preview.html",
+  "offlinePreview": "standalone-preview.html",
+  "completion": {
+    "type": "cookie",
+    "projectId": "oreo",
+    "outcome": "dunked",
+    "oncePerDocument": true
+  },
+  "effects": {
+    "event": "oreo:effect",
+    "helper": "effects.js",
+    "mountIsOptIn": true,
+    "maxDurationMs": 10000
+  },
+  "targetDurationSeconds": [
+    25,
+    35
+  ],
+  "externalDependencies": [],
+  "brandOfficial": false,
+  "version": "2.2.1",
+  "visualEffects": [
+    "page-scatter",
+    "page-blur",
+    "page-crumple-into-milk"
+  ],
+  "completionAfterAnimationMs": 4200,
+  "music": {
+    "entry": "music.js",
+    "original": true,
+    "bpm": 116,
+    "startsOnInteraction": true,
+    "stopsOnClose": true
+  }
+}

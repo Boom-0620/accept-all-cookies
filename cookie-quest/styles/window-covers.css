@@ -1,0 +1,90 @@
+/* Small, independent period-web invitations; original modules own all gameplay. */
+.cq-window-cover{position:absolute;inset:0;z-index:11;overflow:hidden;container-type:size;animation:cq-cover-arrive .42s steps(5,end) both;isolation:isolate}
+.cq-window-cover,.cq-window-cover *{box-sizing:border-box}
+.cq-window-cover .cq-cover-open{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;border-radius:0;overflow:hidden;text-align:center;color:inherit;font:inherit;cursor:pointer;appearance:none;-webkit-appearance:none}
+.cq-window-cover span,.cq-window-cover strong,.cq-window-cover small,.cq-window-cover em{display:block}
+.cq-window-cover img{display:block;max-width:100%;image-rendering:pixelated;pointer-events:none;user-select:none}
+.cq-window-cover .cq-cover-open:focus-visible{outline:2px dotted currentColor;outline-offset:-5px}
+.cq-window-cover .cq-cover-open:disabled{cursor:default}
+.cq-window-cover .cq-cover-open:active{filter:brightness(.94)}
+@keyframes cq-cover-arrive{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+/* A printed recipe at the lake: small black type, blue scan, real module pan. */
+.cq-window-cover-kungu{color:#25301e;background:#eee7cc;border:1px solid #929275;box-shadow:inset 0 0 0 2px #faf5dd}
+.cq-window-cover-kungu .cq-cover-open{display:grid;grid-template-rows:34px 14px minmax(0,1fr) 21px;gap:0;padding:3px;background:repeating-linear-gradient(93deg,#9b8c1b06 0 1px,transparent 1px 4px),#eee7cc;font-family:'Songti SC','SimSun',Georgia,serif}
+.cq-cover-kungu-heading{padding-top:1px}
+.cq-cover-kungu-heading strong{font-size:17px;letter-spacing:1.4px;line-height:20px}
+.cq-cover-kungu-heading small{font:7px/10px Georgia,serif;letter-spacing:1.25px}
+.cq-cover-kungu-links{border-top:1px solid #b7b293;color:#303e6e;font-size:8px;line-height:14px;white-space:nowrap}
+.cq-cover-kungu-links b{margin:0 4px;color:#69684a}
+.cq-cover-kungu-lake{position:relative;min-height:0;overflow:hidden;border:1px solid #8d967f;background:#8daab4}
+.cq-cover-lake-image{width:100%;height:100%;object-fit:cover;object-position:center 68%;filter:contrast(1.06)}
+.cq-cover-water{position:absolute;left:0;right:-9px;top:52%;bottom:0;background:repeating-linear-gradient(177deg,transparent 0 9px,#c4d7d51f 9px 10px,transparent 10px 15px);animation:cq-water-drift 6s steps(6,end) infinite}
+.cq-cover-letters{position:absolute;inset:0;overflow:hidden}
+.cq-cover-letters i{position:absolute;left:var(--x);top:-18px;font:bold italic 13px/1 Georgia,serif;color:#172122;text-shadow:1px 0 #ddd8b944;animation:cq-letter-drift var(--duration) linear var(--delay) infinite}
+.cq-window-cover .cq-cover-pan{position:absolute;left:28%;bottom:4%;width:65%;height:51%;object-fit:contain;transform-origin:38% 62%;animation:cq-pan-rock 5s steps(8,end) infinite}
+.cq-cover-kungu-enter{align-self:center;font-size:11px;line-height:17px;color:#252b21;letter-spacing:1px}
+.cq-cover-kungu-enter b{margin-left:8px;font-family:Arial,sans-serif;color:#66582e}
+@keyframes cq-water-drift{50%{transform:translateX(-7px)}}
+@keyframes cq-letter-drift{0%{transform:translate(0,-4px) rotate(-8deg);opacity:0}9%{opacity:1}82%{opacity:1}100%{transform:translate(var(--drift),124px) rotate(16deg);opacity:0}}
+@keyframes cq-pan-rock{0%,45%,100%{transform:rotate(-2deg)}55%,70%{transform:rotate(2deg)}}
+
+/* Christmas catalogue: ribbon header, film photograph and a short paper column. */
+.cq-window-cover-gingerbread{border:3px solid #faf0cf;background:#a52b26;color:#fce8a3;box-shadow:inset 0 0 0 1px #692420}
+.cq-window-cover-gingerbread .cq-cover-open{display:grid;grid-template-rows:40px 17px minmax(0,1fr) 16px;gap:2px;padding:4px;background:repeating-linear-gradient(135deg,#b82925 0 6px,#f7e8bd 6px 9px,#b82925 9px 14px);font-family:Georgia,'Songti SC','SimSun',serif}
+.cq-cover-christmas-head{position:relative;overflow:hidden;background:#164d37;border:1px solid #d9b760;text-shadow:1px 1px #6a211c}
+.cq-cover-christmas-head small{font:bold 8px/10px Georgia,serif;letter-spacing:1.7px;padding-top:3px}
+.cq-cover-christmas-head strong{font:bold 25px/25px Georgia,serif;letter-spacing:2px}
+.cq-cover-lights{position:absolute;inset:0;pointer-events:none}
+.cq-cover-lights i{position:absolute;top:4px;left:4%;width:3px;height:3px;background:#ffd664;box-shadow:0 0 4px #ffdb57;animation:cq-christmas-light 3.2s steps(2,end) infinite}
+.cq-cover-lights i:nth-child(2){left:10%;top:21px;animation-delay:-1.2s}.cq-cover-lights i:nth-child(3){left:16%;top:5px;animation-delay:-.6s}.cq-cover-lights i:nth-child(4){left:83%;top:5px;animation-delay:-1.7s}.cq-cover-lights i:nth-child(5){left:89%;top:23px;animation-delay:-2.2s}.cq-cover-lights i:nth-child(6){left:95%;top:5px;animation-delay:-.9s}.cq-cover-lights i:nth-child(7){left:50%;top:36px;animation-delay:-1.5s}
+.cq-cover-christmas-nav{background:#8b1e20;border-block:1px solid #cfac58;font:bold italic 10px/15px Georgia,serif;word-spacing:5px;white-space:nowrap}
+.cq-cover-christmas-nav b{font-weight:normal;color:#d5a74d}
+.cq-cover-christmas-body{display:grid!important;grid-template-columns:65% 1fr;min-height:0;gap:3px;background:#f5ebcb;padding:3px}
+.cq-cover-christmas-photo{position:relative;min-width:0;min-height:0;overflow:hidden;border:1px solid #6b3929;background:#4d2d1f}
+.cq-cover-christmas-photo img{width:100%;height:100%;object-fit:cover;object-position:49% 42%;filter:saturate(.9) contrast(1.06)}
+.cq-cover-christmas-copy{display:flex!important;flex-direction:column;align-items:center;justify-content:center;min-height:0;color:#772524;overflow:hidden}
+.cq-cover-holly{font:16px/15px Georgia;color:#255e3a;text-shadow:3px 1px #a32c2b}
+.cq-cover-christmas-copy strong{font-size:12px;line-height:15px;letter-spacing:1px}
+.cq-cover-christmas-copy em{margin-top:3px;font:italic 9px/10px Georgia,serif;color:#5e422d}
+.cq-cover-film-enter{position:absolute;left:5px;bottom:5px;padding:4px 7px;border:1px solid #e6be75;background:#9a2824;color:#fff1c7;font:bold 10px/12px Georgia,serif;white-space:nowrap;box-shadow:1px 1px #44241e}
+.cq-cover-christmas-foot{background:#f4e9ca;color:#31543b;font:7px/16px Georgia,serif;letter-spacing:1.3px;white-space:nowrap}
+.cq-cover-christmas-foot span{display:inline;margin-left:8px;color:#a82f29}
+.cq-cover-snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;image-rendering:pixelated}
+.cq-cover-film-enter{z-index:1}
+@keyframes cq-christmas-light{0%,70%,100%{opacity:.95}40%{opacity:.3;box-shadow:none}}
+
+/* Small purple-and-gold oracle, using an existing cookie cutout. */
+.cq-window-cover-fortune-cookie{border:3px double #eac77c;background:#301b42;color:#ffe6a0}
+.cq-window-cover-fortune-cookie .cq-cover-open{display:grid;grid-template-rows:31px minmax(0,1fr) 21px;gap:0;padding:3px;background-color:#2e1b3c;background-image:linear-gradient(#2e1b3c44,#2e1b3c11),url('/accept-all-cookies/modules/fortune-cookie/assets/fortune-atlas.png');background-size:auto,200% 200%;background-position:0 0;background-repeat:no-repeat;font-family:Georgia,'Songti SC','SimSun',serif}
+.cq-cover-fortune-title{font:bold 12px/15px Georgia,serif;letter-spacing:.4px;text-shadow:1px 1px #1f102b}
+.cq-cover-fortune-title small{font:12px/15px 'Songti SC','SimSun',serif;letter-spacing:3px}
+.cq-cover-fortune-scene{position:relative;min-height:0;overflow:visible}
+.cq-cover-fortune-orbit{position:absolute;inset:8% 19%;border:1px dotted #b68e58;opacity:.6;border-radius:50%}
+.cq-window-cover .cq-cover-fortune-cookie{position:absolute;left:16%;top:1%;width:68%;height:100%;object-fit:contain;filter:contrast(1.05) drop-shadow(2px 3px 0 #1e0a2855);animation:cq-fortune-float 5.2s ease-in-out infinite;pointer-events:none}
+.cq-cover-fortune-paper{position:absolute;left:51%;top:43%;width:43%;padding:4px 0;background:#fff0c4;border:1px solid #bc8a4c;box-shadow:1px 2px #1b0b2e66;color:#59354b;font:6px/8px Georgia,serif;letter-spacing:.5px;transform:rotate(-7deg);animation:cq-paper-float 5.2s ease-in-out infinite}
+.cq-cover-fortune-stars{position:absolute;inset:0;pointer-events:none}
+.cq-cover-fortune-stars i{position:absolute;left:12%;top:18%;font:14px/1 Georgia;color:#f8d37e;animation:cq-fortune-twinkle 4s ease-in-out infinite}
+.cq-cover-fortune-stars i:nth-child(2){left:82%;top:5%;font-size:20px;animation-delay:-1.6s}.cq-cover-fortune-stars i:nth-child(3){left:77%;top:74%;font-size:10px;animation-delay:-2.5s}.cq-cover-fortune-stars i:nth-child(4){left:23%;top:83%;animation-delay:-.7s}
+.cq-cover-fortune-enter{align-self:center;font-size:11px;line-height:18px;letter-spacing:1px;border-top:1px solid #a77e4f66}
+.cq-cover-fortune-enter b{margin-left:5px;font-family:Arial,sans-serif}
+@keyframes cq-fortune-float{0%,100%{transform:translateY(1px) rotate(-4deg)}50%{transform:translateY(-2px) rotate(1deg)}}
+@keyframes cq-paper-float{0%,100%{transform:translateX(-2px) rotate(-7deg)}50%{transform:translateX(3px) rotate(-4deg)}}
+@keyframes cq-fortune-twinkle{0%,100%{opacity:.45;transform:scale(.85)}50%{opacity:1;transform:scale(1.1)}}
+/* Compact invitation: fixed text rows, a separate illustration, no overprinted label. */
+.cq-window-cover-fortune-cookie .cq-cover-open{grid-template-columns:1fr;grid-template-rows:29px minmax(0,1fr) 19px;gap:2px;padding:4px;background-image:linear-gradient(#251032bb,#2e1b3c44),url('/accept-all-cookies/modules/fortune-cookie/assets/fortune-atlas.png')}
+.cq-cover-fortune-title{font-size:8px;line-height:11px;letter-spacing:.3px;white-space:nowrap;align-self:center}
+.cq-cover-fortune-title small{font-size:11px;line-height:16px;letter-spacing:1px;white-space:nowrap}
+.cq-cover-fortune-scene{overflow:hidden;min-height:0}
+.cq-window-cover .cq-cover-fortune-cookie{left:10%;top:2%;width:80%;height:94%;object-fit:contain}
+.cq-cover-fortune-orbit{inset:6% 22%}
+.cq-cover-fortune-enter{font-size:10px;line-height:18px;letter-spacing:1px;white-space:nowrap;background:#30163eeb;border-top:1px solid #a77e4f;align-self:stretch}
+.cq-cover-fortune-enter b{display:inline;margin-left:3px}
+.cq-cover-fortune-stars i{font-size:9px}.cq-cover-fortune-stars i:nth-child(2){font-size:12px}
+.cq-window-cover.cq-cover-unavailable .cq-cover-fortune-enter{color:#d7b7cd}
+@media(prefers-reduced-motion:reduce){
+  .cq-window-cover,.cq-window-cover *{animation:none!important;transition:none!important}
+  .cq-cover-letters i{top:20%;transform:translateY(calc(var(--x) * .4))}
+  .cq-cover-letters i:nth-child(2n){top:45%}
+  .cq-cover-letters i:nth-child(3n){top:65%}
+}

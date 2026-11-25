@@ -1,0 +1,13 @@
+MediaPipe Tasks Vision 0.10.18
+Source: https://registry.npmjs.org/@mediapipe/tasks-vision/-/tasks-vision-0.10.18.tgz
+License: Apache-2.0 (see licenses/MediaPipe-Apache-2.0.txt)
+Bundled: vision_bundle.mjs, SIMD and non-SIMD WASM/JS runtimes, upstream package metadata and README.
+
+MediaPipe Hand Landmarker float16 model, version 1
+Source: https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task
+Bundled: assets/models/hand_landmarker.task
+
+Artwork: original user-provided reference.png; reproduced without redesign.
+Fonts: system font stack only. No externally downloaded font or audio asset in the confirmed version.
+
+Dependency files downloaded for this delivery on 2026-11-17.

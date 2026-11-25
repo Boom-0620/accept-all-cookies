@@ -1,0 +1,122 @@
+[
+  {
+    "id": "03_fortune",
+    "name": "幸运饼干",
+    "source": "https://en.wikipedia.org/wiki/Fortune_cookie"
+  },
+  {
+    "id": "05_pizzelle",
+    "name": "意大利压花薄饼 Pizzelle",
+    "source": "https://en.wikipedia.org/wiki/Pizzelle"
+  },
+  {
+    "id": "06_melarat",
+    "name": "沙炒脆饼",
+    "source": "https://rri.co.id/semarang/kuliner/1804664/kerupuk-melarat-jajanan-goreng-pasir-khas-cirebon"
+  },
+  {
+    "id": "08_mealworm",
+    "name": "黄粉虫粉实验饼干",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9543436/"
+  },
+  {
+    "id": "09_wasp",
+    "name": "黄蜂仙贝",
+    "source": "https://en.wikipedia.org/wiki/Wasp_cracker"
+  },
+  {
+    "id": "15_milk",
+    "name": "钙奶饼干",
+    "source": "https://zh.wikipedia.org/wiki/钙奶饼干"
+  },
+  {
+    "id": "16_almond",
+    "name": "杏仁饼",
+    "source": "https://en.wikipedia.org/wiki/Almond_biscuit"
+  },
+  {
+    "id": "17_gingersnap",
+    "name": "姜味脆饼",
+    "source": "https://en.wikipedia.org/wiki/Ginger_snap"
+  },
+  {
+    "id": "23_stroopwafel",
+    "name": "荷兰糖浆华夫饼",
+    "source": "https://en.wikipedia.org/wiki/Stroopwafel"
+  },
+  {
+    "id": "24_springerle",
+    "name": "浮雕茴香饼",
+    "source": "https://en.wikipedia.org/wiki/Springerle"
+  },
+  {
+    "id": "25_krumkake",
+    "name": "挪威卷筒薄饼",
+    "source": "https://en.wikipedia.org/wiki/Krumkake"
+  },
+  {
+    "id": "26_kapit",
+    "name": "东南亚蛋卷薄饼",
+    "source": "https://en.wikipedia.org/wiki/Kuih_kapit"
+  },
+  {
+    "id": "28_khapse",
+    "name": "藏区卡塞",
+    "source": "https://en.wikipedia.org/wiki/Khapse"
+  },
+  {
+    "id": "29_maamoul",
+    "name": "马阿穆勒模印夹心饼",
+    "source": "https://en.wikipedia.org/wiki/Ma%27amoul"
+  },
+  {
+    "id": "30_kleicha",
+    "name": "伊拉克克莱恰",
+    "source": "https://en.wikipedia.org/wiki/Kleicha"
+  },
+  {
+    "id": "31_kahk",
+    "name": "埃及卡赫节庆饼",
+    "source": "https://en.wikipedia.org/wiki/Kahk"
+  },
+  {
+    "id": "32_dasik",
+    "name": "韩国茶食",
+    "source": "https://en.wikipedia.org/wiki/Dasik"
+  },
+  {
+    "id": "33_berenji",
+    "name": "伊朗米粉饼",
+    "source": "https://en.wikipedia.org/wiki/Nan-e_berenji"
+  },
+  {
+    "id": "35_ghriba",
+    "name": "北非格里巴酥饼",
+    "source": "https://en.wikipedia.org/wiki/Ghriba"
+  },
+  {
+    "id": "38_nokhodchi",
+    "name": "伊朗鹰嘴豆粉饼",
+    "source": "https://en.wikipedia.org/wiki/Nan-e_nokhodchi"
+  },
+  {
+    "id": "42_senbei",
+    "name": "日本米制仙贝",
+    "source": "https://en.wikipedia.org/wiki/Senbei"
+  },
+  {
+    "id": "43_hardtack",
+    "name": "航海硬饼干",
+    "source": "https://en.wikipedia.org/wiki/Hardtack"
+  },
+  {
+    "id": "44_papad",
+    "name": "南亚豆粉薄脆",
+    "source": "https://en.wikipedia.org/wiki/Papadam"
+  },
+  {
+    "id": "45_kulit",
+    "name": "动物皮脆片",
+    "source": "https://en.wikipedia.org/wiki/Krupuk_kulit"
+  }
+]

@@ -1,0 +1,250 @@
+/* C / classic-teal 98. This is a host-only skin; embedded projects stay intact. */
+body.paper98 {
+  --paper98-font: "Microsoft Sans Serif", Tahoma, Arial, "PingFang SC", sans-serif;
+  --paper98-face: #c0c0c0;
+  --paper98-edge: #77766f;
+  --paper98-active: linear-gradient(90deg, #a74613 0%, #b85b20 58%, #cf873a 100%);
+}
+
+/* Keep boot screens and the game's own palette independent of the wallpaper. */
+body.paper98 #desktop-layer,
+body.paper98.visual-v2.module-layout-review #desktop-layer {
+  background: #008080;
+  image-rendering: pixelated;
+}
+body.paper98 .invasion-wordmark {
+  top: 8px;
+  right: 10px;
+  color: #f1efda;
+  font: 700 7px/1.15 "Courier New", monospace;
+  letter-spacing: .7px;
+  text-shadow: none;
+}
+body.paper98 #desktop-layer .d-icon {
+  width: 62px;
+  gap: 2px;
+  padding: 3px 1px;
+}
+body.paper98 #desktop-layer .d-icon canvas { width: 24px; height: 24px; }
+body.paper98 #desktop-layer .d-icon .label {
+  max-width: 62px;
+  padding: 1px 2px;
+  color: #24231f;
+  background: #fffaf0;
+  font: 400 8px/1.25 var(--paper98-font);
+  text-shadow: none;
+}
+body.paper98 #desktop-layer .d-icon.selected .label {
+  color: white;
+  background: #000080;
+  outline: 1px dotted #fff;
+  outline-offset: -1px;
+}
+
+/* One-pixel bevels, narrow caption strips and the original rectangular controls. */
+body.paper98 .qwindow,
+body.paper98.visual-v2.module-layout-review .module-window {
+  --rim: var(--paper98-face);
+  padding: 2px;
+  border: 1px solid;
+  border-color: #f7f6f0 #35352f #35352f #f7f6f0;
+  border-radius: 0;
+  background: var(--paper98-face);
+  box-shadow: inset -1px -1px #898880, 1px 1px #413b3038;
+}
+body.paper98 .qwindow > .tbar,
+body.paper98.visual-v2.module-layout-review .module-window > .tbar {
+  height: 14px;
+  min-height: 14px;
+  flex: 0 0 14px;
+  gap: 3px;
+  padding: 1px 1px 1px 3px;
+  background: var(--paper98-active);
+}
+body.paper98 .qwindow.inactive > .tbar,
+body.paper98.visual-v2.module-layout-review .module-window.inactive > .tbar {
+  background: linear-gradient(90deg, #777975, #a2a39d);
+}
+body.paper98 .qwindow > .tbar .t-title,
+body.paper98.visual-v2.module-layout-review .module-window > .tbar .t-title {
+  color: #fffef7;
+  font: 700 9px/12px var(--paper98-font);
+  letter-spacing: 0;
+  text-shadow: none;
+}
+body.paper98 .qwindow > .tbar canvas { width: 11px; height: 11px; }
+body.paper98 .qwindow > .tbar .tbtns { gap: 1px; }
+body.paper98 .qwindow > .tbar .tbtn,
+body.paper98.visual-v2.module-layout-review .module-window > .tbar .tbtn {
+  width: 12px;
+  min-width: 12px;
+  height: 11px;
+  padding: 0;
+  border-radius: 0;
+  background: var(--paper98-face);
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #282923, inset -2px -2px #83847e;
+}
+body.paper98 .qwindow > .tbar .tbtn:active {
+  box-shadow: inset 1px 1px #555750, inset -1px -1px #f8f7ef;
+}
+body.paper98 .qwindow > .tbar .tbtn:focus-visible {
+  outline: 1px dotted #222;
+  outline-offset: -3px;
+}
+body.paper98 .qwindow > .tbar .t-close::before,
+body.paper98 .qwindow > .tbar .t-close::after,
+body.paper98.visual-v2.module-layout-review .module-window > .tbar .t-close::before,
+body.paper98.visual-v2.module-layout-review .module-window > .tbar .t-close::after {
+  width: 7px;
+  height: 1px;
+}
+body.paper98 .qwindow > .tbar .t-min::after,
+body.paper98.visual-v2.module-layout-review .module-window > .tbar .t-min::after {
+  left: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 1px;
+}
+body.paper98 .qwindow > .tbar .t-max::after {
+  left: 3px;
+  top: 2px;
+  width: 6px;
+  height: 6px;
+  border-width: 1px;
+  border-top-width: 2px;
+}
+body.paper98 .qwindow > .tbar .t-max.maxed::before {
+  left: 4px;
+  top: 3px;
+  width: 5px;
+  height: 5px;
+  border-width: 1px;
+}
+body.paper98.visual-v2.module-layout-review .module-window > .tbar::before {
+  width: 10px;
+  height: 10px;
+  flex-basis: 10px;
+  font-size: 9px;
+  line-height: 10px;
+  text-shadow: none;
+}
+body.paper98.visual-v2.module-layout-review .module-window .module-body {
+  margin-top: 1px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #7f8077 #f7f7ee #f7f7ee #7f8077;
+  outline: 0;
+}
+body.paper98.visual-v2.module-layout-review .module-enter {
+  font: 9px/13px var(--paper98-font);
+  padding: 2px 6px;
+}
+
+/* The taskbar is small enough to read as a system, with every story still reachable. */
+body.paper98 #taskbar {
+  height: 24px;
+  gap: 3px;
+  padding: 3px 3px 2px;
+  background: var(--paper98-face);
+  box-shadow: inset 0 1px #fff, inset 0 2px #e2e1d9;
+}
+body.paper98 #start-btn {
+  height: 19px;
+  gap: 3px;
+  padding: 0 5px;
+  background: var(--paper98-face);
+  font: 700 10px var(--paper98-font);
+}
+body.paper98 #start-btn canvas { width: 13px; height: 13px; }
+body.paper98 #taskbar .tb-app {
+  height: 18px;
+  min-width: 36px;
+  max-width: 130px;
+  gap: 3px;
+  padding: 0 5px;
+  background: var(--paper98-face);
+  font: 400 9px var(--paper98-font);
+  box-shadow: inset 1px 1px #f7f7ef, inset -1px -1px #4c4c45, inset -2px -2px #8b8c83;
+}
+body.paper98 #taskbar .tb-app span { font-size: 9px; }
+body.paper98 #taskbar .tb-app canvas { width: 11px; height: 11px; }
+body.paper98 #taskbar .tb-app[data-project-id]::before { font-size: 10px; }
+body.paper98 #taskbar .tb-app.active {
+  background: repeating-conic-gradient(#ebeae3 0% 25%, #dcdcd4 0% 50%) 0 0/2px 2px;
+  box-shadow: inset 1px 1px #606159, inset -1px -1px #fffef6;
+  font-weight: 700;
+}
+body.paper98 #tray { height: 18px; gap: 5px; padding: 0 5px; }
+body.paper98 #tray canvas { width: 12px; height: 12px; }
+body.paper98 #clock { min-width: 31px; font: 400 9px var(--paper98-font); }
+body.paper98 #start-menu {
+  bottom: 24px;
+  width: 168px;
+  background: var(--paper98-face);
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #383932, 1px 1px #24251f4d;
+}
+body.paper98 #start-menu .banner {
+  width: 21px;
+  background: linear-gradient(180deg, #83441f, #b17940);
+  color: #fff9e9;
+  font: 700 11px var(--paper98-font);
+  letter-spacing: 2px;
+}
+body.paper98 #start-menu .mi { gap: 6px; padding: 6px 8px; font: 400 10px var(--paper98-font); }
+
+/* Compact the host's own Explorer and browser chrome, not the project iframes. */
+body.paper98 .classic-app { font-family: var(--paper98-font); font-size: 10px; }
+body.paper98 .classic-menubar { height: 18px; gap: 12px; padding: 0 5px; font-size: 9px; }
+body.paper98 .classic-toolbar { min-height: 29px; gap: 4px; padding: 2px 4px; }
+body.paper98 .classic-toolbar .q-btn { height: 23px; min-width: 48px; padding: 0 5px; font-size: 9px; }
+body.paper98 .classic-address { height: 22px; gap: 5px; padding: 2px 4px; font-size: 9px; }
+body.paper98 .classic-address output,
+body.paper98 .classic-address input { height: 18px; padding: 3px 5px; font: 9px var(--paper98-font); }
+body.paper98 .classic-address .q-btn { height: 18px; min-width: 29px; padding: 0 5px; font-size: 9px; }
+body.paper98 .classic-status { min-height: 17px; margin-top: 2px; padding: 3px 5px; font-size: 9px; }
+body.paper98 .explorer-sidebar { width: 125px; padding: 13px 10px; }
+body.paper98 .explorer-sidebar h3 { font-size: 13px; }
+body.paper98 .explorer-sidebar p { font-size: 10px; }
+body.paper98 .explorer-files { grid-template-columns: repeat(auto-fill,minmax(76px,1fr)); grid-auto-rows: 69px; gap: 3px; padding: 9px; }
+body.paper98 .file-item { gap: 4px; font: 9px/1.35 var(--paper98-font); }
+body.paper98 .file-item > canvas { width: 24px; height: 24px; }
+body.paper98 .sys-doc { padding: 10px; font: 10px/1.65 var(--paper98-font); }
+body.paper98 .sys-doc h4 { font-size: 10px; }
+body.paper98 .sys-empty { font-size: 10px; }
+
+/* Preserve the art direction inside each cover; trim only oversized mastheads. */
+body.paper98.visual-v2 .cq-cover-christmas-head strong { font-size: 23px; letter-spacing: 1px; }
+body.paper98.visual-v2 .cq-cover-christmas-copy strong { font-size: 11px; line-height: 15px; }
+body.paper98 .v2-thai-mast { font-size: 16px; line-height: 24px; }
+body.paper98 .v2-thai-copy strong { font-size: 14px; line-height: 18px; }
+body.paper98 .v2-ocean-head strong { font-size: 20px; line-height: 25px; letter-spacing: 0; }
+body.paper98 .v2-ocean-head small { font-size: 9px; letter-spacing: 0; }
+body.paper98.visual-v2 .cq-cover-kungu-heading strong { font-size: 14px; line-height: 18px; }
+body.paper98 .ambient-ad { box-shadow: 1px 1px #5c51352e; }
+body.paper98 .ambient-caption { background: #83847b; font-family: var(--paper98-font); }
+
+/* No soft overlay effects on the system layer; focus remains visible. */
+body.paper98 #start-btn:focus-visible,
+body.paper98 .tb-app:focus-visible { outline: 1px dotted #25251e; outline-offset: -4px; }
+
+/* A small IE-style frame only for the formal ocean webpage preview. */
+body.paper98.visual-v2 .cq-window-cover-octopus-senbei .cq-cover-open {
+  grid-template-rows: 12px 20px 16px 38px 17px minmax(0,1fr);
+  gap: 1px;
+}
+body.paper98 .paper98-browser-menu {
+  padding: 0 4px; background: #c0c0c0; color: #222;
+  font: 8px/12px var(--paper98-font); border-bottom: 1px solid #888;
+}
+body.paper98 .paper98-browser-tools {
+  padding: 1px 4px; background: #c0c0c0; color: #222;
+  font: 8px/18px var(--paper98-font); border-top: 1px solid #fff; border-bottom: 1px solid #888;
+}
+body.paper98 .paper98-browser-tools i { display: inline; font: bold 12px/16px Tahoma,sans-serif; color: #185492; font-style: normal; }
+body.paper98 .v2-ocean-address { padding: 0 4px; font: 8px/14px var(--paper98-font); }
+body.paper98 .v2-ocean-head { padding: 2px 6px; }
+body.paper98 .v2-ocean-head strong { font-size: 19px; line-height: 22px; }
+body.paper98 .v2-ocean-head small { font-size: 8px; line-height: 10px; }
+body.paper98 .v2-ocean-nav { font-size: 9px; line-height: 15px; }
+body.paper98 .tower-links { font-size: 8px; padding: 0 3px; }
+body.paper98 .ambient-fresh { display: none; }

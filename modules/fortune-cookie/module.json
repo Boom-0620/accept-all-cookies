@@ -1,0 +1,33 @@
+{
+  "id": "fortune-cookie",
+  "projectId": "fortune-cookie",
+  "name": "Fortune Cookie Online · 幸运饼干占卜",
+  "version": "2026.11.17-final",
+  "entry": "index.html",
+  "embed": "index.html?embed=1",
+  "standalone": "fortune-cookie.html",
+  "preferredSize": {
+    "width": 640,
+    "height": 596
+  },
+  "completion": {
+    "type": "cookie:complete",
+    "outcome": "fortune-read",
+    "oncePerMount": true
+  },
+  "closeRequest": "cookie:request-close",
+  "pause": "cookie:pause",
+  "resume": "cookie:resume",
+  "destroy": "cookie:destroy",
+  "requiresNetwork": false,
+  "requiresServer": false,
+  "requiresCamera": false,
+  "validation": "static-and-state-checked; browser-QA-pending",
+  "features": [
+    "single-window",
+    "question-icon",
+    "optional-question",
+    "themed-local-fortune",
+    "one-followup-per-draw"
+  ]
+}

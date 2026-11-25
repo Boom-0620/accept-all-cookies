@@ -1,0 +1,104 @@
+/* V2: lighter system chrome, distinct media, composed overlaps. */
+.visual-v2.module-layout-review #desktop-layer{background:#007b7b}
+.visual-v2 .invasion-wordmark{top:6px;right:12px;font-size:9px;line-height:1;letter-spacing:1px;z-index:5}
+.visual-v2.module-layout-review .module-window{border-width:1px;padding:2px;box-shadow:1px 1px #111,3px 3px #003a3a77}
+.visual-v2.module-layout-review .module-window>.tbar{height:16px;min-height:16px;flex-basis:16px;background:#000080}
+.visual-v2.module-layout-review .module-window.inactive>.tbar{background:#777d7c}
+.visual-v2.module-layout-review .module-window>.tbar .t-title{font:700 10px/14px Tahoma,Arial,sans-serif}
+.visual-v2.module-layout-review .module-body{border-width:1px;margin-top:1px}
+.visual-v2.module-layout-review .chrome-advert>.tbar,.visual-v2.module-layout-review .chrome-wafer>.tbar{height:13px;min-height:13px;flex-basis:13px}
+.visual-v2 .chrome-christmas .cq-window-cover{border:1px solid #efdbb2}
+.visual-v2 .chrome-fortune .cq-window-cover{border:1px solid #c9a264}
+.visual-v2 .chrome-fortune .cq-cover-open{padding:3px;grid-template-rows:25px minmax(0,1fr) 17px}
+.visual-v2 .cq-cover-fortune-title{font-size:8px;line-height:10px}
+.visual-v2 .cq-cover-fortune-title small{font-size:10px;line-height:13px}
+.visual-v2 .cq-cover-fortune-enter{font-size:10px;line-height:16px}
+.visual-v2 .cq-window-cover-kungu .cq-cover-open{grid-template-rows:28px 12px minmax(0,1fr) 20px}
+.visual-v2 .cq-cover-kungu-heading strong{font-size:16px;line-height:18px}
+.visual-v2 .cq-cover-kungu-heading small{font-size:7px;line-height:9px}
+.visual-v2 .cq-cover-kungu-links{font-size:8px;line-height:12px}
+.visual-v2 .cq-cover-christmas-body{grid-template-columns:73% 1fr}
+.visual-v2 .cq-cover-christmas-head strong{font-size:27px;letter-spacing:1.5px}
+.visual-v2 .cq-cover-christmas-copy strong{font-size:12px;line-height:17px}
+.visual-v2 .cq-cover-christmas-copy em{font-size:9px;line-height:13px}
+.visual-v2 .tower-masthead{font-size:18px;margin-top:8px}
+.visual-v2 .tower-masthead small{font-size:8px;letter-spacing:0}
+.visual-v2 .tower-picture img{left:-25%;top:-5%;width:150%;height:110%;object-fit:contain;max-width:none}
+.visual-v2 .tower-picture{background:linear-gradient(90deg,#dfc894,#fff2d0 20%,#fff2d0 80%,#dfc894)}
+.visual-v2 .tower-foot{font-size:8px;white-space:nowrap;line-height:20px}
+.visual-v2 .desktop-film-preview>span{font-size:8px;padding:2px 5px;background:#241507b0}
+.visual-v2 .tb-app{gap:2px;min-width:40px}
+.visual-v2 .tb-app span{font-size:10px}
+.visual-v2 .tb-app[data-project-id] canvas{display:none}
+.visual-v2 .tb-app[data-project-id]::before{content:'▪';color:#595955;font-size:14px}
+.visual-v2 .tb-app[data-project-id='gingerbread']::before{content:'✦';color:#952c25}
+.visual-v2 .tb-app[data-project-id='fortune-cookie']::before{content:'✧';color:#713361}
+.visual-v2 .tb-app[data-project-id='thai-flower']::before{content:'✿';color:#af1e65}
+.visual-v2 .tb-app[data-project-id='octopus-senbei']::before{content:'≈';color:#075a89}
+.visual-v2 .tb-app[data-project-id='oreo']::before{content:'●';color:#39291e}
+.visual-v2 .tb-app[data-project-id='khapse']::before{content:'♟';color:#91601f}
+.visual-v2 .tb-app[data-project-id='kungu']::before{content:'k';color:#323e27;font-family:Georgia}
+/* Thai market invitation at actual screen size, not a shrunk full webpage. */
+.visual-v2 .cq-window-cover-thai-flower .cq-cover-open{display:grid;grid-template-rows:26px 1fr;background:repeating-linear-gradient(90deg,#f5aaca 0 4px,#ffd1df 4px 8px);color:#9a184c;padding:3px}
+.v2-thai-mast{background:#ffe44c;border:1px solid #ae8542;font:bold 19px/24px Impact,Arial,sans-serif;text-align:left;padding-left:7px;color:#143a92;white-space:nowrap}
+.v2-thai-mast small{display:inline!important;font:9px Georgia;color:#a9274a;margin-left:6px}
+.v2-thai-main{display:flex!important;min-height:0;gap:7px;align-items:stretch;padding:3px 1px;position:relative}
+.v2-thai-photo{width:62px;flex:none;border:2px solid #fff2b4;background:url('/accept-all-cookies/modules/thai-flower/source/assets/reference.png') 99% 21.6% / 752% 1067%;transform:rotate(-3deg)}
+.v2-thai-copy{flex:1;text-align:left}
+.v2-thai-copy strong{font:bold 16px/20px 'Songti SC','SimSun',serif}
+.v2-thai-copy>span{background:#ffeb59;color:#123887;padding:2px 6px;font:bold 10px/15px Arial;text-align:center;margin-top:3px}
+.v2-thai-main>i{align-self:center;font:22px Georgia;color:#c81868;animation:v2-flower-turn 12s linear infinite}
+/* Ocean preview is a small period webpage with a readable masthead and image. */
+.visual-v2 .cq-window-cover-octopus-senbei .cq-cover-open{display:grid;grid-template-rows:18px 45px 19px 1fr;background:#e7f5f6;color:#114977;text-align:left;padding:3px;font-family:'Songti SC','SimSun',serif;gap:2px}
+.v2-ocean-address{background:#fff;border:1px inset #bbb;color:#222;padding:1px 5px;font:10px/14px Arial;white-space:nowrap}
+.v2-ocean-address b{font-weight:400}
+.v2-ocean-head{background:linear-gradient(90deg,#d3f4f7,#f7ffff);padding:3px 7px;border-bottom:2px solid #3d9db9}
+.v2-ocean-head strong{font:bold 25px/27px 'Songti SC','SimSun',serif;letter-spacing:1px;white-space:nowrap}
+.v2-ocean-head small{font-size:10px;line-height:12px;letter-spacing:1px}
+.v2-ocean-nav{font:10px/16px 'Songti SC',serif;text-decoration:underline;color:#0000a0;padding-left:6px;border:1px solid #80cbd3;background:#f1ffff;white-space:nowrap}
+.v2-ocean-main{display:grid!important;grid-template-columns:minmax(0,1fr) 91px;gap:4px;min-height:0}
+.v2-ocean-film{position:relative;overflow:hidden;background:#235874;border:2px inset #b9cbd0}
+.v2-harbor{width:100%;height:100%;object-fit:cover;filter:saturate(.7);opacity:.9}
+.visual-v2 .v2-octopus{position:absolute;left:5%;bottom:12px;width:86%;height:91%;object-fit:contain;filter:drop-shadow(2px 3px #12314466);animation:v2-octopus-breathe 6s ease-in-out infinite}
+.v2-film-controls{position:absolute;left:0;right:0;bottom:0;height:17px;background:#c0c0c0;color:#242424;border-top:1px solid white;font:10px/16px monospace;padding-left:4px}
+.v2-ocean-side{background:#f8ffff;border:1px solid #74b7c6;padding:4px;text-align:center;display:flex!important;flex-direction:column;align-items:center;justify-content:space-between;min-height:0}
+.v2-ocean-side b{font:700 11px/16px 'Songti SC',serif}
+.v2-ocean-side img{width:50px;min-height:0;flex:1;object-fit:contain;margin:2px}
+.v2-ocean-side>span{font:bold 10px/17px 'Songti SC',serif;color:#0000a0;text-decoration:underline}
+@keyframes v2-octopus-breathe{50%{transform:translateY(-2px) rotate(2deg)}}
+@keyframes v2-flower-turn{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.visual-v2 .v2-octopus,.v2-thai-main>i{animation:none}}
+
+.visual-v2 .v2-octopus{left:20%;width:78%}
+
+/* Passive old-web background ads: underneath real windows, never mouse targets. */
+.ambient-ads{position:absolute;inset:0;z-index:40;pointer-events:none;user-select:none;overflow:hidden}
+.ambient-ads *{pointer-events:none!important}
+.ambient-ad{position:absolute;padding:1px;border:1px solid;border-color:#f6f5e5 #45443d #45443d #f6f5e5;background:#c0c0b9;box-shadow:1px 1px #003c3c88;overflow:hidden;font-family:Tahoma,Arial,sans-serif}
+.ambient-caption{display:flex;align-items:center;gap:3px;height:9px;padding:0 2px;background:#6c7778;color:#fffde9;font:7px/9px Tahoma,Arial,sans-serif;white-space:nowrap}
+.ambient-caption>i{width:3px;height:3px;background:#e5c46b;flex:none}
+.ambient-caption>span{flex:1;overflow:hidden}
+.ambient-caption>small{font:5px/7px monospace;color:#dae7de;letter-spacing:.5px}
+.ambient-express{left:560px;top:2px;width:184px;height:32px}
+.ambient-belt{margin-top:1px;border:1px inset #d9bf7b;overflow:hidden;height:18px;background:#f1d788}
+.ambient-belt canvas{display:block;width:100%;height:100%;image-rendering:pixelated}
+.ambient-fresh{left:5px;top:80px;width:95px;height:31px}
+.ambient-marquee{height:17px;overflow:hidden;background:#792928;color:#ffdf91;border-top:1px solid #dca667;font:bold 10px/17px Georgia,serif;white-space:nowrap}
+.ambient-marquee>div{display:flex;width:max-content;animation:ambient-ticker 13s linear infinite}
+.ambient-marquee span{display:block;flex:none;padding-right:7px}
+.ambient-milk{left:188px;top:447px;width:61px;height:78px}
+.ambient-milk-body{height:65px;padding:3px 0 2px;background:repeating-linear-gradient(90deg,#d7e6ea 0 3px,#eff4e9 3px 6px);color:#234c64;text-align:center;overflow:hidden}
+.ambient-milk-body>strong{display:block;font:900 11px/10px Georgia,serif;letter-spacing:1px}
+.ambient-milk-body>small{display:block;font:italic 6px/9px Georgia,serif;white-space:nowrap}
+.ambient-mug{position:relative;width:21px;height:21px;margin:8px auto 0;border:2px solid;border-color:#a7bbbf #4d7c8c #4d7c8c #a7bbbf;background:#fff9e8;box-shadow:inset -3px 0 #d5e1dc}
+.ambient-mug>span{position:absolute;left:100%;top:1px;width:7px;height:12px;border:2px solid #64828d;border-left:0}
+.ambient-mug>i{position:absolute;bottom:calc(100% + 2px);left:2px;width:2px;height:5px;background:#7799a0;opacity:.3;animation:ambient-steam 3.6s steps(6,end) infinite}
+.ambient-mug>i:nth-child(2){left:7px;animation-delay:-1.2s}
+.ambient-mug>i:nth-child(3){left:12px;animation-delay:-2.4s}
+.ambient-milk.milk-occupied .ambient-mug>i{opacity:0;animation-play-state:paused}
+.ambient-paused *{animation-play-state:paused!important}
+@keyframes ambient-ticker{to{transform:translateX(-50%)}}
+@keyframes ambient-steam{0%{transform:translate(0,2px);opacity:0}30%{opacity:.5}100%{transform:translate(2px,-5px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.ambient-ads *{animation:none!important}.ambient-mug>i{opacity:.3}}
+/* Leave the little orchestra's transparent performance strip visually clear. */
+#screen:has(.cq-band-stage) .ambient-milk{visibility:hidden}

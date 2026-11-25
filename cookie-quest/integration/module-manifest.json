@@ -1,0 +1,157 @@
+[
+  {
+    "id": "gingerbread",
+    "entry": "index.html",
+    "title": "A VERY SWEET CHRISTMAS",
+    "kind": "player",
+    "x": 12,
+    "y": 190,
+    "w": 318,
+    "h": 222,
+    "nativeWidth": 850,
+    "nativeHeight": 755,
+    "outcomes": [
+      "watched"
+    ]
+  },
+  {
+    "id": "timtam",
+    "entry": "index.html?embed=1",
+    "title": "Tim Tam Slam",
+    "kind": "ad",
+    "x": 64,
+    "y": 8,
+    "w": 506,
+    "h": 150,
+    "nativeWidth": 768,
+    "nativeHeight": 260,
+    "outcomes": [
+      "win",
+      "lose"
+    ],
+    "settleMs": 7500
+  },
+  {
+    "id": "thai-flower",
+    "entry": "index.html",
+    "title": "DRAW & FRY · ขนมดอกจอก",
+    "kind": "preview",
+    "x": 477,
+    "y": 363,
+    "w": 340,
+    "h": 168,
+    "nativeWidth": 600,
+    "nativeHeight": 760,
+    "outcomes": [
+      "made"
+    ]
+  },
+  {
+    "id": "khapse",
+    "entry": "dist/embed.html",
+    "title": "KHAPSE.EXE",
+    "kind": "tall",
+    "x": 721,
+    "y": 129,
+    "w": 139,
+    "h": 405,
+    "nativeWidth": 390,
+    "nativeHeight": 1120,
+    "outcomes": [
+      "stable",
+      "collapsed"
+    ],
+    "settleMs": 4500
+  },
+  {
+    "id": "octopus-senbei",
+    "entry": "module.js",
+    "title": "海辺のせんべい工場",
+    "kind": "preview",
+    "x": 292,
+    "y": 157,
+    "w": 436,
+    "h": 237,
+    "nativeWidth": 800,
+    "nativeHeight": 590,
+    "outcomes": [
+      "pressed"
+    ]
+  },
+  {
+    "id": "kungu",
+    "entry": "index.html",
+    "title": "吃掉这些字母",
+    "kind": "square",
+    "x": 248,
+    "y": 310,
+    "w": 262,
+    "h": 226,
+    "nativeWidth": 540,
+    "nativeHeight": 350,
+    "outcomes": [
+      "eaten"
+    ]
+  },
+  {
+    "id": "dubai-disco",
+    "entry": "index.html?autoplay=0",
+    "title": "DUBAI CHEWY · DESERT DISCO",
+    "kind": "ad",
+    "x": 400,
+    "y": 66,
+    "w": 380,
+    "h": 171,
+    "nativeWidth": 1440,
+    "nativeHeight": 600,
+    "outcomes": [
+      "watched"
+    ]
+  },
+  {
+    "id": "cookie-band",
+    "entry": "index.html?mode=overlay&once=1&autoplay=0",
+    "title": "Cookie Orchestra",
+    "kind": "overlay",
+    "x": 77,
+    "y": 463,
+    "w": 65,
+    "h": 64,
+    "nativeWidth": 481,
+    "nativeHeight": 210,
+    "outcomes": [
+      "performed"
+    ]
+  },
+  {
+    "id": "fortune-cookie",
+    "entry": "index.html?embed=1",
+    "title": "Fortune Cookie",
+    "kind": "small",
+    "x": 12,
+    "y": 410,
+    "w": 120,
+    "h": 130,
+    "outcomes": [
+      "fortune-read"
+    ],
+    "nativeWidth": 640,
+    "nativeHeight": 596,
+    "settleMs": 1800
+  },
+  {
+    "id": "oreo",
+    "entry": "index.html",
+    "title": "OREO · TWIST! LICK! DUNK!",
+    "kind": "ad",
+    "x": 116,
+    "y": 134,
+    "w": 425,
+    "h": 116,
+    "nativeWidth": 900,
+    "nativeHeight": 195,
+    "outcomes": [
+      "dunked"
+    ]
+  }
+]

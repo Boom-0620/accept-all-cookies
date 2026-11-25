@@ -1,0 +1,12 @@
+GINGERBREAD — revision 2026-11-16
+
+Blink: built-in image generation/editing, based on film-04.jpg.
+Saved original: blink-source-v2.png. Runtime: film-blink.jpg (640 x 360).
+Prompt: Change ONLY the two eyes of the adult man in the brown jacket and red bow tie: both eyes naturally closed for a brief blink, with realistic relaxed human eyelids following the existing face angle. Preserve his face, head pose, eyebrows, mouth, hair, jacket, bow tie, woman, tray, gingerbread figures, exact crop, lighting, color, and low-resolution VHS texture. No cartoon lines, bulging eyelids, eyeliner, or added text. Same 16:9 framing.
+
+Music: original 25-second composition and performance sequence, created for this project.
+96 BPM, light swing; piano, acoustic bass, brush kit, celesta. Concert F, jazz sixth/ninth voicings; a quiet chromatic neighbor at the blink.
+Audio: christmas-original.wav. Editable score: christmas-jazz.mid.
+Renderer: system FluidSynth using TimGM6mb.sf2 (not bundled).
+TimGM6mb: Tim Brechbill (2004), David Bolton (2010), GPL-2; local package attribution at /usr/share/doc/timgm6mb-soundfont/copyright.
+The WAV is self-contained; no runtime soundfont, API or network request is needed.

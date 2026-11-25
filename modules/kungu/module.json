@@ -1,0 +1,36 @@
+{
+  "projectId": "kungu",
+  "title": "吃掉这些字母",
+  "englishTitle": "EAT THESE LETTERS",
+  "entry": "index.html",
+  "standalonePreview": "preview.html",
+  "dependencies": [],
+  "completion": {
+    "event": "cookie",
+    "outcome": "eaten",
+    "iframeTransport": "parent.postMessage",
+    "iframePayload": {
+      "type": "cookie",
+      "projectId": "kungu",
+      "outcome": "eaten"
+    },
+    "standaloneTransport": "window.CustomEvent",
+    "standaloneDetail": {
+      "projectId": "kungu",
+      "outcome": "eaten"
+    },
+    "oncePerMount": true,
+    "trigger": "after three bites and visible information"
+  },
+  "externalEffects": false,
+  "verification": {
+    "logicTestsPassed": 8,
+    "browserVisualQA": "v2 full pointer flow verified; later interaction changes validated by tests; C. edulis original photograph visually inspected",
+    "notVerified": [
+      "physical touchscreen",
+      "audio listening"
+    ]
+  },
+  "version": "2.4.0",
+  "interaction": "direct pan, brush and spatula dragging; three clicks to eat"
+}

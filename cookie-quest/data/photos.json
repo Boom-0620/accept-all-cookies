@@ -1,0 +1,198 @@
+{
+  "01_oreo": {
+    "src": "./assets/photos/01_oreo.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oreo-Two-Cookies.png",
+    "originalUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Oreo-Two-Cookies.png/3840px-Oreo-Two-Cookies.png",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "02_chocolate_chunk": {
+    "src": "./assets/photos/02_chocolate_chunk.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Choco_chip_cookie.png",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Choco_chip_cookie.png",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "04_alfajor": {
+    "src": "./assets/photos/04_alfajor.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AlfajoresP1115215_02.jpg",
+    "originalUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/AlfajoresP1115215_02.jpg/3840px-AlfajoresP1115215_02.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "11_butter": {
+    "src": "./assets/photos/11_butter.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019-11-29_14_52_43_The_interior_of_a_tin_of_McKenzie_%26_Lloyds_Danish_Style_Butter_Cookies_in_the_Dulles_section_of_Sterling%2C_Loudoun_County%2C_Virginia.jpg",
+    "originalUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/2019-11-29_14_52_43_The_interior_of_a_tin_of_McKenzie_%26_Lloyds_Danish_Style_Butter_Cookies_in_the_Dulles_section_of_Sterling%2C_Loudoun_County%2C_Virginia.jpg/3840px-2019-11-29_14_52_43_The_interior_of_a_tin_of_McKenzie_%26_Lloyds_Danish_Style_Butter_Cookies_in_the_Dulles_section_of_Sterling%2C_Loudoun_County%2C_Virginia.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "12_shortbread": {
+    "src": "./assets/photos/12_shortbread.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shortbread_House_round_biscuit_.jpg",
+    "originalUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Shortbread_House_round_biscuit_.jpg/3840px-Shortbread_House_round_biscuit_.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "13_marie": {
+    "src": "./assets/photos/13_marie.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Galleta_Mar%C3%ADa.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Galleta_Mar%C3%ADa.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "14_digestive": {
+    "src": "./assets/photos/14_digestive.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Digestive_biscuits.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Digestive_biscuits.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "20_polvoron": {
+    "src": "./assets/photos/20_polvoron.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MedinaSidonia-P1060062_%28cropped%29.JPG",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/MedinaSidonia-P1060062_%28cropped%29.JPG",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "21_nankhatai": {
+    "src": "./assets/photos/21_nankhatai.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nankhatai.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Nankhatai.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "22_biscotti": {
+    "src": "./assets/photos/22_biscotti.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cantuccini-Toscani.jpg",
+    "originalUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Cantuccini-Toscani.jpg/3840px-Cantuccini-Toscani.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "27_koulourakia": {
+    "src": "./assets/photos/27_koulourakia.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koulourakia.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Koulourakia.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "36_macaron": {
+    "src": "./assets/photos/36_macaron.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:VanillaMacaron.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/VanillaMacaron.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "37_macaroon": {
+    "src": "./assets/photos/37_macaroon.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Almond_macaroon_and_coconut_macaroon.jpeg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Almond_macaroon_and_coconut_macaroon.jpeg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "39_bangkit": {
+    "src": "./assets/photos/39_bangkit.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kue_bangkit.JPG",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Kue_bangkit.JPG",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "40_bizcochito": {
+    "src": "./assets/photos/40_bizcochito.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fresh_batch_of_Biscochitos%2C_Albuquerque_NM.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Fresh_batch_of_Biscochitos%2C_Albuquerque_NM.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "41_silvana": {
+    "src": "./assets/photos/41_silvana.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Close-up_of_silvanas.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Close-up_of_silvanas.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "07_tako": {
+    "src": "./assets/photos/07_tako.jpg",
+    "sourceUrl": "https://www.takosen.co.jp/view/item/000000000075",
+    "credit": "Eirakudo / Akashi Pettanyaki Madako",
+    "rights": "No open license documented; source attribution is not a license.",
+    "kind": "documentary-photo",
+    "verified": "delivered-module-source-notes"
+  },
+  "10_kungu": {
+    "src": "./assets/photos/10_kungu.png",
+    "sourceUrl": "https://simonleather.wordpress.com/tag/kungu-cakes/",
+    "credit": "Simon Leather, 2017; museum specimens",
+    "rights": "No open license documented; source attribution is not a license.",
+    "kind": "documentary-photo",
+    "verified": "delivered-module-source-notes"
+  },
+  "46_dubai_chewy": {
+    "src": "./assets/photos/46_dubai_chewy.png",
+    "sourceUrl": "https://english.visitkorea.or.kr/svc/contents/contentsView.do?dataSetId=120&menuSn=929&vcontsId=1570855",
+    "originalUrl": "https://english.visitkorea.or.kr/public/assets/shoppinglikealocal/img/event/2602/1-1.png",
+    "credit": "Korea Tourism Organization / VISITKOREA (2026)",
+    "rights": "Source website: All Rights Reserved; no open reuse license recorded.",
+    "kind": "documentary-photo",
+    "verified": "official-page-viewed-and-photo-inspected"
+  },
+  "18_speculaas": {
+    "src": "./assets/photos/18_speculaas.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saint_Nicholas_Speculaas_%286465422349%29.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Saint_Nicholas_Speculaas_%286465422349%29.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "19_anzac": {
+    "src": "./assets/photos/19_anzac.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:ANZAC_biscuits_%2814_April_2006%29.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/ANZAC_biscuits_%2814_April_2006%29.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  },
+  "34_kourabiedes": {
+    "src": "./assets/photos/34_kourabiedes.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gurabija_%28%D0%B3%D1%83%D1%80%D0%B0%D0%B1%D0%B8%D1%98%D0%B0%2CQurabiya%3B_Cuisine_of_Serbia%29.jpg",
+    "originalUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Gurabija_%28%D0%B3%D1%83%D1%80%D0%B0%D0%B1%D0%B8%D1%98%D0%B0%2CQurabiya%3B_Cuisine_of_Serbia%29.jpg/3840px-Gurabija_%28%D0%B3%D1%83%D1%80%D0%B0%D0%B1%D0%B8%D1%98%D0%B0%2CQurabiya%3B_Cuisine_of_Serbia%29.jpg",
+    "credit": "Wikimedia Commons; see original file credits",
+    "rights": "See source file for author and reuse terms; local archive omitted license metadata.",
+    "kind": "documentary-photo",
+    "verified": "existing-source-archive"
+  }
+}

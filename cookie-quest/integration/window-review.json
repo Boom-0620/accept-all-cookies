@@ -1,0 +1,187 @@
+[
+  {
+    "id": "gingerbread",
+    "folder": "gingerbread",
+    "entry": "index.html",
+    "title": "A VERY SWEET CHRISTMAS",
+    "kind": "player",
+    "x": 20,
+    "y": 239,
+    "w": 306,
+    "h": 196,
+    "nativeWidth": 850,
+    "nativeHeight": 755,
+    "outcomes": [
+      "watched"
+    ],
+    "chrome": "christmas",
+    "z": 4
+  },
+  {
+    "id": "timtam",
+    "folder": "timtam",
+    "entry": "index.html?embed=1",
+    "title": "Tim Tam Slam",
+    "kind": "ad",
+    "x": 80,
+    "y": 18,
+    "w": 430,
+    "h": 112,
+    "nativeWidth": 768,
+    "nativeHeight": 260,
+    "outcomes": [
+      "win",
+      "lose"
+    ],
+    "settleMs": 7500,
+    "chrome": "advert",
+    "z": 3
+  },
+  {
+    "id": "thai-flower",
+    "folder": "thai-flower",
+    "entry": "index.html",
+    "title": "DRAW & FRY · ขนมดอกจอก",
+    "kind": "preview",
+    "x": 509,
+    "y": 410,
+    "w": 223,
+    "h": 124,
+    "nativeWidth": 600,
+    "nativeHeight": 760,
+    "outcomes": [
+      "made"
+    ],
+    "chrome": "flower",
+    "z": 7
+  },
+  {
+    "id": "khapse",
+    "folder": "khapse",
+    "entry": "dist/embed.html",
+    "title": "KHAPSE.EXE",
+    "kind": "tall",
+    "x": 739,
+    "y": 215,
+    "w": 113,
+    "h": 324,
+    "nativeWidth": 390,
+    "nativeHeight": 1120,
+    "outcomes": [
+      "stable",
+      "collapsed"
+    ],
+    "settleMs": 4500,
+    "chrome": "tower",
+    "z": 5
+  },
+  {
+    "id": "octopus-senbei",
+    "folder": "octopus-senbei",
+    "entry": "module.js",
+    "title": "海辺のせんべい工場",
+    "kind": "preview",
+    "x": 312,
+    "y": 207,
+    "w": 416,
+    "h": 251,
+    "nativeWidth": 800,
+    "nativeHeight": 590,
+    "outcomes": [
+      "pressed"
+    ],
+    "chrome": "ocean",
+    "z": 6
+  },
+  {
+    "id": "kungu",
+    "folder": "kungu",
+    "entry": "index.html",
+    "title": "吃掉这些字母",
+    "kind": "square",
+    "x": 296,
+    "y": 393,
+    "w": 225,
+    "h": 149,
+    "nativeWidth": 540,
+    "nativeHeight": 350,
+    "outcomes": [
+      "eaten"
+    ],
+    "chrome": "paper",
+    "z": 8
+  },
+  {
+    "id": "dubai-disco",
+    "folder": "desert-disco",
+    "entry": "index.html?autoplay=0",
+    "title": "DUBAI CHEWY · DESERT DISCO",
+    "kind": "ad",
+    "x": 496,
+    "y": 54,
+    "w": 344,
+    "h": 164,
+    "nativeWidth": 1440,
+    "nativeHeight": 600,
+    "outcomes": [
+      "watched"
+    ],
+    "chrome": "cinema",
+    "z": 1
+  },
+  {
+    "id": "cookie-band",
+    "folder": "cookie-orchestra-final-backup (2)/cookie-orchestra",
+    "entry": "index.html?mode=overlay&once=1&autoplay=0",
+    "title": "Cookie Orchestra",
+    "kind": "overlay",
+    "x": 160,
+    "y": 468,
+    "w": 36,
+    "h": 54,
+    "nativeWidth": 481,
+    "nativeHeight": 210,
+    "outcomes": [
+      "performed"
+    ],
+    "chrome": "band",
+    "z": 10
+  },
+  {
+    "id": "fortune-cookie",
+    "folder": "fortune-cookie",
+    "entry": "index.html?embed=1",
+    "title": "幸运饼干",
+    "kind": "small",
+    "x": 20,
+    "y": 443,
+    "w": 129,
+    "h": 99,
+    "outcomes": [
+      "fortune-read"
+    ],
+    "chrome": "fortune",
+    "z": 9,
+    "nativeWidth": 640,
+    "nativeHeight": 596,
+    "settleMs": 1800
+  },
+  {
+    "id": "oreo",
+    "folder": "oreo",
+    "entry": "index.html",
+    "title": "OREO · TWIST! LICK! DUNK!",
+    "kind": "ad",
+    "x": 122,
+    "y": 132,
+    "w": 374,
+    "h": 92,
+    "nativeWidth": 900,
+    "nativeHeight": 195,
+    "outcomes": [
+      "dunked"
+    ],
+    "chrome": "wafer",
+    "z": 2
+  }
+]

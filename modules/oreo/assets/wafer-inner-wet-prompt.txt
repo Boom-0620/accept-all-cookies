@@ -1,0 +1,8 @@
+Use case: precise-object-edit
+Asset type: transparent food-photo PNG for a 1990s interactive Oreo-style cookie advertisement.
+Edit target: the supplied single circular chocolate wafer, viewed absolutely straight on at its plain INSIDE surface, not the embossed outside.
+Preserve the exact centered round silhouette, thin scalloped/ridged dark rim, flat camera-facing plane, near-black cocoa brown color, and roughly 94% frame occupancy of the reference. Preserve genuine transparent surroundings with no shadow cast on a background.
+Change the inner surface into convincing photographed baked chocolate biscuit after most of the cream has been rubbed off: extremely fine irregular porous crumb, tiny compact grains and pinholes, a few shallow scrape traces; darkened damp patches that reflect a little light unevenly; only a very small broken trace of ivory cream clinging near a few rim locations, covering less than 3% of the surface. The center is bare flat chocolate wafer. The damp sheen must be subtle, like a thin film on porous biscuit, never a smooth plastic disk. Keep it appetizing and tactile, no visible saliva, no tongue, no large water droplets.
+Lighting: direct simple slightly harsh flash from upper left, subdued tiny glints, restrained tonal depth.
+Style: actual modest low-resolution food cutout photograph for a 1996 web banner, coarse slightly grainy pixels comparable to the reference, not an illustration and not glossy modern 3D rendering.
+No embossed motifs anywhere on the flat inner face, no letters or logo, no flower patterns, no symmetrical texture, no perfect geometric highlight streaks, no rounded dome, no plate or props. One single wafer only, full uncropped circle, transparent PNG.

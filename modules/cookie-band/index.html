@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script src="/accept-all-cookies/cookie-quest/integration/frame-bridge.js"></script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="color-scheme" content="light"/>
+<title>Cookie Orchestra | Standalone Module</title>
+<link rel="stylesheet" href="./styles.css" />
+<script src="./app.js" defer></script>
+</head>
+<body>
+<main id="module" aria-label="曲奇乐团透明互动模块">
+  <div id="stage" role="img" aria-label="六位曲奇从左下角小门依次走出，列队后合奏">
+    <img id="sequence" src="./assets/frames/frame_00.png" width="481" height="210" alt="曲奇乐团连续动画" draggable="false" />
+  </div>
+  <section id="controls" aria-label="本地预览控制">
+    <button id="playBtn" type="button">暂停</button>
+    <button id="replayBtn" type="button">重播</button>
+    <button id="soundBtn" type="button" aria-pressed="false">试听旧版配乐（关闭）</button>
+    <small id="status" aria-live="polite">正在载入动画…</small>
+  </section>
+</main>
+<audio id="sound" src="./assets/previous-version-music.m4a" preload="none" loop></audio>
+</body>
+</html>

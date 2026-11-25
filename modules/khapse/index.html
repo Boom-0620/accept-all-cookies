@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script src="/accept-all-cookies/cookie-quest/integration/frame-bridge.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>KHAPSE · 藏历新年饼塔</title>
+  <meta name="description" content="接受所有 Cookie：一座十六层卡塞饼塔。轻轻抽出八块，让它站稳。">
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:#173e40;color:#f3e3ba;font-family:Tahoma,'Songti SC',serif;display:grid;justify-content:center;padding:22px 12px 36px;background-image:repeating-linear-gradient(0deg,transparent 0 3px,#002b2d18 3px 4px)}
+    main{width:min(390px,calc(100vw - 24px))}.preview-note{display:flex;justify-content:space-between;font:10px monospace;letter-spacing:1px;margin:0 2px 9px;color:#b6c5b9}.preview-note a{color:inherit}#module{width:100%}.foot{max-width:390px;font:11px/1.6 Tahoma,sans-serif;color:#bac5b9;margin:12px 3px}.foot output{display:block;color:#e7c98b;min-height:16px}.foot button{font:inherit;border:1px solid #97a5a0;background:transparent;color:inherit;cursor:pointer;padding:3px 8px;margin-top:6px}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="preview-note"><span>ACCEPT ALL COOKIES / 07</span><span>独立预览</span></div>
+    <div id="module"></div>
+    <div class="foot">一座饼塔，一点空缺。<output id="receipt" aria-live="polite"></output><button id="reopen" hidden>重新打开窗口</button></div>
+  </main>
+  <script src="dist/core.js"></script>
+  <script src="dist/story.js"></script>
+<script src="dist/music.js"></script><script src="dist/khapse.js"></script>
+  <script>
+    (function () {
+      const root = document.getElementById('module');
+      const reopen = document.getElementById('reopen');
+      function mount() {
+        document.getElementById('receipt').textContent = '';
+        reopen.hidden = true;
+        window.khapsePreview = Khapse.mount(root, {
+          emit: function(event) { document.getElementById('receipt').textContent = '故事已收集 · ' + (event.outcome === 'stable' ? '饼塔站稳' : '饼塔倒塌'); },
+          onClose: function() { reopen.hidden = false; }
+        });
+      }
+      reopen.onclick = mount;
+      mount();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "id": "desert-disco",
+  "name": "DESERT DISCO · 迪拜软曲奇广告",
+  "version": "Q9-delivery-2026-11-17",
+  "entry": "index.html",
+  "type": "video-advertisement",
+  "durationSeconds": 26,
+  "video": "assets/video/desert-disco.mp4",
+  "videoSize": [
+    1440,
+    600
+  ],
+  "framesPerSecond": 24,
+  "offline": true,
+  "buildRequired": false,
+  "externalDependencies": [],
+  "runtimeFonts": "System fonts; Korean advertisement text is baked into the approved video.",
+  "completion": {
+    "type": "cookie-module:complete",
+    "condition": "Video ended",
+    "moduleId": "desert-disco"
+  },
+  "initialIntegration": "index.html?autoplay=0",
+  "outboundEvents": [
+    "ready",
+    "state",
+    "complete",
+    "needs-user-gesture",
+    "error"
+  ],
+  "commands": [
+    "activate",
+    "deactivate",
+    "play",
+    "pause",
+    "restart",
+    "mute",
+    "get-state"
+  ],
+  "mainGameNavigationIncluded": false
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN"><head><script src="/accept-all-cookies/cookie-quest/integration/frame-bridge.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#45bbae"><title>DRAW & FRY · 花形酥饼小摊</title><link rel="stylesheet" href="style.css"></head>
+<body><main id="module">
+<section id="advert" class="window ad-window" aria-label="花形酥饼小摊广告">
+ <div class="titlebar"><span>✿ 花形酥饼小摊 · DRAW & FRY</span><small>今日开摊</small></div>
+ <button id="enter" class="shop-ad" aria-label="进小摊，画一个酥饼">
+  <div class="scan-banner"><svg viewBox="15 166 530 148" aria-hidden="true"><image href="assets/reference.png" width="1024" height="1536"/></svg></div>
+  <div class="ad-counter"><div class="bag-photo"><svg viewBox="17 218 145 194" aria-hidden="true"><image href="assets/reference.png" width="1024" height="1536"/></svg><span class="price">ถุงละ<br><b>10 บาท</b></span></div>
+   <div class="ad-copy"><span class="ribbon">现画 · 现炸 · 现装袋</span><strong><span>你画什么，</span><span>我们炸什么。</span></strong><span class="enter-ticket">进来画一笔 <b>➜</b></span></div>
+   <div class="food-photo"><svg viewBox="881 298 136 146" aria-hidden="true"><image href="assets/reference.png" width="1024" height="1536"/></svg><b>กรอบอร่อย<br><span>热乎，脆脆！</span></b></div>
+  </div>
+  <div class="ad-bottom"><span>✳ 不用画得漂亮，随手一笔也能炸。</span><b>OPEN ▸</b></div>
+ </button>
+ <div class="statusbar"><span>ขนมดอกจอก · 泰国花形酥饼</span><span>Internet ▧</span></div>
+</section>
+<section id="shop" class="window browser" hidden aria-label="DRAW & FRY 小摊网站">
+ <div class="titlebar"><span>✿ ขนมดอกจอก DRAW & FRY - Microsoft Internet Explorer</span><button id="close" aria-label="关闭小摊">×</button></div>
+ <div class="menubar">文件(F)　编辑(E)　查看(V)　收藏(A)　帮助(H)</div>
+ <div class="toolbar"><span>地址(D)</span><div class="address">▧ http://www.draw-fry.th/</div><span>▾</span></div>
+ <div class="shop-page">
+  <header class="scan-banner"><svg viewBox="15 166 530 148" role="img" aria-label="ขนมดอกจอก DRAW & FRY 黄色小摊招牌"><image href="assets/reference.png" width="1024" height="1536"/></svg><h1 class="sr-only">DRAW & FRY</h1></header>
+  <div class="ticker"><span>★ 你画什么，我们炸什么 ★</span><b>新鲜出锅</b></div>
+  <div class="columns"><aside>
+   <div class="sidebar-photo"><svg viewBox="17 218 145 194" role="img" aria-label="透明袋里的金黄花形酥饼"><image href="assets/reference.png" width="1024" height="1536"/></svg><span>现炸小摊</span></div>
+   <ol class="steps" aria-label="制作步骤"><li id="step-1" aria-current="step"><i>01</i>画一笔</li><li id="step-2"><i>02</i>蘸面糊</li><li id="step-3"><i>03</i>下油锅</li><li id="step-4"><i>04</i>装进袋</li><li id="step-5"><i>05</i>带走它</li></ol>
+   <div class="side-stamp">本日<br>现炸</div><div class="side-links"><button id="show-gallery">▸ 小摊橱窗</button><button id="show-about">▸ 小摊档案</button></div>
+  </aside><article>
+   <div class="section-head"><span id="step-number">01</span><h2 id="stage-title">先画一个形状</h2><span class="hand-tag" id="live-tag">DRAW</span></div>
+   <p id="stage-hint" class="stage-hint" aria-live="polite">随手画，不用闭合。</p>
+   <section id="draw-panel" aria-label="画一个形状">
+    <div class="board-wrap"><canvas id="board" width="320" height="320" aria-label="绘画区，按住鼠标或触屏画线"></canvas><div id="board-placeholder"><span>✧</span><b>画歪了也好吃。</b><small>随手一笔，就从这里开始</small></div><span class="board-label">YOUR SHAPE. YOUR COOKIE.</span></div>
+    <div class="drawing-dock"><div id="camera-box" class="camera-box" hidden><video id="camera" muted playsinline></video><canvas id="hand-overlay" width="192" height="144"></canvas><span id="camera-led">找手中…</span></div><div class="drawing-controls"><div class="input-actions"><button id="enable-camera">▣ 手势画</button><button id="mouse-mode">✎ 鼠标画</button></div><div class="edit-actions"><button id="undo" disabled>↶ 撤一笔</button><button id="clear" disabled>重画</button><button id="finish" class="primary" disabled>制成模具 ➜</button></div></div></div>
+   </section>
+   <section id="kitchen-panel" hidden aria-label="酥饼制作台"><div class="scene-wrap"><canvas id="scene" width="400" height="360" aria-label="拖动模具蘸糊、下锅，然后把酥饼拖进袋子" tabindex="0"></canvas><span id="stage-sticker" class="paper-sticker">你的专属模具</span></div><div id="cook-meter" class="cook-meter" hidden><span id="cook-meter-fill"></span></div><div id="kitchen-actions" class="kitchen-actions"><button id="back-draw" class="text-button">↶ 改一改图</button><button id="step-action">蘸一下 ↓</button></div></section>
+   <section id="result" hidden><div class="label-row"><label for="label">小标签</label><input id="label" maxlength="12" value="我的奇形酥饼" autocomplete="off"></div><div class="result-actions"><button id="save-image" class="primary">▣ 保存纪念图</button><button id="submit-gallery">▦ 留在本机橱窗</button></div><button id="make-another" class="text-button">再来一袋 ➜</button></section>
+   <p id="feedback" class="feedback" role="status" aria-live="polite" hidden></p>
+  </article></div>
+  <footer><span>✿ 谢谢光临 ✿</span><small>DRAW & FRY · 1998</small></footer>
+ </div><div class="statusbar"><span id="browser-status">只保存作品，不保存摄像头画面</span><span>Internet ▧</span></div>
+</section>
+<section id="drawer" class="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="drawer-title"><div class="window drawer-window"><div class="titlebar"><span id="drawer-title">小摊橱窗</span><button id="close-drawer" aria-label="返回制作">×</button></div><div class="drawer-content">
+ <section id="gallery" hidden><div class="gallery-heading">店主试炸 · 示例作品</div><div id="examples" class="gallery-grid"></div><div id="gallery-title" class="gallery-heading">本机作品</div><p id="gallery-info" class="small-tip">共享橱窗未接通，仅本浏览器可见。</p><div id="works" class="gallery-grid"></div><button id="refresh-gallery" class="text-button">↻ 刷新橱窗</button><div id="share-consent" class="consent" hidden><p>仅提交作品形状和标签，向此服务的访问者展示。不发送摄像头画面。</p><button id="confirm-share">确认提交</button><button id="cancel-share">取消</button></div></section>
+ <section id="about" hidden><svg class="archive-photo" viewBox="881 298 136 146" role="img" aria-label="花形酥饼参考图"><image href="assets/reference.png" width="1024" height="1536"/></svg><h3>ขนมดอกจอก · Khanom Dok Jok</h3><p>泰国花形酥饼，以加热的专门模具蘸面糊，再入油炸制、脱模。</p><p>本作品把手绘线条变成任意模具，是艺术演绎。真实制作依赖专门模具。</p><p>手部画面只在本机处理。保存和提交的都是作品图案。</p><a href="https://www.brasswok.com/khanom-dok-jog/" target="_blank" rel="noopener noreferrer">查看食品资料 ↗</a></section>
+ </div></div></section>
+<section id="closed" class="window closed" hidden><p>小摊已收好。摄像头已关闭。</p><a href="">重新开摊</a></section>
+</main><script type="module" src="app.mjs"></script></body></html>

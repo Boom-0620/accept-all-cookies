@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COOKIE QUEST · 曲奇美食王国大冒险</title>
+<link rel="stylesheet" href="./styles/retro.css?v=5">
+<link rel="stylesheet" href="./styles/paper98.css?v=1">
+<link rel="stylesheet" href="./styles/finale-play.css?v=1">
+<link rel="stylesheet" href="./styles/cookie-notes.css?v=1">
+</head>
+<body class="paper98">
+  <div id="viewport">
+    <div id="stage">
+      <div id="screen">
+        <div id="poweroff-layer" class="screen-layer hidden">
+          <div class="power-message">It is now safe to turn off<br>your computer.
+            <button id="restart-btn" type="button">重新启动 · RESTART</button>
+          </div>
+        </div>
+        <div id="boot-layer" class="screen-layer hidden"></div>
+        <div id="desktop-layer" class="screen-layer hidden"></div>
+        <div id="window-layer" class="screen-layer hidden"></div>
+        <div id="crt-flash"></div>
+      </div>
+    </div>
+  </div>
+  <div id="touch-controls"><div><button data-key="ArrowLeft" aria-label="向左移动">◀</button><button data-key="ArrowRight" aria-label="向右移动">▶</button></div><div><button data-key="ArrowDown" aria-label="下蹲">↓</button><button data-key="Space" aria-label="跳跃">↑</button><button data-key="Escape" aria-label="暂停">Ⅱ</button></div></div>
+  <div id="dev-note" class="hidden"></div>
+  <script>
+    // 临时错误收集（调试用）
+    window.__errs = [];
+    window.addEventListener('error', (e) => {
+      const t = e.target;
+      if (t && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) {
+        window.__errs.push('resource: ' + (t.src || t.href));
+      } else {
+        window.__errs.push((e.message || 'error') + ' @ ' + (e.filename || '') + ':' + (e.lineno || 0));
+      }
+    }, true);
+    window.addEventListener('unhandledrejection', (e) => {
+      window.__errs.push('rejection: ' + String(e.reason && e.reason.stack || e.reason));
+    });
+  </script>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

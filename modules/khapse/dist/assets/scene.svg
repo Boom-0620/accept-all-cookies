@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="760" viewBox="0 0 360 760">
+<defs>
+ <linearGradient id="wall" x1="0" x2="1"><stop stop-color="#352b2d"/><stop offset=".22" stop-color="#806341"/><stop offset=".5" stop-color="#b69a62"/><stop offset=".79" stop-color="#806341"/><stop offset="1" stop-color="#352b2d"/></linearGradient>
+ <pattern id="dust" width="17" height="19" patternUnits="userSpaceOnUse"><path fill="#241b16" opacity=".12" d="M1 3h2v1H1zM11 14h1v2h-1zM7 8h2v1H7z"/><path fill="#fbe3a7" opacity=".12" d="M5 17h1v1H5zM14 2h2v1h-2z"/></pattern>
+ <pattern id="weave" width="30" height="9" patternUnits="userSpaceOnUse"><path fill="#811c35" d="M0 0h30v9H0z"/><path fill="#214351" d="M3 0h8v9H3z"/><path fill="#b59143" d="M14 0h3v9h-3zM25 0h2v9h-2z"/><path fill="#38706a" d="M19 0h5v9h-5z"/><path stroke="#e9c579" opacity=".35" d="M0 2h30M0 6h30"/></pattern>
+ <pattern id="inlay" width="24" height="10" patternUnits="userSpaceOnUse"><path fill="#123c49" d="M0 0h24v10H0z"/><path fill="#d5a244" d="m12 0 10 5-10 5L2 5z"/><path fill="#8c2630" d="m12 2 6 3-6 3-6-3z"/><path fill="#d5c48a" d="M11 4h2v2h-2z"/></pattern>
+ <g id="bloom" stroke="#c09143" stroke-width="1"><path fill="none" stroke="#3e7771" stroke-width="3" d="M0 44Q-9 27 0 0Q10-14 4-22M0 26Q-23 19-18 7M0 15Q23 11 18-3"/><path fill="#1e6c65" d="M-17 18Q-36 6-25-8Q-9-5-17 18M16 9Q9-8 27-17Q35 0 16 9"/><path fill="#bc552d" d="M0-4Q-26-22-13-31Q-5-33 0-16Q9-39 18-30Q25-20 0-4"/><path fill="#e3aa3e" d="M0-3Q-14-21 0-32Q15-20 0-3"/><path fill="#e3c67c" d="M-4-12h8v9h-8z"/></g>
+ <g id="cabinet"><path fill="#301c23" stroke="#201b23" stroke-width="3" d="M-2 0h50v415H-2z"/><path fill="#782932" stroke="#bc722f" stroke-width="2" d="M4 12h37v340H4z"/><path fill="url(#inlay)" d="M0 4h47v10H0zM0 351h47v10H0z"/><path fill="#973f2b" stroke="#b17337" d="M7 21h31v130H7zM7 168h31v173H7z"/><path fill="#6d2930" stroke="#b99247" d="M10 24h25v124H10zM10 171h25v167H10z"/><use href="#bloom" transform="translate(22 89) scale(.57 1.1)"/><use href="#bloom" transform="translate(22 250) scale(.57 1.65)"/><path fill="#b7792d" d="M0 157h46v6H0zM0 363h46v5H0z"/><path stroke="#b57432" opacity=".5" d="M8 371v43M16 369v44M30 370v44M38 370v44"/><circle cx="32" cy="161" r="3" fill="#d6a84d"/></g>
+</defs>
+<path fill="url(#wall)" d="M0 0h360v760H0z"/>
+<path fill="#c1a16b" opacity=".16" d="M74 0h214v695H74z"/>
+<path fill="#2e2931" d="M0 0h24v709H0zM338 0h22v709h-22z"/>
+<path fill="#4a2430" d="M0 0h360v15H0z"/><path fill="url(#inlay)" d="M0 3h360v8H0z"/>
+<path stroke="#d0ae61" opacity=".2" d="M59 16v663M301 16v663"/>
+<use href="#cabinet" transform="translate(-8 304)"/><use href="#cabinet" transform="translate(321 239)"/>
+<path fill="#1c242b" d="M0 710h360v50H0z"/>
+<path fill="#67212c" stroke="#9a512c" stroke-width="3" d="M5 718h349v33H5z"/>
+<path fill="url(#weave)" d="M4 716h352v34H4z"/>
+<path fill="#d5ab5d" d="M10 716h3v38h-3zM347 716h3v38h-3z"/>
+<path stroke="#a93837" stroke-width="3" stroke-dasharray="2 2" d="M8 750v8M15 750v7M22 750v9M29 750v6M336 750v7M343 750v9M350 750v6"/>
+<ellipse cx="180" cy="705" rx="128" ry="12" fill="#201b21" opacity=".7"/>
+<path fill="#bf842e" stroke="#58351d" stroke-width="3" d="m52 680 14 35h231l13-35Z"/>
+<path fill="#6e4829" stroke="#f0c975" stroke-width="3" d="m63 672-11 9 15 13h229l14-13-12-9Z"/>
+<path fill="#e6b34f" stroke="#6d4121" stroke-width="2" d="m60 685 9 27h224l10-27Z"/>
+<path fill="none" stroke="#2e7767" stroke-width="3" d="M91 700q12-14 25 0t25 0t25 0M196 700q12-14 25 0t25 0t25 0"/>
+<use href="#bloom" transform="translate(180 710) scale(.65 .55)"/>
+<path fill="#b36c32" stroke="#48281d" stroke-width="2" d="M16 687q-4-28 15-28t14 28q-5 12-29 0M17 664q-17-17-12 9t14 6M44 673l14-12-9 21"/>
+<path fill="#e0a75c" stroke="#4a2b20" d="M18 655h24v7H18zM28 649h6v6h-6z"/><path stroke="#edbe79" stroke-width="2" fill="none" d="M24 667q-8 17 0 21"/>
+<path fill="#d79d3c" stroke="#4f3321" stroke-width="2" d="m33 704 3 10h18l3-10Z"/><ellipse cx="45" cy="704" rx="12" ry="4" fill="#ebd9a6" stroke="#523a24"/>
+<path fill="url(#dust)" d="M0 0h360v760H0z"/>
+</svg>

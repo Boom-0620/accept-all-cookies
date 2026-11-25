@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script src="/accept-all-cookies/cookie-quest/integration/frame-bridge.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>TWIST! LICK! DUNK! — 接受所有 Cookie</title>
+  <link rel="stylesheet" href="oreo.css">
+  <link rel="stylesheet" href="transformation.css">
+</head>
+<body>
+<main id="oreo" class="oreo" data-state="banner" aria-label="奥利奥：TWIST! LICK! DUNK!">
+  <header class="titlebar"><span>▧ &nbsp; OREO_AD.EXE</span><div class="window-actions"><button id="mute" aria-pressed="false" title="静音" aria-label="静音">♫</button><button id="close" aria-label="关闭广告窗口">×</button></div></header>
+  <section id="banner" class="banner">
+    <div class="banner-copy"><h1>TWIST! <em>LICK!</em> DUNK!</h1><small>原创艺术广告 · 非官方</small></div>
+    <img class="banner-food pixel" src="assets/wafer.png" alt="黑色夹心饼干">
+    <div class="banner-action"><span class="burst">3 STEPS!<br>100% FUN!</span><button id="start" class="big-button">PLAY <span class="gif-arrow" aria-hidden="true">➜</span></button></div>
+  </section>
+  <section id="game" class="game" hidden>
+    <div class="instruction-rail sr-only"><span id="instruction" role="status" aria-live="polite">向右拖开，或转动饼干。</span></div>
+    <div id="page-body" class="page-body">
+    <nav class="steps" aria-label="互动进度"><span id="step-twist" class="active" data-scatter style="--sx:-45px;--sy:140px;--sr:-22deg"><b>01</b> TWIST!</span><span id="step-lick" data-scatter style="--sx:-205px;--sy:370px;--sr:16deg"><b>02</b> LICK!</span><span id="step-dunk" data-scatter style="--sx:40px;--sy:150px;--sr:24deg"><b>03</b> DUNK!</span></nav>
+    <div class="scene-wrap" id="scene-wrap"><div class="scene" id="scene">
+      <div class="ad-background" aria-hidden="true"><div class="ad-half left-half" data-scatter style="--sx:-75px;--sy:70px;--sr:-17deg"><span>OH!</span><b>MORE<br>COOKIE.</b></div><div class="ad-half right-half" data-scatter style="--sx:65px;--sy:-45px;--sr:19deg"><span>YES!</span><b>MORE<br>INTERNET.</b></div><div class="checker top-checker"></div><div class="ticker" data-scatter style="--sx:-48px;--sy:27px;--sr:-9deg">NEW! &nbsp; YOUR HANDS, OUR COOKIES! &nbsp; NEW! &nbsp; YOUR HANDS, OUR COOKIES!</div></div>
+      <nav class="promo-options" aria-label="广告选项">
+        <span data-scatter style="--sx:-35px;--sy:34px;--sr:-28deg">HOME</span>
+        <span data-scatter style="--sx:26px;--sy:108px;--sr:31deg">WHAT'S NEW?</span>
+        <span data-scatter style="--sx:-17px;--sy:-84px;--sr:-36deg">FUN STUFF</span>
+        <span data-scatter style="--sx:41px;--sy:44px;--sr:24deg">COOKIE CLUB</span>
+      </nav>
+      <div class="scene-heading"><span id="scene-number">01 / 03</span><h2 id="scene-title" data-scatter style="--sx:152px;--sy:4px;--sr:21deg">TWIST!</h2></div>
+      <div id="twist-stage" class="interaction-stage">
+        <div class="twist-cookie back"><img src="assets/cream.png" class="pixel" alt="奶油饼片"></div>
+        <button id="twist-cookie" class="twist-cookie front food-button" aria-label="拖动或旋转饼干拆开。键盘按右方向键扭开。"><img src="assets/wafer.png" class="pixel" draggable="false" alt=""></button>
+        <div class="gesture twist-gesture" aria-hidden="true">↶ &nbsp; ↷</div>
+      </div>
+      <div id="lick-stage" class="interaction-stage" hidden>
+        <div class="lick-disc"><img class="wet-wafer pixel" src="assets/wafer-inner-wet.png" alt="" draggable="false"><canvas id="cream-mask" width="240" height="240" tabindex="0" role="button" aria-label="按住鼠标擦拭奶油；键盘按方向键移动擦拭点，按空格擦除。"></canvas><span id="brush" aria-hidden="true"></span></div>
+        
+      </div>
+      <div id="dunk-stage" class="interaction-stage" hidden>
+
+        <button id="dunk-cookie" class="dunk-cookie food-button" aria-label="把饼干拖入右侧牛奶。键盘按方向键移动，按回车浸入。"><img class="wet-wafer pixel" src="assets/wafer-inner-wet.png" alt="" draggable="false"></button>
+        <span class="dunk-arrow" aria-hidden="true">➜ ➜ ➜</span>
+      </div>
+      <div class="soak-content" data-scatter style="--sx:30px;--sy:-30px;--sr:8deg" aria-hidden="true"><span>TWIST! LICK! DUNK! TWIST! LICK! DUNK!</span><div class="checker"></div><div class="soak-bottom">COOKIE CONNECTION ESTABLISHED • 100% ABSORBENT</div></div>
+
+    </div></div>
+    <div class="control-strip sr-only" data-scatter style="--sx:-20px;--sy:-13px;--sr:-4deg"><span id="status" role="status" aria-live="polite">WAITING FOR A TWIST…</span><div class="meter" role="progressbar" aria-label="本步骤完成度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress"></span></div><span id="percent">00%</span></div>
+    <footer class="sr-only" data-scatter style="--sx:35px;--sy:-45px;--sr:6deg"><span id="keyboard-help">键盘：方向键扭开</span></footer>
+    </div>
+    <div id="cup-back" class="cup-overlay cup-back" hidden><div id="milk-zone" class="milk-zone"><img src="assets/milk.png" class="pixel" alt="一杯牛奶"><span class="milk-label">MILK</span></div></div>
+    <div id="crumple-layer" class="crumple-layer" aria-hidden="true"></div>
+    <div id="cup-front" class="cup-overlay cup-front" aria-hidden="true" hidden><div class="milk-zone"><img src="assets/milk.png" class="pixel" alt=""></div><div class="milk-ripple"></div></div>
+    <div id="done" hidden></div>
+  </section>
+  <section class="closed-message" id="closed-message" hidden><button id="reopen" aria-label="重新打开" title="重新打开">↻</button></section>
+</main>
+<script src="music.js"></script>
+<script src="oreo.js"></script>
+</body>
+</html>

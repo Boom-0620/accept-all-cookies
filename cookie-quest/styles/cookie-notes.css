@@ -1,0 +1,92 @@
+/* Small, non-modal game cards: the cookie table stays directly playable. */
+#ending-layer .cookie-note-backdrop {
+  display: block;
+  background: none;
+  pointer-events: none;
+}
+#ending-layer .cookie-note {
+  position: absolute;
+  width: 284px;
+  height: auto;
+  max-height: 544px;
+  padding: 4px;
+  border: 2px solid #60402b;
+  border-radius: 0;
+  background: #f7e7ba;
+  color: #4e3328;
+  box-shadow: inset 2px 2px #fff8d9, inset -2px -2px #c99c62, 3px 3px #65453066;
+  pointer-events: auto;
+  font-family: "Microsoft Sans Serif", Tahoma, "PingFang SC", sans-serif;
+}
+.cookie-note * { box-sizing: border-box; }
+.cookie-note-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 18px;
+  margin-bottom: 7px;
+  padding-left: 5px;
+  color: #765035;
+  border-bottom: 1px solid #d8b97f;
+  font: 700 8px/16px "Courier New", monospace;
+  letter-spacing: 1px;
+}
+.cookie-note button {
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  color: #65402c;
+  background: #ffeec0;
+  box-shadow: inset 1px 1px #fffbe4, inset -1px -1px #9b6b43;
+}
+.cookie-note button:hover { background: #fff8df; }
+.cookie-note button:active { box-shadow: inset 1px 1px #9b6b43, inset -1px -1px #fffbe4; }
+.cookie-note button:focus-visible { outline: 1px dotted #6b4228; outline-offset: -4px; }
+.cookie-note .archive-dismiss { width: 24px; height: 17px; font: 700 16px/12px monospace; }
+.cookie-note-summary { display: grid; grid-template-columns: minmax(0,1fr) 58px; gap: 8px; align-items: center; padding: 1px 7px 9px; }
+.cookie-note .archive-copy small { font-size: 8px; line-height: 12px; color: #7c654d; display: block; }
+.cookie-note .archive-copy h2 { font-size: 14px; line-height: 18px; margin: 5px 0 2px; }
+.cookie-note .cookie-play { width: 58px; min-height: 50px; padding: 4px 2px; }
+.cookie-play-icon { display: block; font: bold 23px/26px monospace; }
+.cookie-play-caption { display: block; font: 9px/14px "Microsoft Sans Serif", sans-serif; }
+.cookie-note-tools { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 5px; margin: 0 6px 6px; }
+#ending-layer .cookie-note .cookie-note-tools button {
+  position: static;
+  transform: none;
+  width: auto;
+  height: 24px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  font: bold 14px/24px "Courier New", monospace;
+}
+.cookie-note .archive-info[aria-expanded="true"] { background: #e9c68b; box-shadow: inset 1px 1px #9b6b43, inset -1px -1px #fffbe4; }
+#ending-layer .cookie-note .archive-details {
+  display: block;
+  height: auto;
+  max-height: 347px;
+  overflow: auto;
+  margin: 0;
+  padding: 10px;
+  background: #fff7df;
+  border: 1px solid #c4a575;
+  color: #463628;
+  font: 11px/1.55 "Microsoft Sans Serif", "PingFang SC", sans-serif;
+}
+#ending-layer .cookie-note .archive-details[hidden] { display: none; }
+.cookie-note .archive-details figure { margin: 0 0 10px; }
+.cookie-note .archive-details figure > img,
+.cookie-note .archive-details figure > canvas {
+  width: 100%;
+  height: 132px;
+  margin: 0;
+  object-fit: contain;
+  background: #f0e4ca;
+}
+.cookie-note .archive-details figcaption { font-size: 8px; line-height: 12px; margin-top: 5px; }
+.cookie-note .archive-facts h3 { font-size: 10px; margin: 10px 0 4px; }
+.cookie-note .archive-facts p { margin: 0 0 7px; }
+.cookie-note .archive-sources { display: flex; gap: 7px; font-size: 9px; padding-top: 8px; }
+.cookie-note .archive-sources a { color: #67482e; }
+#ending-layer .field-cookie[aria-pressed="true"] { background: #fff3cc15; }
+#ending-layer .field-cookie:focus-visible { outline: 2px dotted #6e3e21; outline-offset: -4px; }

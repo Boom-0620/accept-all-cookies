@@ -1,0 +1,73 @@
+/* Separate visual review: proportional paper/media borders, unchanged projects. */
+.module-layout-review #desktop-layer {background:#087977;}
+.invasion-wordmark {position:absolute;top:9px;right:13px;white-space:pre;text-align:right;color:#fff8dd;font:bold 12px/1.05 'Courier New',monospace;letter-spacing:.7px;z-index:9;pointer-events:none;}
+.module-layout-review .module-window {--rim:#c0c0c0;padding:2px;border:1px solid;border-color:#fff #242424 #242424 #fff;background:var(--rim);box-shadow:1px 1px 0 #000,2px 3px 0 #003e3e88;}
+.module-layout-review .module-window>.tbar {height:16px;min-height:16px;flex:0 0 16px;padding:1px 2px;gap:4px;background:#000080;}
+.module-layout-review .module-window.inactive>.tbar {background:#737777;}
+.module-layout-review .module-window>.tbar .t-title {font:700 10px/14px Tahoma,'MS Sans Serif',Arial,sans-serif;letter-spacing:0;}
+.module-layout-review .module-window>.tbar canvas {display:none;}
+.module-layout-review .module-window>.tbar::before {content:'e';display:block;width:11px;height:12px;flex:0 0 11px;color:#d6f8ff;font:bold 12px/12px Georgia,serif;text-align:center;text-shadow:1px 1px #002660;}
+.module-layout-review .module-window>.tbar .tbtns {gap:1px;}
+.module-layout-review .module-window>.tbar .tbtn {width:13px;height:12px;min-width:13px;}
+.module-layout-review .module-window>.tbar .t-close::before,.module-layout-review .module-window>.tbar .t-close::after {width:8px;height:1px;}
+.module-layout-review .module-window>.tbar .t-min::after {width:6px;height:2px;left:3px;bottom:2px;}
+.module-layout-review .module-window .module-body {margin-top:2px;background:var(--paper,#d7d7d2);border:1px solid;border-color:#626765 #fff #fff #626765;}
+.module-layout-review .module-enter {bottom:5px;right:6px;font:10px/14px Tahoma,Arial,sans-serif;min-width:0;min-height:0;padding:2px 8px;box-shadow:inset 1px 1px #fff,inset -1px -1px #333;}
+.module-layout-review .module-focus-shield {z-index:8;}
+.module-layout-review .module-enter {z-index:9;}
+.module-layout-review .chrome-advert,.module-layout-review .chrome-wafer {padding:1px;}
+.module-layout-review .chrome-advert>.tbar,.module-layout-review .chrome-wafer>.tbar {height:14px;min-height:14px;flex-basis:14px;}
+.module-layout-review .chrome-advert>.tbar::before {content:'T';background:#8d2517;color:#fff2b3;font:700 10px/12px Georgia,serif;}
+.module-layout-review .chrome-advert .module-body {border-color:#9b4e1b #f1cb78 #f1cb78 #9b4e1b;margin-top:1px;background:#a9250b;}
+.module-layout-review .chrome-wafer {--paper:#0036e4;}
+.module-layout-review .chrome-wafer>.tbar::before {content:'O';background:#291e1b;color:#f8f4e4;font:bold 10px/12px Georgia,serif;}
+.module-layout-review .chrome-wafer .module-body {border:0;box-shadow:inset 0 0 0 1px #fff;}
+.module-layout-review .chrome-wafer::after {content:'';height:2px;flex:none;margin-top:1px;background:repeating-linear-gradient(90deg,#eee 0 3px,#222 3px 6px);}
+.module-layout-review .chrome-cinema {padding:2px;--paper:#241f16;}
+.module-layout-review .chrome-cinema>.tbar::before,.module-layout-review .chrome-christmas>.tbar::before {content:'▶';font:9px/12px Arial;color:#fff6be;}
+.module-layout-review .chrome-cinema .module-body {border:2px solid #29251f;outline:1px solid #b49a61;outline-offset:-1px;}
+.module-layout-review .chrome-christmas {--rim:#cbc9bb;--paper:#8e1720;padding:2px 3px 3px;}
+.module-layout-review .chrome-christmas .module-body {border:2px solid #f5e8c3;outline:1px solid #8c2031;outline-offset:-1px;}
+.module-layout-review .chrome-christmas::after {content:'';height:3px;flex:none;background:repeating-linear-gradient(135deg,#f6eacb 0 4px,#a62929 4px 8px);}
+.module-layout-review .chrome-ocean {--paper:#e9f6fb;padding:2px 3px 3px;}
+.module-layout-review .chrome-ocean>.tbar {height:18px;min-height:18px;flex-basis:18px;}
+.module-layout-review .chrome-ocean .module-body {border:2px solid;border-color:#89a8b7 #f1fbff #f1fbff #89a8b7;}
+.module-layout-review .chrome-ocean .module-enter {background:#ecf6f4;color:#003a68;}
+.preview-octopus {position:absolute;right:-20px;bottom:42px;width:122px;height:118px;object-fit:contain;image-rendering:pixelated;pointer-events:none;z-index:10;transform:rotate(-12deg);filter:drop-shadow(1px 2px 0 #102d3e55);}
+.module-layout-review .chrome-paper {--paper:#f3edcf;--rim:#c5c4b7;}
+.module-layout-review .chrome-paper>.tbar::before {content:'k';color:#ffecbc;background:#464a27;font:700 12px/12px Georgia,serif;}
+.module-layout-review .chrome-paper .module-body {border:3px double #787756;margin-top:2px;}
+.module-layout-review .chrome-flower {--paper:#60c9b9;padding:2px;}
+.module-layout-review .chrome-flower>.tbar::before {content:'✿';color:#ffe286;font:11px/12px Arial;}
+.module-layout-review .chrome-flower .module-body {border:3px solid;border-color:#77d9c6 #ad3671 #ad3671 #77d9c6;}
+.module-layout-review .chrome-flower .module-enter {background:#fff09e;color:#9a194c;}
+.module-layout-review .chrome-tower {--rim:#c5bea6;--paper:#f8eed0;padding:2px;}
+.module-layout-review .chrome-tower>.tbar::before {content:'✥';color:#f9d376;font:12px/12px Georgia,serif;}
+.module-layout-review .chrome-tower .module-body {border-left:3px double #9d5d27;border-right:3px double #9d5d27;border-top:1px solid #9d5d27;border-bottom:1px solid #9d5d27;}
+.tower-poster {position:absolute;inset:0;width:100%;height:100%;min-width:0;border:0;padding:0;background:#fff3d7;color:#3c231b;display:flex;flex-direction:column;cursor:pointer;overflow:hidden;}
+.tower-masthead {display:block;margin:8px 3px 3px;font:bold 20px/1 Georgia,'Times New Roman',serif;letter-spacing:-.7px;}
+.tower-masthead small {display:block;font:8px/1.4 'Songti SC',serif;letter-spacing:.7px;margin-top:4px;}
+.tower-links {display:block;font:9px/17px 'Times New Roman',serif;color:#0a2687;text-decoration:underline;border-bottom:2px solid #c2a253;width:100%;}
+.tower-picture {display:block;position:relative;flex:1;min-height:0;overflow:hidden;width:100%;background:repeating-linear-gradient(0deg,#beaa7214 0 1px,transparent 1px 4px);}
+.tower-picture img {position:absolute;width:100%;height:calc(100% + 24px);left:0;top:-21px;object-fit:cover;image-rendering:pixelated;}
+.tower-foot {font:9px/20px 'Songti SC',serif;border-top:2px solid #a9752f;background:#f2dfb8;display:block;width:100%;}
+.module-layout-review .chrome-fortune {padding:2px;border-color:#efd49b #4e3146 #4e3146 #efd49b;background:#9d8051;}
+.module-layout-review .chrome-fortune>.tbar,.module-layout-review .chrome-fortune.inactive>.tbar {height:14px;min-height:14px;flex-basis:14px;background:#4c2d55;}
+.module-layout-review .chrome-fortune>.tbar::before {content:'✧';color:#f1d184;}
+.module-layout-review .chrome-fortune .module-body {border:1px solid #c5a86a;margin-top:2px;}
+.module-layout-review .fortune-placeholder {padding:10px 4px;background:#422b4a;color:#f3d99a;box-shadow:inset 0 0 0 3px #4e3656,inset 0 0 0 4px #9b7b54;font-size:11px;}
+.module-layout-review .fortune-placeholder p {font-size:13px;margin:5px 0;}
+.module-layout-review .fortune-placeholder small {font-size:8px;color:#cfb68e;}
+.preview-octopus {top:-45px;bottom:auto;right:-10px;width:135px;height:124px;}
+.module-layout-review .preview-octopus {animation:cq-octopus-sway 7s ease-in-out infinite;transform-origin:45% 70%;}
+.module-layout-review .cq-band-badge img {animation:cq-band-beat 2.8s steps(2,end) infinite;transform-origin:50% 100%;}
+.module-layout-review .tower-picture::after {content:'';position:absolute;inset:-80% -30%;background:linear-gradient(115deg,transparent 43%,#fff8bf44 48%,transparent 54%);animation:cq-tower-light 9s linear infinite;pointer-events:none;}
+.desktop-film-preview {position:absolute;inset:0;background:#251b12;pointer-events:none;z-index:4;overflow:hidden;}
+.desktop-film-preview[hidden] {display:none;}
+.desktop-film-preview video {display:block;width:100%;height:100%;object-fit:cover;image-rendering:pixelated;}
+.desktop-film-preview>span {position:absolute;bottom:0;left:0;right:0;padding:2px 4px;background:#27180dcc;color:#ffedb0;font:8px/11px Tahoma,Arial,sans-serif;text-align:right;}
+.cq-desktop-hidden .module-window *,.cq-desktop-hidden .cq-band-badge img {animation-play-state:paused!important;}
+@keyframes cq-octopus-sway {0%,100%{transform:translateY(0) rotate(-12deg)}50%{transform:translateY(-5px) rotate(-6deg)}}
+@keyframes cq-band-beat {0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes cq-tower-light {0%,45%{transform:translateX(-80%)}80%,100%{transform:translateX(80%)}}
+@media(prefers-reduced-motion:reduce){.module-layout-review .preview-octopus,.module-layout-review .cq-band-badge img,.module-layout-review .tower-picture::after{animation:none}}

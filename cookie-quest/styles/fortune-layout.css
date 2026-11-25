@@ -1,0 +1,15 @@
+/* Integration presentation only. Original fortune text and actions are unchanged. */
+[data-phase='revealing'] .fortune-paper,[data-phase='revealed'] .fortune-paper{
+ left:8%;top:1%;width:84%;min-height:43%;padding:4% 7%;transform:rotate(-1deg) scaleX(1);
+}
+.fortune-paper p{font-size:4.3cqw;line-height:1.6;letter-spacing:.025em;overflow-wrap:anywhere;}
+[data-phase='revealing'] .cookie-half,[data-phase='revealed'] .cookie-half{top:56%;height:29%;width:27%;}
+[data-phase='revealing'] .half-left,[data-phase='revealed'] .half-left{left:16%;transform:translateX(-12%) rotate(-9deg);}
+[data-phase='revealing'] .half-right,[data-phase='revealed'] .half-right{right:16%;transform:translateX(12%) rotate(9deg);}
+.followup-action{bottom:14%;height:6%;line-height:1.4;}
+.fortune-paper.turning{animation:cq-fortune-turn .48s ease-in-out both;}
+@keyframes cq-fortune-turn{0%,100%{transform:rotate(-1deg) rotateX(0)}50%{transform:rotate(-1deg) rotateX(90deg)}}
+@media(prefers-reduced-motion:reduce){.fortune-paper.turning{animation:none!important}}
+
+/* The desktop already supplies the window title and controls. */
+.fortune-window>.titlebar{display:none!important}.fortune-window{border:0!important;box-shadow:none!important}.stage{margin:0!important}.embedded .page{width:100%!important}
